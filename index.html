@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clubhouse Support Guide</title>
+<script>(function(){
+  var K='chpass',P='internalcontest1';
+  if(sessionStorage.getItem(K)!==P){
+    document.addEventListener('DOMContentLoaded',function(){
+      document.body.style.display='none';
+      var overlay=document.createElement('div');
+      overlay.id='pw-overlay';
+      overlay.style.cssText='position:fixed;inset:0;background:#0a2540;display:flex;align-items:center;justify-content:center;z-index:9999;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;';
+      overlay.innerHTML=`<div style="background:#0f3460;border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:44px 40px;text-align:center;width:340px;box-shadow:0 24px 60px rgba(0,0,0,.5);">
+        <img src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjI0OTIiIHZpZXdCb3g9IjQgNCA0ODg0IDQ4NjgiIHdpZHRoPSIyNTAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Im0zMTg0IDQ4NzJoLTMxODB2LTQ4NjhoNDg4NHY0ODY4em0tOTEyLjUzOC0xODQ0Ljc1MmMtMy43MzMtMjIuNDQ0LTE0LjMyNy00MC43MjQtMzAuMzU1LTU3LjEzN2EyMjg1LjU2NyAyMjg1LjU2NyAwIDAgMSAtODQuMTI3LTkwLjk0N2MtODQuNTYtOTYuNTQ4LTE1OC4xNDUtMjAxLjA0NS0yMjMuMjM5LTMxMS41NzktMi4yODItMy44NzYtMy44OC04LjE1Ni02LjEwNy0xMi45MSA0LjM0NC0yLjMzMyA3LjY4My00LjQxNyAxMS4yNDYtNS45OTYgNjIuMTk3LTI3LjU2MSAxMjUuODUtNTEuMTMgMTkxLjcwNC02OC4zNTYgMjUuNzQ1LTYuNzM1IDUxLjg5Ny0xMS45MDIgNzcuODItMTcuOTc0IDIwLjUyMy00LjgwOCAyNy40NDktMTIuNTMxIDI4LjU2LTMyLjY0NSAzLjQ4Ny02My4xNjEgNy4wODctMTI2LjMxNyAxNC42NzEtMTg5LjE0OCA1Ljk4NS00OS41ODIgMTIuNDE4LTk5LjExMSAxOC44OC0xNDguNjM0IDIuMTUzLTE2LjUwNSA1LjIxLTMyLjg5MSA3LjQ5OC00OS4zODEgMi43NTUtMTkuODUzLTUuNDgtMjguNDYyLTI2LjAzMy0yNi45MjUtMTAuNjEuNzkzLTIxLjE0NSAyLjYwMi0zMS43MDggMy45OTctNTUuNTA3IDcuMzMtMTEwLjM0MiAxOC4xNDUtMTY0Ljc4NSAzMS4xNzMtOTguNzMzIDIzLjYyNy0xOTQuMzMgNTYuMzc4LTI4Ny4wNTUgOTcuNjMyLTQuNzM0IDIuMTA2LTkuNjc2IDMuNzQ2LTE0LjI0OCA1LjQ5OC0xLjQyNi0xLjgxNy0yLjU3Ny0yLjczNy0zLjAwMi0zLjkxOC0xLjc5Ny01LjAwMi0zLjUxMy0xMC4wNDItNS4wMi0xNS4xMzgtMjkuMTI3LTk4LjUwNS01MC41ODUtMTk4LjY4NC02NS4zMTItMzAwLjMxNy0xLjEyNC03Ljc1OC0yLjc2OC0xNS42NjgtLjY1My0yNC4zNTMgNi4xNDQtMi42MTggMTIuMTYtNS4yOTQgMTguMjU5LTcuNzYzIDQ4Ljc5My0xOS43NTYgOTguMzIxLTM3LjUyNyAxNDguNTctNTMuMTQzIDE0Ni44My00NS42MzIgMjk2Ljc3OS03NS4yMyA0NTAuMjY2LTg2LjIwOSAxNi42LTEuMTg3IDMzLjE5OC0yLjQ1IDQ5LjgxNC0zLjM0NiAxNS4xMi0uODE1IDI0Ljg5NC04LjE1NyAyOS40NDgtMjIuNTg2IDIuMDA1LTYuMzUxIDQuMTYtMTIuNjU1IDYuMjgxLTE4Ljk2OSA5LjMyOS0yNy43NzIgMTguMzctNTUuNjQ0IDI4LjA2LTgzLjI4OSAzMS41MzUtODkuOTUzIDY4LjM0NC0xNzcuNzM2IDEwOS4yMDgtMjYzLjgzNiAyLjg1Mi02LjAxIDYuNDI4LTExLjkxMyA3LjkzOC0xOC4yNzcgNC41NjItMTkuMjE2LTQuMjUtMjkuNzUxLTIxLjE4Ny0yOS45NTUtMjIuNjI4LS4yNzItNDUuMjQ2LTEuMzk2LTY3Ljg3My0xLjU5My0xMS4yODYtLjA5OC0yMi41ODQgMS41NjYtMzMuODc0IDEuNTQ3LTQ4LjY2NS0uMDg0LTk3LjIyMiAyLjYtMTQ1LjY4NCA2LjQwMWEyNTEyLjkzNCAyNTEyLjkzNCAwIDAgMCAtMTkwLjQzNyAyMi4yODRjLTgyLjk4NCAxMi45MjktMTY1LjA3NyAyOS45NC0yNDYuMzMgNTEuMTEtMTIyLjA0MyAzMS43OTgtMjQwLjg1MyA3Mi45NjgtMzU2LjUwOCAxMjMuMjIzLTcyLjc1IDMxLjYxMy0xNDMuNTk4IDY3LjA3LTIxMy4xMzYgMTA1LjI1Mi0xOS4xNjQgMTAuNTIyLTI3Ljc4IDI1LjgzNi0yOC42MTMgNDYuNzItLjE2IDMuOTkyLS4xMiA4LjAwMi4wNDMgMTEuOTk1Ljc1NiAxOC42MTggMS45IDM3LjIyNiAyLjM0IDU1Ljg1IDEuOTEgODAuNjc2IDkuODQ1IDE2MC44MSAyMC40OTIgMjQwLjc1MiAxMS4wMDEgODIuNiAyNi40ODcgMTY0LjM1NCA0Ni4xOTggMjQ1LjI2IDQ3Ljk4NiAxOTYuOTcgMTE4LjgxNCAzODUuMzc1IDIxMy4wNDcgNTY0Ljk2NyAxMzIuNTcyIDI1Mi42NjIgMzAzLjU2OSA0NzUuNzkgNTEzLjMzOCA2NjkuMjAzIDkxLjgxMSA4NC42NTIgMTg5LjcxNSAxNjEuNTgyIDI5My42MDIgMjMwLjg1NyAyNi42MDQgMTcuNzQgNTMuNzMzIDM0LjcwMiA4MC44NSA1MS42NTQgNS41MTIgMy40NDYgMTEuODUxIDYuNDc2IDE4LjE3MiA3LjUzNiAxMy4zNzQgMi4yNDMgMjIuMTU3LTYuNzI0IDE5Ljk2NS0yMC4wNTctMS4xNzUtNy4xNDEtMy44MjctMTQuMTExLTYuMzk0LTIwLjk0LTI2Ljk2NS03MS43MTQtNTAuOTE2LTE0NC40My03Mi4yNy0yMTcuOTk0LTM0Ljk0LTEyMC4zNjQtNjIuNjI3LTI0Mi4zNjctODIuMzItMzY5LjU5Nm01ODYuNjMxLTEzMjcuNTU5YzEyMi4zOTcgMjQuNzU4IDI0MS4xOCA2MS4zOTIgMzU2LjcxOSAxMDguNjU1IDEuNzM2LjcxMSAzLjE0IDIuMjMzIDUuMjIzIDMuNzYtLjIzNCA1LjE3OC0uMDMgMTAuNTAzLS43NzggMTUuNjktOC42NTcgNTkuOTg1LTE4LjkwNSAxMTkuNjk2LTMyLjU4MyAxNzguNzU3LTM5LjU3IDE3MC44Ni05OS45NiAzMzMuOTcxLTE4MS44MzggNDg5LjE0Ni05Mi4wNjkgMTc0LjQ4OS0yMDcuNDY0IDMzMS45MjktMzQ1LjE1IDQ3My4wNTUtNTYuMzUgNTcuNzU5LTExNi4yNTYgMTExLjY4Mi0xNzkuMzQ1IDE2Mi4wMzQtNS4yMDYgNC4xNTUtMTAuNDA0IDguMzUtMTUuMjkzIDEyLjg2NC05LjUwNyA4Ljc4LTEzLjMxNiAxOS42NTYtMTAuODc1IDMyLjQ4NSAxLjI0NCA2LjUzNyAyLjYzIDEzLjA1IDQuMDg4IDE5LjU0NSAyMy45NTYgMTA2LjY2NyA1NS4wNTQgMjExLjI3NiA5MC45MTcgMzE0LjQ5NyA2Ljk5IDIwLjExOCAxNC4wNSA0MC4yNDUgMjIuMDk2IDU5Ljk1IDYuMTE3IDE0Ljk4IDIwLjQ0NCAxOS4zNTQgMzQuNTMzIDExLjY1NyA0LjY1NC0yLjU0MiA4Ljg3My01Ljg4OCAxMy4yNDgtOC45MyAxNzUuNDcyLTEyMi4wMzYgMzMyLjIzMi0yNjQuNjI3IDQ3MC41MTYtNDI3LjYxNyAxMjcuMzM2LTE1MC4wODUgMjM1LjAzMS0zMTMuMTM0IDMyMy40NTMtNDg4LjkxMyA2MC4yNjYtMTE5LjgwOCAxMTAuMzMyLTI0My43OTYgMTUwLjI1My0zNzEuODI3IDIyLjgtNzMuMTIyIDQyLjE4Ni0xNDcuMTU4IDU3Ljg1My0yMjIuMTYyIDEwLjg5My01Mi4xNSAyMC4zMjgtMTA0LjUyNyAyNy44NDItMTU3LjI4NiA2LjQ4Mi00NS41MDcgMTIuMDI2LTkxLjA4NiAxNS42MzItMTM2LjkwNSAxLjk4NS0yNS4yMTMgNC43OTEtNTAuMzkzIDUuNzcyLTc1LjY0NSAxLjU1Mi0zOS45MyAxLjk5LTc5LjkwNiAyLjY3Ni0xMTkuODY3LjI4OS0xNi44NTItNy45MDUtMjkuMTgtMjEuODcyLTM3Ljk1LTMuOTQyLTIuNDc0LTguMDM0LTQuNzMtMTIuMTY2LTYuODc5LTM3LjgwOS0xOS42NTMtNzUuMjgyLTM5Ljk5Mi0xMTMuNTMxLTU4Ljc0OS0xMzguNS02Ny45MTUtMjgyLjM4LTEyMS41ODctNDMxLjI4Ni0xNjEuOTE1LTc1Ljg4NS0yMC41NTItMTUyLjU0LTM3LjU3MS0yMzAuMDQ4LTUwLjQ5LTQzLjk4Ni03LjMzMS04OC4zMi0xMi41ODMtMTMyLjUyLTE4LjYyMS0xNS4zODMtMi4xMDItMjcuNDA2IDMuNDEtMzUuMzAyIDE3LjAzLTIgMy40NTEtMy42MDYgNy4xMy01LjQwOSAxMC42OTctNTEuNzMzIDEwMi4zNS05Ni41NyAyMDcuNjYtMTM1LjQwOSAzMTUuNTQxLTUuODY0IDE2LjI4OC0xMi4wMjUgMzIuNDg4LTE3LjI0NCA0OC45ODMtNC44NjkgMTUuMzg2IDMuNTg3IDI3LjcyOCAxOS42NTcgMzAuMTI4IDEuOTc0LjI5NSAzLjk3LjQ3MiA1Ljk2My42MDkgNTEuMTUzIDMuNDkyIDEwMi4yMjMgNy43MzggMTUzLjA1NSAxNC42NzMgNDYuMiA2LjMwMyA5Mi4yMjkgMTMuNTAzIDE0MS4xNTMgMjR6IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0ibTIyNzEuNjMzIDMwMjguOTMyYzE5LjUyMiAxMjUuNTQ1IDQ3LjIwOSAyNDcuNTQ4IDgyLjE0OCAzNjcuOTEyIDIxLjM1NSA3My41NjQgNDUuMzA2IDE0Ni4yOCA3Mi4yNzEgMjE3Ljk5NCAyLjU2NyA2LjgyOSA1LjIyIDEzLjc5OSA2LjM5NCAyMC45NCAyLjE5MiAxMy4zMzMtNi41OTEgMjIuMy0xOS45NjUgMjAuMDU3LTYuMzItMS4wNi0xMi42Ni00LjA5LTE4LjE3Mi03LjUzNi0yNy4xMTctMTYuOTUyLTU0LjI0Ni0zMy45MTQtODAuODUtNTEuNjU0LTEwMy44ODctNjkuMjc1LTIwMS43OS0xNDYuMjA1LTI5My42MDItMjMwLjg1Ny0yMDkuNzctMTkzLjQxMi0zODAuNzY2LTQxNi41NDEtNTEzLjMzOC02NjkuMjAzLTk0LjIzMy0xNzkuNTkyLTE2NS4wNi0zNjcuOTk3LTIxMy4wNDctNTY0Ljk2Ny0xOS43MS04MC45MDYtMzUuMTk3LTE2Mi42Ni00Ni4xOTgtMjQ1LjI2LTEwLjY0Ny03OS45NDEtMTguNTgyLTE2MC4wNzYtMjAuNDkyLTI0MC43NTEtLjQ0LTE4LjYyNS0xLjU4NC0zNy4yMzMtMi4zNC01NS44NS0uMTYzLTMuOTk0LS4yMDItOC4wMDQtLjA0My0xMS45OTcuODMyLTIwLjg4MyA5LjQ1LTM2LjE5NyAyOC42MTMtNDYuNzIgNjkuNTM4LTM4LjE4MSAxNDAuMzg1LTczLjYzOCAyMTMuMTM2LTEwNS4yNSAxMTUuNjU1LTUwLjI1NiAyMzQuNDY1LTkxLjQyNiAzNTYuNTA4LTEyMy4yMjQgODEuMjUzLTIxLjE3IDE2My4zNDYtMzguMTgxIDI0Ni4zMy01MS4xMWEyNTEyLjkzNCAyNTEyLjkzNCAwIDAgMSAxOTAuNDM3LTIyLjI4NGM0OC40NjItMy44IDk3LjAyLTYuNDg1IDE0NS42ODQtNi40MDEgMTEuMjkuMDIgMjIuNTg4LTEuNjQ1IDMzLjg3NC0xLjU0NyAyMi42MjcuMTk3IDQ1LjI0NSAxLjMyMSA2Ny44NzMgMS41OTMgMTYuOTM2LjIwNCAyNS43NDkgMTAuNzM5IDIxLjE4NyAyOS45NTUtMS41MSA2LjM2NC01LjA4NiAxMi4yNjgtNy45MzggMTguMjc3LTQwLjg2NCA4Ni4xLTc3LjY3MyAxNzMuODgzLTEwOS4yMDggMjYzLjgzNi05LjY5IDI3LjY0NS0xOC43MzEgNTUuNTE3LTI4LjA2IDgzLjI5LTIuMTIgNi4zMTMtNC4yNzYgMTIuNjE3LTYuMjggMTguOTY4LTQuNTU1IDE0LjQyOS0xNC4zMyAyMS43Ny0yOS40NDkgMjIuNTg2LTE2LjYxNi44OTYtMzMuMjE0IDIuMTU5LTQ5LjgxNCAzLjM0Ni0xNTMuNDg3IDEwLjk4LTMwMy40MzUgNDAuNTc3LTQ1MC4yNjUgODYuMjA5LTUwLjI1IDE1LjYxNi05OS43NzggMzMuMzg3LTE0OC41NzEgNTMuMTQzLTYuMSAyLjQ3LTEyLjExNSA1LjE0NS0xOC4yNTkgNy43NjMtMi4xMTUgOC42ODUtLjQ3MSAxNi41OTUuNjUzIDI0LjM1MyAxNC43MjcgMTAxLjYzMyAzNi4xODUgMjAxLjgxMiA2NS4zMTIgMzAwLjMxNyAxLjUwNyA1LjA5NiAzLjIyMyAxMC4xMzYgNS4wMiAxNS4xMzguNDI1IDEuMTgxIDEuNTc2IDIuMTAxIDMuMDAyIDMuOTE4IDQuNTcyLTEuNzUyIDkuNTE0LTMuMzkyIDE0LjI0OC01LjQ5OCA5Mi43MjUtNDEuMjU0IDE4OC4zMjItNzQuMDA1IDI4Ny4wNTUtOTcuNjMyIDU0LjQ0My0xMy4wMjggMTA5LjI3OC0yMy44NDMgMTY0Ljc4NS0zMS4xNzMgMTAuNTYzLTEuMzk1IDIxLjA5OS0zLjIwNCAzMS43MDgtMy45OTcgMjAuNTUyLTEuNTM3IDI4Ljc4OCA3LjA3MiAyNi4wMzMgMjYuOTI1LTIuMjg4IDE2LjQ5LTUuMzQ1IDMyLjg3Ni03LjQ5OSA0OS4zOC02LjQ2MSA0OS41MjQtMTIuODk0IDk5LjA1My0xOC44NzkgMTQ4LjYzNS03LjU4NCA2Mi44MzEtMTEuMTg0IDEyNS45ODctMTQuNjcyIDE4OS4xNDgtMS4xMSAyMC4xMTQtOC4wMzYgMjcuODM3LTI4LjU2IDMyLjY0NS0yNS45MjIgNi4wNzItNTIuMDc0IDExLjIzOS03Ny44MiAxNy45NzQtNjUuODUzIDE3LjIyNy0xMjkuNTA2IDQwLjc5NS0xOTEuNzAzIDY4LjM1Ni0zLjU2MyAxLjU3OS02LjkwMiAzLjY2My0xMS4yNDYgNS45OTcgMi4yMjcgNC43NTMgMy44MjUgOS4wMzMgNi4xMDcgMTIuOTA5IDY1LjA5NCAxMTAuNTM0IDEzOC42NzggMjE1LjAzMSAyMjMuMjM5IDMxMS41NzlhMjI4NS41NjcgMjI4NS41NjcgMCAwIDAgODQuMTI3IDkwLjk0N2MxNi4wMjggMTYuNDEzIDI2LjYyMiAzNC42OTMgMzAuNTI2IDU4Ljgyem01ODQuNzg1LTEzMjkuNTI2Yy00Ny4yNS0xMC4yMTQtOTMuMjc5LTE3LjQxNC0xMzkuNDc4LTIzLjcxNy01MC44MzItNi45MzUtMTAxLjkwMi0xMS4xOC0xNTMuMDU1LTE0LjY3My0xLjk5Mi0uMTM3LTMuOTg5LS4zMTQtNS45NjMtLjYwOS0xNi4wNy0yLjQtMjQuNTI2LTE0Ljc0Mi0xOS42NTctMzAuMTI4IDUuMjItMTYuNDk1IDExLjM4LTMyLjY5NSAxNy4yNDQtNDguOTgzIDM4Ljg0LTEwNy44ODEgODMuNjc2LTIxMy4xOTEgMTM1LjQxLTMxNS41NCAxLjgwMi0zLjU2NyAzLjQwOC03LjI0NyA1LjQwOC0xMC42OTggNy44OTYtMTMuNjIgMTkuOTE5LTE5LjEzMiAzNS4zMDMtMTcuMDMgNDQuMTk4IDYuMDM4IDg4LjUzMyAxMS4yOSAxMzIuNTIgMTguNjIxIDc3LjUwNyAxMi45MTkgMTU0LjE2MiAyOS45MzggMjMwLjA0NyA1MC40OSAxNDguOTA2IDQwLjMyOCAyOTIuNzg3IDk0IDQzMS4yODYgMTYxLjkxNSAzOC4yNSAxOC43NTcgNzUuNzIyIDM5LjA5NiAxMTMuNTMgNTguNzUgNC4xMzMgMi4xNDcgOC4yMjUgNC40MDQgMTIuMTY3IDYuODc5IDEzLjk2NyA4Ljc2OSAyMi4xNiAyMS4wOTcgMjEuODcyIDM3Ljk1LS42ODUgMzkuOTYtMS4xMjQgNzkuOTM2LTIuNjc2IDExOS44NjYtLjk4MSAyNS4yNTItMy43ODcgNTAuNDMyLTUuNzcyIDc1LjY0NS0zLjYwNiA0NS44MTktOS4xNSA5MS4zOTgtMTUuNjMyIDEzNi45MDUtNy41MTQgNTIuNzYtMTYuOTUgMTA1LjEzNS0yNy44NDIgMTU3LjI4Ni0xNS42NjcgNzUuMDA0LTM1LjA1MyAxNDkuMDQtNTcuODUzIDIyMi4xNjItMzkuOTIgMTI4LjAzMS04OS45ODcgMjUyLjAyLTE1MC4yNTMgMzcxLjgyNy04OC40MjIgMTc1Ljc4LTE5Ni4xMTcgMzM4LjgyOC0zMjMuNDUzIDQ4OC45MTMtMTM4LjI4NCAxNjIuOTktMjk1LjA0NCAzMDUuNTgtNDcwLjUxNiA0MjcuNjE3LTQuMzc1IDMuMDQyLTguNTk0IDYuMzg4LTEzLjI0OCA4LjkzLTE0LjA5IDcuNjk3LTI4LjQxNiAzLjMyMi0zNC41MzMtMTEuNjU3LTguMDQ3LTE5LjcwNS0xNS4xMDctMzkuODMyLTIyLjA5Ni01OS45NS0zNS44NjMtMTAzLjIyMS02Ni45NjEtMjA3LjgzLTkwLjkxNy0zMTQuNDk3LTEuNDU4LTYuNDk0LTIuODQ0LTEzLjAwOC00LjA4OC0xOS41NDUtMi40NC0xMi44MjkgMS4zNjgtMjMuNzA0IDEwLjg3NS0zMi40ODUgNC44ODktNC41MTUgMTAuMDg3LTguNzEgMTUuMjkzLTEyLjg2NCA2My4wOS01MC4zNTIgMTIyLjk5NS0xMDQuMjc1IDE3OS4zNDUtMTYyLjAzNCAxMzcuNjg2LTE0MS4xMjYgMjUzLjA4MS0yOTguNTY2IDM0NS4xNS00NzMuMDU1IDgxLjg3OC0xNTUuMTc1IDE0Mi4yNjktMzE4LjI4NiAxODEuODM4LTQ4OS4xNDYgMTMuNjc4LTU5LjA2MSAyMy45MjYtMTE4Ljc3MiAzMi41ODMtMTc4Ljc1Ni43NDgtNS4xODguNTQ0LTEwLjUxMy43NzgtMTUuNjkyLTIuMDgyLTEuNTI2LTMuNDg3LTMuMDQ4LTUuMjIzLTMuNzU5LTExNS41NC00Ny4yNjMtMjM0LjMyMi04My44OTctMzU4LjM5NC0xMDguOTM4eiIgZmlsbD0iIzAxNzhmZiIvPjwvc3ZnPg==" style="height:52px;margin-bottom:20px;">
+        <div style="color:#fff;font-size:22px;font-weight:700;margin-bottom:6px;">Clubhouse Support</div>
+        <div style="color:rgba(255,255,255,.55);font-size:13px;margin-bottom:28px;">Internal use only — enter password to continue</div>
+        <input id="pw-in" type="password" placeholder="Password" style="width:100%;box-sizing:border-box;padding:12px 16px;border-radius:8px;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;font-size:15px;outline:none;margin-bottom:10px;" />
+        <div id="pw-err" style="color:#ff6b6b;font-size:12px;min-height:18px;margin-bottom:8px;"></div>
+        <button id="pw-btn" style="width:100%;padding:13px;background:#0178ff;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;">Enter</button>
+      </div>`;
+      document.body.parentNode.insertBefore(overlay,document.body);
+      function check(){
+        if(document.getElementById('pw-in').value===P){
+          sessionStorage.setItem(K,P);
+          overlay.remove();
+          document.body.style.display='';
+        } else {
+          document.getElementById('pw-err').textContent='Incorrect password. Try again.';
+        }
+      }
+      document.getElementById('pw-btn').addEventListener('click',check);
+      document.getElementById('pw-in').addEventListener('keydown',function(e){if(e.key==='Enter')check();});
+    });
+  }
+})();</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0a0f1e;color:#e2e8f0;min-height:100vh;}
+a{color:#60a5fa;}
+a:hover{color:#93c5fd;}
+
+/* HEADER */
+.header{background:linear-gradient(135deg,#0f2046 0%,#0a1628 100%);border-bottom:1px solid rgba(255,255,255,.08);padding:14px 28px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:100;}
+.fd-logo{height:36px;filter:none;flex-shrink:0;}
+.header-title{font-size:18px;font-weight:700;color:#fff;}
+.header-sub{font-size:12px;color:rgba(255,255,255,.5);}
+
+/* STAT CARDS */
+.stats{display:flex;gap:14px;padding:22px 28px 0;flex-wrap:wrap;}
+.stat-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 22px;flex:1;min-width:130px;}
+.stat-num{font-size:28px;font-weight:800;color:#60a5fa;}
+.stat-label{font-size:12px;color:rgba(255,255,255,.5);margin-top:4px;}
+
+/* NAV TABS */
+.nav-bar{display:flex;gap:4px;padding:18px 28px 0;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:0;}
+.nav-tab{padding:8px 16px;border-radius:8px 8px 0 0;font-size:13px;font-weight:500;cursor:pointer;color:rgba(255,255,255,.5);transition:all .2s;border:none;background:none;border-bottom:2px solid transparent;}
+.nav-tab:hover{color:#fff;background:rgba(255,255,255,.05);}
+.nav-tab.active{color:#60a5fa;border-bottom:2px solid #60a5fa;background:rgba(96,165,250,.08);}
+
+/* SECTIONS */
+.section{display:none;padding:24px 28px;}
+.section.active{display:block;}
+
+/* QUICK REF */
+.qref{background:rgba(1,120,255,.1);border:1px solid rgba(1,120,255,.3);border-radius:12px;padding:18px 22px;margin-bottom:20px;}
+.qref-title{font-size:13px;font-weight:700;color:#93c5fd;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px;}
+.qref-row{display:flex;gap:10px;flex-wrap:wrap;}
+.pill{background:rgba(1,120,255,.2);border:1px solid rgba(1,120,255,.4);border-radius:20px;padding:6px 14px;font-size:13px;color:#e2e8f0;}
+.pill strong{color:#93c5fd;}
+
+/* FILTER TABS */
+.filter-row{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;align-items:center;}
+.filter-tab{padding:6px 14px;border-radius:20px;font-size:12px;cursor:pointer;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:rgba(255,255,255,.6);transition:all .2s;}
+.filter-tab.active,.filter-tab:hover{background:#0178ff;border-color:#0178ff;color:#fff;}
+.search-box{flex:1;max-width:280px;padding:7px 14px;border-radius:20px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:#e2e8f0;font-size:13px;outline:none;}
+.search-box::placeholder{color:rgba(255,255,255,.3);}
+
+/* CARDS */
+.card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;margin-bottom:10px;overflow:hidden;}
+.card-header{padding:14px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;}
+.card-header:hover{background:rgba(255,255,255,.03);}
+.card-title{font-size:14px;font-weight:600;color:#e2e8f0;}
+.card-badges{display:flex;gap:6px;}
+.badge{font-size:11px;padding:2px 8px;border-radius:10px;font-weight:500;}
+.badge-login{background:rgba(239,68,68,.15);color:#fca5a5;}
+.badge-location{background:rgba(245,158,11,.15);color:#fcd34d;}
+.badge-account{background:rgba(168,85,247,.15);color:#d8b4fe;}
+.badge-bets{background:rgba(34,197,94,.15);color:#86efac;}
+.badge-general{background:rgba(96,165,250,.15);color:#93c5fd;}
+.chevron{color:rgba(255,255,255,.4);transition:transform .2s;font-size:16px;}
+.card.open .chevron{transform:rotate(180deg);}
+.card-body{display:none;padding:16px 18px;border-top:1px solid rgba(255,255,255,.06);}
+.card.open .card-body{display:block;}
+.card-body ol{padding-left:20px;}
+.card-body li{margin-bottom:6px;font-size:14px;line-height:1.6;}
+.note{background:rgba(245,158,11,.08);border-left:3px solid #f59e0b;padding:10px 14px;border-radius:0 8px 8px 0;margin-top:10px;font-size:13px;color:#fcd34d;}
+.info{background:rgba(96,165,250,.08);border-left:3px solid #60a5fa;padding:10px 14px;border-radius:0 8px 8px 0;margin-top:10px;font-size:13px;color:#93c5fd;}
+.no-results{text-align:center;padding:40px;color:rgba(255,255,255,.3);font-size:14px;display:none;}
+
+/* TABLES */
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;}
+th{background:rgba(255,255,255,.07);padding:10px 14px;text-align:left;font-weight:600;color:#93c5fd;border-bottom:1px solid rgba(255,255,255,.1);}
+td{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:top;line-height:1.5;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:rgba(255,255,255,.02);}
+.priority-p4{background:rgba(245,158,11,.15);color:#fcd34d;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;}
+.priority-p5{background:rgba(96,165,250,.15);color:#93c5fd;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;}
+.status-done{background:rgba(34,197,94,.15);color:#86efac;padding:2px 8px;border-radius:10px;font-size:11px;}
+.status-upcoming{background:rgba(96,165,250,.15);color:#93c5fd;padding:2px 8px;border-radius:10px;font-size:11px;}
+.status-active{background:rgba(34,197,94,.2);color:#4ade80;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;}
+
+/* RESOURCE CARDS */
+.resource-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px;}
+.resource-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px;}
+.resource-card-title{font-size:14px;font-weight:600;color:#e2e8f0;margin-bottom:6px;}
+.resource-card-desc{font-size:12px;color:rgba(255,255,255,.5);margin-bottom:10px;line-height:1.5;}
+.resource-card a{font-size:12px;padding:5px 12px;background:rgba(1,120,255,.2);border:1px solid rgba(1,120,255,.4);border-radius:6px;color:#60a5fa;text-decoration:none;display:inline-block;}
+.resource-card a:hover{background:rgba(1,120,255,.3);}
+
+/* EMAIL CARDS */
+.email-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin:12px 0;}
+.email-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px;}
+.email-card-name{font-size:14px;font-weight:600;color:#e2e8f0;margin-bottom:4px;}
+.email-card-role{font-size:12px;color:rgba(255,255,255,.4);margin-bottom:8px;}
+.email-card a{font-size:12px;color:#60a5fa;}
+
+/* FAQ */
+.faq-item{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:10px;margin-bottom:8px;overflow:hidden;}
+.faq-q{padding:13px 16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:500;color:#e2e8f0;}
+.faq-q:hover{background:rgba(255,255,255,.03);}
+.faq-a{display:none;padding:12px 16px;border-top:1px solid rgba(255,255,255,.06);font-size:13px;color:rgba(255,255,255,.7);line-height:1.7;}
+.faq-item.open .faq-a{display:block;}
+.faq-item.open .chevron{transform:rotate(180deg);}
+
+/* SECTION HEADINGS */
+.sec-heading{font-size:16px;font-weight:700;color:#fff;margin:20px 0 12px;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:8px;}
+.sec-sub{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:16px;line-height:1.6;}
+
+/* STEPS */
+.steps{counter-reset:step;}
+.step{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start;}
+.step-num{width:24px;height:24px;min-width:24px;background:#0178ff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;margin-top:2px;}
+.step-text{font-size:14px;line-height:1.6;color:#e2e8f0;}
+
+/* CODE */
+code{background:rgba(255,255,255,.1);padding:2px 6px;border-radius:4px;font-size:12px;font-family:monospace;color:#fcd34d;}
+
+/* PASSKEYS */
+.passkey-step{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:16px;margin-bottom:10px;}
+.passkey-step-title{font-size:14px;font-weight:600;color:#93c5fd;margin-bottom:8px;}
+
+/* LEADERBOARD */
+.lb-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:16px;margin-bottom:10px;}
+.lb-card-title{font-size:14px;font-weight:600;color:#fcd34d;margin-bottom:6px;}
+.lb-card-desc{font-size:13px;color:rgba(255,255,255,.65);line-height:1.6;}
+
+/* ACCOUNT GRID */
+.acct-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0;}
+.acct-item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:14px;}
+.acct-label{font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;}
+.acct-value{font-size:14px;color:#e2e8f0;font-weight:500;}
+
+/* SLACK CHANNELS */
+.slack-chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+.slack-chip{background:rgba(74,144,226,.15);border:1px solid rgba(74,144,226,.3);border-radius:6px;padding:5px 12px;font-size:12px;color:#93c5fd;}
+
+@media(max-width:640px){
+  .stats{gap:10px;padding:14px 16px 0;}
+  .section{padding:16px;}
+  .nav-bar{padding:12px 16px 0;}
+  .header{padding:12px 16px;}
+  .acct-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <img src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjI0OTIiIHZpZXdCb3g9IjQgNCA0ODg0IDQ4NjgiIHdpZHRoPSIyNTAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Im0zMTg0IDQ4NzJoLTMxODB2LTQ4NjhoNDg4NHY0ODY4em0tOTEyLjUzOC0xODQ0Ljc1MmMtMy43MzMtMjIuNDQ0LTE0LjMyNy00MC43MjQtMzAuMzU1LTU3LjEzN2EyMjg1LjU2NyAyMjg1LjU2NyAwIDAgMSAtODQuMTI3LTkwLjk0N2MtODQuNTYtOTYuNTQ4LTE1OC4xNDUtMjAxLjA0NS0yMjMuMjM5LTMxMS41NzktMi4yODItMy44NzYtMy44OC04LjE1Ni02LjEwNy0xMi45MSA0LjM0NC0yLjMzMyA3LjY4My00LjQxNyAxMS4yNDYtNS45OTYgNjIuMTk3LTI3LjU2MSAxMjUuODUtNTEuMTMgMTkxLjcwNC02OC4zNTYgMjUuNzQ1LTYuNzM1IDUxLjg5Ny0xMS45MDIgNzcuODItMTcuOTc0IDIwLjUyMy00LjgwOCAyNy40NDktMTIuNTMxIDI4LjU2LTMyLjY0NSAzLjQ4Ny02My4xNjEgNy4wODctMTI2LjMxNyAxNC42NzEtMTg5LjE0OCA1Ljk4NS00OS41ODIgMTIuNDE4LTk5LjExMSAxOC44OC0xNDguNjM0IDIuMTUzLTE2LjUwNSA1LjIxLTMyLjg5MSA3LjQ5OC00OS4zODEgMi43NTUtMTkuODUzLTUuNDgtMjguNDYyLTI2LjAzMy0yNi45MjUtMTAuNjEuNzkzLTIxLjE0NSAyLjYwMi0zMS43MDggMy45OTctNTUuNTA3IDcuMzMtMTEwLjM0MiAxOC4xNDUtMTY0Ljc4NSAzMS4xNzMtOTguNzMzIDIzLjYyNy0xOTQuMzMgNTYuMzc4LTI4Ny4wNTUgOTcuNjMyLTQuNzM0IDIuMTA2LTkuNjc2IDMuNzQ2LTE0LjI0OCA1LjQ5OC0xLjQyNi0xLjgxNy0yLjU3Ny0yLjczNy0zLjAwMi0zLjkxOC0xLjc5Ny01LjAwMi0zLjUxMy0xMC4wNDItNS4wMi0xNS4xMzgtMjkuMTI3LTk4LjUwNS01MC41ODUtMTk4LjY4NC02NS4zMTItMzAwLjMxNy0xLjEyNC03Ljc1OC0yLjc2OC0xNS42NjgtLjY1My0yNC4zNTMgNi4xNDQtMi42MTggMTIuMTYtNS4yOTQgMTguMjU5LTcuNzYzIDQ4Ljc5My0xOS43NTYgOTguMzIxLTM3LjUyNyAxNDguNTctNTMuMTQzIDE0Ni44My00NS42MzIgMjk2Ljc3OS03NS4yMyA0NTAuMjY2LTg2LjIwOSAxNi42LTEuMTg3IDMzLjE5OC0yLjQ1IDQ5LjgxNC0zLjM0NiAxNS4xMi0uODE1IDI0Ljg5NC04LjE1NyAyOS40NDgtMjIuNTg2IDIuMDA1LTYuMzUxIDQuMTYtMTIuNjU1IDYuMjgxLTE4Ljk2OSA5LjMyOS0yNy43NzIgMTguMzctNTUuNjQ0IDI4LjA2LTgzLjI4OSAzMS41MzUtODkuOTUzIDY4LjM0NC0xNzcuNzM2IDEwOS4yMDgtMjYzLjgzNiAyLjg1Mi02LjAxIDYuNDI4LTExLjkxMyA3LjkzOC0xOC4yNzcgNC41NjItMTkuMjE2LTQuMjUtMjkuNzUxLTIxLjE4Ny0yOS45NTUtMjIuNjI4LS4yNzItNDUuMjQ2LTEuMzk2LTY3Ljg3My0xLjU5My0xMS4yODYtLjA5OC0yMi41ODQgMS41NjYtMzMuODc0IDEuNTQ3LTQ4LjY2NS0uMDg0LTk3LjIyMiAyLjYtMTQ1LjY4NCA2LjQwMWEyNTEyLjkzNCAyNTEyLjkzNCAwIDAgMCAtMTkwLjQzNyAyMi4yODRjLTgyLjk4NCAxMi45MjktMTY1LjA3NyAyOS45NC0yNDYuMzMgNTEuMTEtMTIyLjA0MyAzMS43OTgtMjQwLjg1MyA3Mi45NjgtMzU2LjUwOCAxMjMuMjIzLTcyLjc1IDMxLjYxMy0xNDMuNTk4IDY3LjA3LTIxMy4xMzYgMTA1LjI1Mi0xOS4xNjQgMTAuNTIyLTI3Ljc4IDI1LjgzNi0yOC42MTMgNDYuNzItLjE2IDMuOTkyLS4xMiA4LjAwMi4wNDMgMTEuOTk1Ljc1NiAxOC42MTggMS45IDM3LjIyNiAyLjM0IDU1Ljg1IDEuOTEgODAuNjc2IDkuODQ1IDE2MC44MSAyMC40OTIgMjQwLjc1MiAxMS4wMDEgODIuNiAyNi40ODcgMTY0LjM1NCA0Ni4xOTggMjQ1LjI2IDQ3Ljk4NiAxOTYuOTcgMTE4LjgxNCAzODUuMzc1IDIxMy4wNDcgNTY0Ljk2NyAxMzIuNTcyIDI1Mi42NjIgMzAzLjU2OSA0NzUuNzkgNTEzLjMzOCA2NjkuMjAzIDkxLjgxMSA4NC42NTIgMTg5LjcxNSAxNjEuNTgyIDI5My42MDIgMjMwLjg1NyAyNi42MDQgMTcuNzQgNTMuNzMzIDM0LjcwMiA4MC44NSA1MS42NTQgNS41MTIgMy40NDYgMTEuODUxIDYuNDc2IDE4LjE3MiA3LjUzNiAxMy4zNzQgMi4yNDMgMjIuMTU3LTYuNzI0IDE5Ljk2NS0yMC4wNTctMS4xNzUtNy4xNDEtMy44MjctMTQuMTExLTYuMzk0LTIwLjk0LTI2Ljk2NS03MS43MTQtNTAuOTE2LTE0NC40My03Mi4yNy0yMTcuOTk0LTM0Ljk0LTEyMC4zNjQtNjIuNjI3LTI0Mi4zNjctODIuMzItMzY5LjU5Nm01ODYuNjMxLTEzMjcuNTU5YzEyMi4zOTcgMjQuNzU4IDI0MS4xOCA2MS4zOTIgMzU2LjcxOSAxMDguNjU1IDEuNzM2LjcxMSAzLjE0IDIuMjMzIDUuMjIzIDMuNzYtLjIzNCA1LjE3OC0uMDMgMTAuNTAzLS43NzggMTUuNjktOC42NTcgNTkuOTg1LTE4LjkwNSAxMTkuNjk2LTMyLjU4MyAxNzguNzU3LTM5LjU3IDE3MC44Ni05OS45NiAzMzMuOTcxLTE4MS44MzggNDg5LjE0Ni05Mi4wNjkgMTc0LjQ4OS0yMDcuNDY0IDMzMS45MjktMzQ1LjE1IDQ3My4wNTUtNTYuMzUgNTcuNzU5LTExNi4yNTYgMTExLjY4Mi0xNzkuMzQ1IDE2Mi4wMzQtNS4yMDYgNC4xNTUtMTAuNDA0IDguMzUtMTUuMjkzIDEyLjg2NC05LjUwNyA4Ljc4LTEzLjMxNiAxOS42NTYtMTAuODc1IDMyLjQ4NSAxLjI0NCA2LjUzNyAyLjYzIDEzLjA1IDQuMDg4IDE5LjU0NSAyMy45NTYgMTA2LjY2NyA1NS4wNTQgMjExLjI3NiA5MC45MTcgMzE0LjQ5NyA2Ljk5IDIwLjExOCAxNC4wNSA0MC4yNDUgMjIuMDk2IDU5Ljk1IDYuMTE3IDE0Ljk4IDIwLjQ0NCAxOS4zNTQgMzQuNTMzIDExLjY1NyA0LjY1NC0yLjU0MiA4Ljg3My01Ljg4OCAxMy4yNDgtOC45MyAxNzUuNDcyLTEyMi4wMzYgMzMyLjIzMi0yNjQuNjI3IDQ3MC41MTYtNDI3LjYxNyAxMjcuMzM2LTE1MC4wODUgMjM1LjAzMS0zMTMuMTM0IDMyMy40NTMtNDg4LjkxMyA2MC4yNjYtMTE5LjgwOCAxMTAuMzMyLTI0My43OTYgMTUwLjI1My0zNzEuODI3IDIyLjgtNzMuMTIyIDQyLjE4Ni0xNDcuMTU4IDU3Ljg1My0yMjIuMTYyIDEwLjg5My01Mi4xNSAyMC4zMjgtMTA0LjUyNyAyNy44NDItMTU3LjI4NiA2LjQ4Mi00NS41MDcgMTIuMDI2LTkxLjA4NiAxNS42MzItMTM2LjkwNSAxLjk4NS0yNS4yMTMgNC43OTEtNTAuMzkzIDUuNzcyLTc1LjY0NSAxLjU1Mi0zOS45MyAxLjk5LTc5LjkwNiAyLjY3Ni0xMTkuODY3LjI4OS0xNi44NTItNy45MDUtMjkuMTgtMjEuODcyLTM3Ljk1LTMuOTQyLTIuNDc0LTguMDM0LTQuNzMtMTIuMTY2LTYuODc5LTM3LjgwOS0xOS42NTMtNzUuMjgyLTM5Ljk5Mi0xMTMuNTMxLTU4Ljc0OS0xMzguNS02Ny45MTUtMjgyLjM4LTEyMS41ODctNDMxLjI4Ni0xNjEuOTE1LTc1Ljg4NS0yMC41NTItMTUyLjU0LTM3LjU3MS0yMzAuMDQ4LTUwLjQ5LTQzLjk4Ni03LjMzMS04OC4zMi0xMi41ODMtMTMyLjUyLTE4LjYyMS0xNS4zODMtMi4xMDItMjcuNDA2IDMuNDEtMzUuMzAyIDE3LjAzLTIgMy40NTEtMy42MDYgNy4xMy01LjQwOSAxMC42OTctNTEuNzMzIDEwMi4zNS05Ni41NyAyMDcuNjYtMTM1LjQwOSAzMTUuNTQxLTUuODY0IDE2LjI4OC0xMi4wMjUgMzIuNDg4LTE3LjI0NCA0OC45ODMtNC44NjkgMTUuMzg2IDMuNTg3IDI3LjcyOCAxOS42NTcgMzAuMTI4IDEuOTc0LjI5NSAzLjk3LjQ3MiA1Ljk2My42MDkgNTEuMTUzIDMuNDkyIDEwMi4yMjMgNy43MzggMTUzLjA1NSAxNC42NzMgNDYuMiA2LjMwMyA5Mi4yMjkgMTMuNTAzIDE0MS4xNTMgMjR6IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0ibTIyNzEuNjMzIDMwMjguOTMyYzE5LjUyMiAxMjUuNTQ1IDQ3LjIwOSAyNDcuNTQ4IDgyLjE0OCAzNjcuOTEyIDIxLjM1NSA3My41NjQgNDUuMzA2IDE0Ni4yOCA3Mi4yNzEgMjE3Ljk5NCAyLjU2NyA2LjgyOSA1LjIyIDEzLjc5OSA2LjM5NCAyMC45NCAyLjE5MiAxMy4zMzMtNi41OTEgMjIuMy0xOS45NjUgMjAuMDU3LTYuMzItMS4wNi0xMi42Ni00LjA5LTE4LjE3Mi03LjUzNi0yNy4xMTctMTYuOTUyLTU0LjI0Ni0zMy45MTQtODAuODUtNTEuNjU0LTEwMy44ODctNjkuMjc1LTIwMS43OS0xNDYuMjA1LTI5My42MDItMjMwLjg1Ny0yMDkuNzctMTkzLjQxMi0zODAuNzY2LTQxNi41NDEtNTEzLjMzOC02NjkuMjAzLTk0LjIzMy0xNzkuNTkyLTE2NS4wNi0zNjcuOTk3LTIxMy4wNDctNTY0Ljk2Ny0xOS43MS04MC45MDYtMzUuMTk3LTE2Mi42Ni00Ni4xOTgtMjQ1LjI2LTEwLjY0Ny03OS45NDEtMTguNTgyLTE2MC4wNzYtMjAuNDkyLTI0MC43NTEtLjQ0LTE4LjYyNS0xLjU4NC0zNy4yMzMtMi4zNC01NS44NS0uMTYzLTMuOTk0LS4yMDItOC4wMDQtLjA0My0xMS45OTcuODMyLTIwLjg4MyA5LjQ1LTM2LjE5NyAyOC42MTMtNDYuNzIgNjkuNTM4LTM4LjE4MSAxNDAuMzg1LTczLjYzOCAyMTMuMTM2LTEwNS4yNSAxMTUuNjU1LTUwLjI1NiAyMzQuNDY1LTkxLjQyNiAzNTYuNTA4LTEyMy4yMjQgODEuMjUzLTIxLjE3IDE2My4zNDYtMzguMTgxIDI0Ni4zMy01MS4xMWEyNTEyLjkzNCAyNTEyLjkzNCAwIDAgMSAxOTAuNDM3LTIyLjI4NGM0OC40NjItMy44IDk3LjAyLTYuNDg1IDE0NS42ODQtNi40MDEgMTEuMjkuMDIgMjIuNTg4LTEuNjQ1IDMzLjg3NC0xLjU0NyAyMi42MjcuMTk3IDQ1LjI0NSAxLjMyMSA2Ny44NzMgMS41OTMgMTYuOTM2LjIwNCAyNS43NDkgMTAuNzM5IDIxLjE4NyAyOS45NTUtMS41MSA2LjM2NC01LjA4NiAxMi4yNjgtNy45MzggMTguMjc3LTQwLjg2NCA4Ni4xLTc3LjY3MyAxNzMuODgzLTEwOS4yMDggMjYzLjgzNi05LjY5IDI3LjY0NS0xOC43MzEgNTUuNTE3LTI4LjA2IDgzLjI5LTIuMTIgNi4zMTMtNC4yNzYgMTIuNjE3LTYuMjggMTguOTY4LTQuNTU1IDE0LjQyOS0xNC4zMyAyMS43Ny0yOS40NDkgMjIuNTg2LTE2LjYxNi44OTYtMzMuMjE0IDIuMTU5LTQ5LjgxNCAzLjM0Ni0xNTMuNDg3IDEwLjk4LTMwMy40MzUgNDAuNTc3LTQ1MC4yNjUgODYuMjA5LTUwLjI1IDE1LjYxNi05OS43NzggMzMuMzg3LTE0OC41NzEgNTMuMTQzLTYuMSAyLjQ3LTEyLjExNSA1LjE0NS0xOC4yNTkgNy43NjMtMi4xMTUgOC42ODUtLjQ3MSAxNi41OTUuNjUzIDI0LjM1MyAxNC43MjcgMTAxLjYzMyAzNi4xODUgMjAxLjgxMiA2NS4zMTIgMzAwLjMxNyAxLjUwNyA1LjA5NiAzLjIyMyAxMC4xMzYgNS4wMiAxNS4xMzguNDI1IDEuMTgxIDEuNTc2IDIuMTAxIDMuMDAyIDMuOTE4IDQuNTcyLTEuNzUyIDkuNTE0LTMuMzkyIDE0LjI0OC01LjQ5OCA5Mi43MjUtNDEuMjU0IDE4OC4zMjItNzQuMDA1IDI4Ny4wNTUtOTcuNjMyIDU0LjQ0My0xMy4wMjggMTA5LjI3OC0yMy44NDMgMTY0Ljc4NS0zMS4xNzMgMTAuNTYzLTEuMzk1IDIxLjA5OS0zLjIwNCAzMS43MDgtMy45OTcgMjAuNTUyLTEuNTM3IDI4Ljc4OCA3LjA3MiAyNi4wMzMgMjYuOTI1LTIuMjg4IDE2LjQ5LTUuMzQ1IDMyLjg3Ni03LjQ5OSA0OS4zOC02LjQ2MSA0OS41MjQtMTIuODk0IDk5LjA1My0xOC44NzkgMTQ4LjYzNS03LjU4NCA2Mi44MzEtMTEuMTg0IDEyNS45ODctMTQuNjcyIDE4OS4xNDgtMS4xMSAyMC4xMTQtOC4wMzYgMjcuODM3LTI4LjU2IDMyLjY0NS0yNS45MjIgNi4wNzItNTIuMDc0IDExLjIzOS03Ny44MiAxNy45NzQtNjUuODUzIDE3LjIyNy0xMjkuNTA2IDQwLjc5NS0xOTEuNzAzIDY4LjM1Ni0zLjU2MyAxLjU3OS02LjkwMiAzLjY2My0xMS4yNDYgNS45OTcgMi4yMjcgNC43NTMgMy44MjUgOS4wMzMgNi4xMDcgMTIuOTA5IDY1LjA5NCAxMTAuNTM0IDEzOC42NzggMjE1LjAzMSAyMjMuMjM5IDMxMS41NzlhMjI4NS41NjcgMjI4NS41NjcgMCAwIDAgODQuMTI3IDkwLjk0N2MxNi4wMjggMTYuNDEzIDI2LjYyMiAzNC42OTMgMzAuNTI2IDU4Ljgyem01ODQuNzg1LTEzMjkuNTI2Yy00Ny4yNS0xMC4yMTQtOTMuMjc5LTE3LjQxNC0xMzkuNDc4LTIzLjcxNy01MC44MzItNi45MzUtMTAxLjkwMi0xMS4xOC0xNTMuMDU1LTE0LjY3My0xLjk5Mi0uMTM3LTMuOTg5LS4zMTQtNS45NjMtLjYwOS0xNi4wNy0yLjQtMjQuNTI2LTE0Ljc0Mi0xOS42NTctMzAuMTI4IDUuMjItMTYuNDk1IDExLjM4LTMyLjY5NSAxNy4yNDQtNDguOTgzIDM4Ljg0LTEwNy44ODEgODMuNjc2LTIxMy4xOTEgMTM1LjQxLTMxNS41NCAxLjgwMi0zLjU2NyAzLjQwOC03LjI0NyA1LjQwOC0xMC42OTggNy44OTYtMTMuNjIgMTkuOTE5LTE5LjEzMiAzNS4zMDMtMTcuMDMgNDQuMTk4IDYuMDM4IDg4LjUzMyAxMS4yOSAxMzIuNTIgMTguNjIxIDc3LjUwNyAxMi45MTkgMTU0LjE2MiAyOS45MzggMjMwLjA0NyA1MC40OSAxNDguOTA2IDQwLjMyOCAyOTIuNzg3IDk0IDQzMS4yODYgMTYxLjkxNSAzOC4yNSAxOC43NTcgNzUuNzIyIDM5LjA5NiAxMTMuNTMgNTguNzUgNC4xMzMgMi4xNDcgOC4yMjUgNC40MDQgMTIuMTY3IDYuODc5IDEzLjk2NyA4Ljc2OSAyMi4xNiAyMS4wOTcgMjEuODcyIDM3Ljk1LS42ODUgMzkuOTYtMS4xMjQgNzkuOTM2LTIuNjc2IDExOS44NjYtLjk4MSAyNS4yNTItMy43ODcgNTAuNDMyLTUuNzcyIDc1LjY0NS0zLjYwNiA0NS44MTktOS4xNSA5MS4zOTgtMTUuNjMyIDEzNi45MDUtNy41MTQgNTIuNzYtMTYuOTUgMTA1LjEzNS0yNy44NDIgMTU3LjI4Ni0xNS42NjcgNzUuMDA0LTM1LjA1MyAxNDkuMDQtNTcuODUzIDIyMi4xNjItMzkuOTIgMTI4LjAzMS04OS45ODcgMjUyLjAyLTE1MC4yNTMgMzcxLjgyNy04OC40MjIgMTc1Ljc4LTE5Ni4xMTcgMzM4LjgyOC0zMjMuNDUzIDQ4OC45MTMtMTM4LjI4NCAxNjIuOTktMjk1LjA0NCAzMDUuNTgtNDcwLjUxNiA0MjcuNjE3LTQuMzc1IDMuMDQyLTguNTk0IDYuMzg4LTEzLjI0OCA4LjkzLTE0LjA5IDcuNjk3LTI4LjQxNiAzLjMyMi0zNC41MzMtMTEuNjU3LTguMDQ3LTE5LjcwNS0xNS4xMDctMzkuODMyLTIyLjA5Ni01OS45NS0zNS44NjMtMTAzLjIyMS02Ni45NjEtMjA3LjgzLTkwLjkxNy0zMTQuNDk3LTEuNDU4LTYuNDk0LTIuODQ0LTEzLjAwOC00LjA4OC0xOS41NDUtMi40NC0xMi44MjkgMS4zNjgtMjMuNzA0IDEwLjg3NS0zMi40ODUgNC44ODktNC41MTUgMTAuMDg3LTguNzEgMTUuMjkzLTEyLjg2NCA2My4wOS01MC4zNTIgMTIyLjk5NS0xMDQuMjc1IDE3OS4zNDUtMTYyLjAzNCAxMzcuNjg2LTE0MS4xMjYgMjUzLjA4MS0yOTguNTY2IDM0NS4xNS00NzMuMDU1IDgxLjg3OC0xNTUuMTc1IDE0Mi4yNjktMzE4LjI4NiAxODEuODM4LTQ4OS4xNDYgMTMuNjc4LTU5LjA2MSAyMy45MjYtMTE4Ljc3MiAzMi41ODMtMTc4Ljc1Ni43NDgtNS4xODguNTQ0LTEwLjUxMy43NzgtMTUuNjkyLTIuMDgyLTEuNTI2LTMuNDg3LTMuMDQ4LTUuMjIzLTMuNzU5LTExNS41NC00Ny4yNjMtMjM0LjMyMi04My44OTctMzU4LjM5NC0xMDguOTM4eiIgZmlsbD0iIzAxNzhmZiIvPjwvc3ZnPg==" alt="FanDuel" class="fd-logo">
+  <div>
+    <div class="header-title">Clubhouse Support Guide</div>
+    <div class="header-sub">Internal — Confidential</div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat-card"><div class="stat-num">14</div><div class="stat-label">Known Issues</div></div>
+  <div class="stat-card"><div class="stat-num">6</div><div class="stat-label">Confluence Sources</div></div>
+  <div class="stat-card"><div class="stat-num">28</div><div class="stat-label">FAQ Items</div></div>
+  <div class="stat-card"><div class="stat-num">9</div><div class="stat-label">Resources</div></div>
+</div>
+
+<!-- NAV TABS -->
+<div class="nav-bar">
+  <button class="nav-tab active" onclick="showSection('issues')">🔧 Issues</button>
+  <button class="nav-tab" onclick="showSection('gameplay')">🎮 Game Play Rules</button>
+  <button class="nav-tab" onclick="showSection('calendar')">📅 Contest Calendar</button>
+  <button class="nav-tab" onclick="showSection('passkeys')">🔑 Passkeys</button>
+  <button class="nav-tab" onclick="showSection('account')">👤 Account Info</button>
+  <button class="nav-tab" onclick="showSection('slas')">📋 SLAs</button>
+  <button class="nav-tab" onclick="showSection('resources')">🔗 Resources</button>
+  <button class="nav-tab" onclick="showSection('faq')">❓ FAQ</button>
+</div>
+
+<!-- ===== ISSUES SECTION ===== -->
+<div id="sec-issues" class="section active">
+
+  <!-- WHAT IS CLUBHOUSE OVERVIEW -->
+  <div style="background:linear-gradient(135deg,rgba(1,120,255,.12) 0%,rgba(96,165,250,.06) 100%);border:1px solid rgba(1,120,255,.25);border-radius:14px;padding:22px 24px;margin-bottom:20px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+      <div style="font-size:28px;">🏆</div>
+      <div>
+        <div style="font-size:18px;font-weight:800;color:#fff;">FanDuel Clubhouse</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.45);margin-top:2px;">Internal Employee Sportsbook Platform</div>
+      </div>
+    </div>
+    <div style="font-size:14px;color:rgba(255,255,255,.75);line-height:1.8;margin-bottom:16px;">
+      Clubhouse is FanDuel's internal contest platform — a fully legal, compliant sportsbook environment built exclusively for employees. It mirrors the real FanDuel sportsbook experience, letting staff place bets, compete on leaderboards, and win prizes, all while learning how the product works from the inside. Think of it as a sandbox with real stakes: the insights employees gain directly shape product feedback and feature development before changes reach customers.
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin-bottom:16px;">
+      <div style="background:rgba(1,120,255,.15);border:1px solid rgba(1,120,255,.35);border-radius:10px;padding:12px 14px;overflow:hidden;">
+        <div style="font-size:11px;color:#60a5fa;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;font-weight:600;">👥 Who Can Join</div>
+        <div style="font-size:12px;color:#e2e8f0;line-height:1.6;word-wrap:break-word;">Full-time FanDuel employees 21+ in US, UK, Canada, Porto, Dublin, and Australia</div>
+      </div>
+      <div style="background:rgba(168,85,247,.15);border:1px solid rgba(168,85,247,.35);border-radius:10px;padding:12px 14px;overflow:hidden;">
+        <div style="font-size:11px;color:#d8b4fe;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;font-weight:600;">📱 How to Access</div>
+        <div style="font-size:12px;color:#e2e8f0;line-height:1.6;word-wrap:break-word;">Download via Runway (Okta)<br>Web: clubhouse.sportsbook.fanduel.com</div>
+      </div>
+      <div style="background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.35);border-radius:10px;padding:12px 14px;overflow:hidden;">
+        <div style="font-size:11px;color:#fcd34d;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;font-weight:600;">📅 Contest Frequency</div>
+        <div style="font-size:12px;color:#e2e8f0;line-height:1.6;word-wrap:break-word;">~Once a month, around major sporting events. Dates in <strong>#internal-contests</strong></div>
+      </div>
+      <div style="background:rgba(20,184,166,.15);border:1px solid rgba(20,184,166,.35);border-radius:10px;padding:12px 14px;overflow:hidden;">
+        <div style="font-size:11px;color:#5eead4;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;font-weight:600;">✉️ Your Email</div>
+        <div style="font-size:12px;color:#5eead4;font-weight:600;line-height:1.8;word-break:break-all;font-family:monospace;">firstname.lastname<br>+fdclubhouse<br>@fanduel.com</div>
+      </div>
+      <div style="background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.35);border-radius:10px;padding:12px 14px;overflow:hidden;">
+        <div style="font-size:11px;color:#86efac;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;font-weight:600;">🏅 Prizes</div>
+        <div style="font-size:12px;color:#e2e8f0;line-height:1.6;word-wrap:break-word;">Spotlight (US/UK/CA) · AU Rewards (AUS) · Flutter Kudos (Dublin/Porto)</div>
+      </div>
+      <div style="background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.35);border-radius:10px;padding:12px 14px;overflow:hidden;">
+        <div style="font-size:11px;color:#fca5a5;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;font-weight:600;">⚠️ Key Rule</div>
+        <div style="font-size:12px;color:#e2e8f0;line-height:1.6;word-wrap:break-word;">No deposits or withdrawals. Clubhouse account only — cannot log into other FanDuel products</div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,.08);padding-top:14px;">
+      <div style="font-size:12px;font-weight:600;color:#93c5fd;margin-bottom:8px;">⚠️ Critical Compliance Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;">
+        <span style="background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.2);border-radius:6px;padding:4px 10px;font-size:12px;color:#fca5a5;">❌ No withdrawals</span>
+        <span style="background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.2);border-radius:6px;padding:4px 10px;font-size:12px;color:#fca5a5;">❌ No deposits</span>
+        <span style="background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.2);border-radius:6px;padding:4px 10px;font-size:12px;color:#fca5a5;">❌ No cross-app login</span>
+        <span style="background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.2);border-radius:6px;padding:4px 10px;font-size:12px;color:#fca5a5;">❌ Not available in Romania</span>
+        <span style="background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:6px;padding:4px 10px;font-size:12px;color:#86efac;">✅ Use +fdclubhouse email only</span>
+        <span style="background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:6px;padding:4px 10px;font-size:12px;color:#86efac;">✅ Clubhouse app/web only</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="qref">
+    <div class="qref-title">⚡ Quick Reference — Password Reset Credentials</div>
+    <div class="qref-row">
+      <span class="pill">Primary: <strong>DOB 01/01/1990 · SSN 9999</strong></span>
+      <span class="pill">If fails: <strong>SSN 1111</strong> (same DOB)</span>
+      <span class="pill">Still failing: <strong>DM user a direct reset link</strong></span>
+    </div>
+  </div>
+
+  <div class="filter-row">
+    <span class="filter-tab active" onclick="filterTab(this,'all')">All</span>
+    <span class="filter-tab" onclick="filterTab(this,'login')">Login & Auth</span>
+    <span class="filter-tab" onclick="filterTab(this,'location')">Location</span>
+    <span class="filter-tab" onclick="filterTab(this,'account')">Account</span>
+    <span class="filter-tab" onclick="filterTab(this,'bets')">Bet Issues</span>
+    <input class="search-box" type="text" placeholder="Search issues..." oninput="doSearch(this)">
+  </div>
+
+  <div id="issues-list">
+    <!-- Issue 1 -->
+    <div class="card" data-cat="login">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span class="card-title">1. Password Reset — "Details Don't Match"</span>
+          <div class="card-badges"><span class="badge badge-login">Login</span></div>
+        </div>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="card-body">
+        <ol>
+          <li>Use DOB: <code>01/01/1990</code></li>
+          <li>Try SSN: <code>9999</code> first</li>
+          <li>If that fails, try SSN: <code>1111</code></li>
+          <li>If still failing, DM the user a manual password reset link</li>
+          <li>If none of the above works, open an IT ticket via Jarvis → EITSD portal</li>
+        </ol>
+        <div class="note">The password can be set to anything once the reset link is accessed.</div>
+      </div>
+    </div>
+
+    <!-- Issue 2 -->
+    <div class="card" data-cat="login">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span class="card-title">2. Password Reset Email Not Received</span>
+          <div class="card-badges"><span class="badge badge-login">Login</span></div>
+        </div>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="card-body">
+        <ol>
+          <li>Confirm user is entering their <code>+fdclubhouse</code> email — <code>firstname.lastname+fdclubhouse@fanduel.com</code></li>
+          <li>Check the accounts spreadsheet — if not listed, account hasn't been provisioned yet</li>
+          <li>If not in spreadsheet: post in <strong>#clubhouse-support</strong> to get added in the next batch</li>
+          <li>If they ARE in spreadsheet but not receiving email: check for name changes (married name vs maiden name). Email can be updated to match</li>
+          <li>As workaround, admin can generate and DM a direct password reset link</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Issue 3 -->
+    <div class="card" data-cat="account">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span class="card-title">3. Account Not in Spreadsheet / Not Yet Provisioned</span>
+          <div class="card-badges"><span class="badge badge-account">Account</span></div>
+        </div>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="card-body">
+        <ol>
+          <li>Confirm the user's Slack email (click their profile)</li>
+          <li>If they're a new hire or recently onboarded, post in <strong>#clubhouse-support</strong> — accounts are created in batches every ~6 weeks</li>
+          <li>Let the user know they'll be added before the next contest cycle</li>
+        </ol>
+        <div class="info">New employee accounts are typically provisioned automatically via HRIS/Okta sync during onboarding. Users can request access via the Atlassian Service Desk Portal → Runway → Clubhouse if needed.</div>
+      </div>
+    </div>
+
+    <!-- Issue 4 -->
+    <div class="card" data-cat="location">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span class="card-title">4. Location Verification Failed — Web</span>
+          <div class="card-badges"><span class="badge badge-location">Location</span></div>
+        </div>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="card-body">
+        <ol>
+          <li><strong>Disconnect from GlobalProtect VPN</strong> — web version typically requires no VPN</li>
+          <li><strong>Check Netskope</strong> — confirm "Private Access" is <strong>enabled</strong></li>
+          <li>Clear browser cache and cookies, then reload</li>
+          <li>If still failing, try a different browser</li>
+          <li>If issue persists after all of the above: switch to the mobile app as a workaround</li>
+          <li>For deeper investigation, post in <strong>#clubhouse-support</strong> with the user's FD user ID — engineering can pull GeoComply logs</li>
+        </ol>
+        <div class="note">If you're outside the US, try routing traffic via VPN from a US server.</div>
+      </div>
+    </div>
+
+    <!-- Issue 5 -->
+    <div class="card" data-cat="location">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span class="card-title">5. Location Verification Failed — Mobile App</span>
+          <div class="card-badges"><span class="badge badge-location">Location</span></div>
+        </div>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="card-body">
+        <ol>
+          <li>Confirm user is logged in with their <code>+fdclubhouse</code> account, <strong>not</strong> their regular FanDuel account</li>
+          <li>Check app location permissions: iOS → Settings → search app → Location → set to <strong>Always</strong></li>
+          <li>If permissions were previously denied, delete and reinstall — allow location on first launch</li>
+          <li>Confirm the user is physically in a whitelisted state</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Issue 6 -->
+    <div class="card" data-cat="login">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span class="card-title">6. iOS "Untrusted Developer" Error</span>
+          <div class="card-badges"><span class="badge badge-login">Login</span></div>
+        </div>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="card-body">
+        <ol>
+          <li>Go to <strong>Settings → General → VPN & Device Management → FanDuel Inc.</strong></li>
+          <li>Tap <strong>"Trust Developer"</strong></li>
+          <li>Restart the phone when prompted</li>
+          <li>App should work after restart</li>
+        </ol>
+        <div class="info">If on iPhone and the app crashes on open: Settings → General → VPN & Device Management → FanDuel Inc. → Delete App → Re-follow the Runway download guide in the #clubhouse-support canvas.</div>
+      </div>
+    </div>
+
+    <!-- Issue 7 -->
+    <div class="card" data-cat="login">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span class="card-title">7. Okta / FastPass Not Working on Phone</span>
+          <div class="card-badges"><span class="badge badge-login">Login</span></div>
+        </div>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="card-body">
+        <ol>
+          <li>Open the <strong>Okta Verify</strong> app → tap <strong>"Launch Dashboard"</strong></li>
+          <li>Scroll to bottom of listed apps → find <strong>Runway</strong> → tap it</li>
+          <li>Log in with your regular <code>@fanduel.com</code> email</li>
+          <li>If Runway fails to open and redirects back to Okta Verify setup, the issue is with Okta FastPass configuration — outside Clubhouse scope</li>
+          <li>Have the user open an IT ticket via Jarvis: "Need help configuring Okta FastPass on my device"</li>
+        </ol>
+        <div class="info">If you don't have Runway on Okta: Atlassian Service Desk → Access Request Board → Common Requests → Access Request → System: Runway → Permission: Runway - Clubhouse.</div>
+      </div>
+    </div>
+
+    <!-- Issue 8 -->
+    <div class="card" data-cat="login">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span class="card-title">8. MFA / 6-Digit Code Not Received by SMS</span>
+          <div class="card-badges"><span class="badge badge-login">Login</span></div>
+        </div>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="card-body">
+        <ol>
+          <li>Confirm the phone number on the Clubhouse account matches the user's current number</li>
+          <li>Try the "Resend" option once more</li>
+          <li>If SMS is going to a wrong/old number, admin needs to update the MFA phone number — open a Jarvis ticket (EITSD)</li>
+        </ol>
+        <div class="note">Not receiving password reset email? Raise a ticket with IT via Jarvis to request they generate a password reset link directly.</div>
+      </div>
+    </div>
+
+    <!-- Issue 9 -->
+    <div class="card" data-cat="account">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span class="card-title">9. "Linked Account" / Duplicate Account Error</span>
+          <div class="card-badges"><span class="badge badge-account">Account</span></div>
+        </div>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="card-body">
+        <ol>
+          <li>Confirm the exact email being used (<code>firstname.lastname+fdclubhouse@fanduel.com</code>)</li>
+          <li>Post in <strong>#clubhouse-support</strong> — a backend dedup is needed</li>
+          <li>This cannot be self-resolved; requires admin access to merge/remove the duplicate</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Issue 10 -->
+    <div class="card" data-cat="account">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span class="card-title">10. Account Deactivated Immediately After Creation</span>
+          <div class="card-badges"><span class="badge badge-account">Account</span></div>
+        </div>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="card-body">
+        <ol>
+          <li>This is a backend provisioning issue</li>
+          <li>Raise an EITSD ticket via Jarvis immediately</li>
+          <li>Post in <strong>#clubhouse-support</strong> with the user's email for faster resolution</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Issue 11 -->
+    <div class="card" data-cat="login">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span class="card-title">11. "Unauthorized Account" Message After Login</span>
+          <div class="card-badges"><span class="badge badge-login">Login</span></div>
+        </div>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="card-body">
+        <ol>
+          <li>The user has logged in with their regular FanDuel account, not the Clubhouse account</li>
+          <li>Log out completely</li>
+          <li>Log back in using <code>firstname.lastname+fdclubhouse@fanduel.com</code></li>
+          <li>If correct email still shows this message, open a ticket — account may need reactivation</li>
+        </ol>
+        <div class="note">Clubhouse accounts are separated from regular FanDuel accounts at the security level. Cross-login is blocked by design.</div>
+      </div>
+    </div>
+
+    <!-- Issue 12 -->
+    <div class="card" data-cat="location">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span class="card-title">12. 403 Error Accessing the Website</span>
+          <div class="card-badges"><span class="badge badge-location">Location</span></div>
+        </div>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="card-body">
+        <ol>
+          <li>Check Netskope — ensure <strong>"Private Access" is enabled</strong></li>
+          <li>Make sure you are <strong>not</strong> on GlobalProtect VPN for the web version</li>
+          <li>Try an incognito/private window</li>
+          <li>If issue persists, try the mobile app and open an EITSD ticket for the web access issue</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Issue 13 -->
+    <div class="card" data-cat="bets">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span class="card-title">13. Bets Not Appearing in "My Bets"</span>
+          <div class="card-badges"><span class="badge badge-bets">Bet Issues</span></div>
+        </div>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="card-body">
+        <ol>
+          <li>Check <strong>Transaction History</strong> — if deduction is there, bet was placed successfully and the issue is display-only</li>
+          <li>Note the <strong>Bet Reference number</strong> (format: <code>fd:01jw...</code>) from Transaction History</li>
+          <li>Post the BetRef in <strong>#clubhouse-support</strong> for manual investigation</li>
+          <li>Reassure the user: their balance is correct even if the bet doesn't display</li>
+        </ol>
+        <div class="info">Bet settlement issues (settled but still shows open) also require manual investigation via #clubhouse-support.</div>
+      </div>
+    </div>
+
+    <!-- Issue 14 -->
+    <div class="card" data-cat="bets">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span class="card-title">14. Leaderboard Balance Doesn't Match Account Balance</span>
+          <div class="card-badges"><span class="badge badge-bets">Bet Issues</span></div>
+        </div>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="card-body">
+        <ol>
+          <li>The main account balance is always the source of truth</li>
+          <li>Singles leaderboard data can lag or be inaccurate</li>
+          <li>Post in <strong>#clubhouse-support</strong> with the user's name for manual leaderboard correction</li>
+          <li>No action needed on the user's side</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="no-results" id="no-results">No issues match your search.</div>
+  </div>
+
+  <div class="sec-heading">Escalation Path</div>
+  <table>
+    <tr><th>Situation</th><th>Action</th></tr>
+    <tr><td>Self-resolvable (password, location, Okta)</td><td>Follow steps above, DM user if needed</td></tr>
+    <tr><td>Needs admin (dedup, account fix, manual reset link)</td><td>Post in <strong>#clubhouse-support</strong></td></tr>
+    <tr><td>Backend / engineering (GeoComply, bet data, provisioning)</td><td>Post in #clubhouse-support — escalated to engineering as needed</td></tr>
+    <tr><td>IT (Okta FastPass, Netskope, device management)</td><td>Open ticket via <strong>Jarvis → EITSD portal</strong></td></tr>
+  </table>
+
+  <div class="sec-heading">Contact Channels</div>
+  <div class="email-grid">
+    <div class="email-card">
+      <div class="email-card-name">#clubhouse-support</div>
+      <div class="email-card-role">Primary Slack support channel</div>
+      <a href="https://fanduel.slack.com/channels/clubhouse-support">Open in Slack</a>
+    </div>
+    <div class="email-card">
+      <div class="email-card-name">#internal-contests</div>
+      <div class="email-card-role">Contest announcements, leaderboards</div>
+      <a href="https://fanduel.slack.com/channels/internal-contests">Open in Slack</a>
+    </div>
+    <div class="email-card">
+      <div class="email-card-name">#clubhouse-product-feedback</div>
+      <div class="email-card-role">Feature ideas, product feedback</div>
+      <a href="https://fanduel.slack.com/channels/clubhouse-product-feedback">Open in Slack</a>
+    </div>
+    <div class="email-card">
+      <div class="email-card-name">#passkeys-feedback</div>
+      <div class="email-card-role">Passkeys beta testing & issues</div>
+      <a href="https://fanduel.slack.com/channels/passkeys-feedback">Open in Slack</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== GAME PLAY RULES SECTION ===== -->
+<div id="sec-gameplay" class="section">
+  <div class="sec-heading">What is Clubhouse?</div>
+  <div class="sec-sub">FanDuel Clubhouse is the company's first-ever internal contest simulating the sportsbook experience. It allows employees worldwide to engage with and provide feedback on the core sportsbook product in a 100% legal and compliant environment — deepening product knowledge in a fun, competitive way.</div>
+
+  <div class="sec-heading">Employee Eligibility</div>
+  <div class="sec-sub">Clubhouse is available to all current, exempt salary full-time FanDuel employees under a permanent or fixed-term agreement who are <strong>21+</strong> and issued Clubhouse accounts. This includes employees in: the US, Canada, UK, Porto (Technology/Product/Data/Enterprise teams), Dublin (FanDuel-specific job titles), and Australia. Any US employee on a state gambling exclusion list is not eligible.</div>
+
+  <div class="sec-heading">Compliance Rules</div>
+  <div style="background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:14px 18px;margin-bottom:16px;">
+    <div style="font-size:13px;color:#fca5a5;font-weight:600;margin-bottom:8px;">⚠️ Employee Play Policy — Must Follow</div>
+    <ul style="padding-left:18px;font-size:13px;color:rgba(255,255,255,.7);line-height:1.8;">
+      <li>Bets must be placed using an employee FanDuel <strong>Clubhouse account only</strong></li>
+      <li>Winnings <strong>may NOT be withdrawn</strong> from Clubhouse accounts</li>
+      <li>Personal funds <strong>may NOT be deposited</strong> to Clubhouse accounts</li>
+      <li>Funds from other FanDuel accounts <strong>may NOT be transferred</strong> to Clubhouse</li>
+      <li>Clubhouse login <strong>may NOT be used</strong> on other FanDuel products (Sportsbook, DFS)</li>
+      <li>Violating these rules may result in <strong>disciplinary action</strong></li>
+    </ul>
+  </div>
+
+  <div class="sec-heading">Contest Period & Entry</div>
+  <div class="sec-sub">The contest period is announced via <strong>#internal-contests</strong> Slack and displayed in the Promotions Carousel. Eligible employees are automatically issued site credit and/or Bonus Bets at the start of each contest. Additional generosity may include Profit Boost Tokens, Boost Builder Tokens, and No Sweat Tokens (valid for cash wagers only, not Bonus Bets).</div>
+  <div class="sec-sub">Contests typically run once a month, usually around tentpole sporting events. Check <strong>#internal-contests</strong> for exact start/end dates.</div>
+
+  <div class="sec-heading">Leaderboards</div>
+  <div class="sec-sub">Not all leaderboards are available for each contest — check the contest announcement in <strong>#internal-contests</strong>.</div>
+  <div class="lb-card">
+    <div class="lb-card-title">🏆 Largest Final Cash Balance</div>
+    <div class="lb-card-desc">Employees with the largest overall cash balance at the end of the Contest Period, regardless of wager type, event, or stake amount.</div>
+  </div>
+  <div class="lb-card">
+    <div class="lb-card-title">🎯 Biggest Odds on a Winning Single Wager</div>
+    <div class="lb-card-desc">Biggest odds on a winning Single Wager with an initial stake of at least $1.00. "Biggest odds" = odds with the largest numerical value. Single wagers = standard straight wagers (moneyline, spread, over/under, individual player props). Parlays and futures are excluded. Wagers must settle to completion — no cashouts.</div>
+  </div>
+  <div class="lb-card">
+    <div class="lb-card-title">💰 Biggest Return on Investment (Single Wager)</div>
+    <div class="lb-card-desc">Biggest net winnings (total payout minus initial stake) on a winning Single Wager with a stake of at least $1.00.</div>
+  </div>
+  <div class="lb-card">
+    <div class="lb-card-title">📊 YourWay Leaderboard</div>
+    <div class="lb-card-desc">Employees who make the most cumulative money betting via the YourWay tab. All winnings from YourWay bets are summed at the end of the contest.</div>
+  </div>
+
+  <div class="sec-heading">Wagering Rules</div>
+  <table>
+    <tr><th>Rule</th><th>Details</th></tr>
+    <tr><td>✅ Timing</td><td>Bets must be placed AND settle within the Contest Period.</td></tr>
+    <tr><td>❌ Unsettled bets</td><td>Any bet not settled by end of Contest Period does not count.</td></tr>
+    <tr><td>❌ Pre-contest bets</td><td>Bets placed outside the Contest Period that settle during it do not count.</td></tr>
+    <tr><td>✅ Eligibility</td><td>Must place at least one wager during the Contest Period to be eligible for prizes.</td></tr>
+    <tr><td>❌ $0 balance</td><td>Employees with $0.00 balance are not eligible for prizes.</td></tr>
+    <tr><td>❌ Min stake (Odds LBs)</td><td>Single Wagers below $1.00 initial stake don't qualify for Biggest Odds / ROI leaderboards.</td></tr>
+    <tr><td>🤝 Ties</td><td>Tied employees split the prize money for the respective position(s).</td></tr>
+  </table>
+
+  <div class="sec-heading">Prizes & Winner Notification</div>
+  <div class="sec-sub">Winners are announced in <strong>#internal-contests</strong> and receive prizes within <strong>30 days</strong>.</div>
+  <table>
+    <tr><th>Region</th><th>Prize Format</th></tr>
+    <tr><td>US / UK / Canada</td><td>Spotlight Recognition Program points (1 point = $1 USD)</td></tr>
+    <tr><td>Australia</td><td>FanDuel Australia Rewards points (1 point = $1 AUD)</td></tr>
+    <tr><td>Dublin / Porto</td><td>Flutter Kudos program (Smashed It → Stand Out award)</td></tr>
+  </table>
+
+  <div class="sec-heading">2025 Clubhouse Champion Qualification</div>
+  <div style="background:rgba(250,204,21,.08);border:1px solid rgba(250,204,21,.2);border-radius:10px;padding:14px 18px;margin-bottom:16px;">
+    <div style="font-size:13px;color:#fde68a;line-height:1.8;">
+      Any participant securing a <strong>Top 25 finish</strong> on the largest final cash balance leaderboard during any contest between May 27, 2025 – December 1, 2025 (excluding Summer Event contests) earns an exclusive invitation to the 2025 Clubhouse Champion Contest.<br><br>
+      <strong>Rules:</strong> Single qualification only (no rollover for multiple Top 25 finishes). Contest period and prize pool details announced in December 2025.
+    </div>
+  </div>
+
+  <div class="sec-heading">Bet Types Reference</div>
+  <table>
+    <tr><th>Bet Type</th><th>Description</th></tr>
+    <tr><td>Moneyline</td><td>A bet on which team wins outright.</td></tr>
+    <tr><td>Total / Over-Under</td><td>A bet on the total points scored by both teams combined.</td></tr>
+    <tr><td>Prop</td><td>A bet not tied to the game outcome. Includes player props and game props.</td></tr>
+    <tr><td>Same Game Parlay (SGP)</td><td>Combines two or more selections from a single game.</td></tr>
+    <tr><td>SGP+</td><td>SGP with selections added from another game or multiple games.</td></tr>
+  </table>
+
+  <div class="sec-heading">Bonus Bets & Reward Tokens</div>
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">What is a Bonus Bet?</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="card-body">
+      <p style="font-size:14px;line-height:1.7;color:rgba(255,255,255,.7);">A bonus bet is a risk-free wager that needs to "win" to be converted into cash. The stake is not returned — only net winnings. <br><br>Example: $100 bonus bet at -200 odds → if you win, you receive $50 in cash (not the $100 stake). If you lose, the bonus bet is gone.<br><br><strong>Leaderboards are based on cash balance, not bonus bet balance.</strong> If you use your entire bonus accidentally, we cannot void those wagers.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">Profit Boost Tokens (PBT)</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="card-body">
+      <p style="font-size:14px;line-height:1.7;color:rgba(255,255,255,.7);">PBTs increase the odds of a bet by a predetermined percentage. Example: +393 odds with a 30% PBT → odds increase to +510.<br><br>Toggle appears on your betslip for eligible wagers. Valid for <strong>cash bets only</strong>. Cannot be combined with Bonus Bets.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <span class="card-title">Boost Builder Tokens (BBT)</span>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="card-body">
+      <p style="font-size:14px;line-height:1.7;color:rgba(255,255,255,.7);">BBTs apply to parlays. A 3-leg parlay gets a 15% boost. Each additional leg (up to 12) increases the boost by 10 percentage points.<br><br>Toggle appears on your betslip for eligible parlays. Valid for <strong>cash bets only</strong>.</p>
+    </div>
+  </div>
+
+  <div class="sec-heading">Refer-a-Friend</div>
+  <div class="sec-sub">Share Clubhouse with a fellow FanDueler and you'll both receive $5 in contest credit for the next competition. <a href="https://forms.office.com/pages/responsepage.aspx?id=r958kUk-hU-abtBwyRsWf4PVt6SNBRFMtjy4x0gumElUM0hNM0xPUzhENjExTzhJSzNWTEJYNjNVQy4u&route=shorturl" target="_blank">Learn more and participate →</a></div>
+</div>
+
+<!-- ===== CONTEST CALENDAR SECTION ===== -->
+<div id="sec-calendar" class="section">
+  <div class="sec-heading">2026 Upcoming Contests</div>
+  <table>
+    <tr><th>Contest</th><th>Start</th><th>End</th><th>Generosity</th><th>Paytable</th><th>Status</th></tr>
+    <tr><td>CL Final + Golf</td><td>May 29, 2026</td><td>Jun 5, 2026</td><td>French Open · BRT · 50% Live PBT<br><small>Side LB: Live bet leaderboard</small></td><td>$20K</td><td><span class="status-active">🔴 Active Now</span></td></tr>
+    <tr><td>World Cup</td><td>Jun 11, 2026</td><td>Jun 18, 2026</td><td>Reg. 30% PBT<br><small>Side LB: Team Leaderboard (teams of 5)</small></td><td>$25K</td><td><span class="status-upcoming">Upcoming</span></td></tr>
+    <tr><td>Summer Parties (World Cup)</td><td>Jul 6, 2026</td><td>Jul 20, 2026</td><td>Wimbledon 30% · Bet Back Token · 100 Bonus Bet · 30% PBT<br><small>Side LB: No parlays allowed</small></td><td>$15K</td><td><span class="status-upcoming">Upcoming</span></td></tr>
+    <tr><td>NFL Week 1</td><td>Sep 9, 2026</td><td>Sep 16, 2026</td><td>Bet Back Token · Yankees vs Mets 30% boost<br><small>Side LB: Most won on Anytime TD</small></td><td>$30K</td><td><span class="status-upcoming">Upcoming</span></td></tr>
+    <tr><td>October</td><td>Oct 20, 2026</td><td>Oct 27, 2026</td><td>World Series 20% PBT<br><small>Side LB: Largest parlay won</small></td><td>$20K</td><td><span class="status-upcoming">Upcoming</span></td></tr>
+    <tr><td>November/Thanksgiving</td><td>Nov 16, 2026</td><td>Nov 30, 2026</td><td>30% PBT · BRT · 100 Bonus Bet · Thanksgiving 25% PBT<br><small>Side LB: Biggest bet won on "Pass the Leg"</small></td><td>$30K</td><td><span class="status-upcoming">Upcoming</span></td></tr>
+    <tr><td>December</td><td>Dec 15, 2026</td><td>Dec 22, 2026</td><td>200 Bonus Bet from Santa · 30% PBT · Bet Back Token · BRT<br><small>Side LB: Bad Beat "Naughty List"</small></td><td>$25K</td><td><span class="status-upcoming">Upcoming</span></td></tr>
+  </table>
+
+  <div class="sec-heading">2026 Completed Contests</div>
+  <table>
+    <tr><th>Contest</th><th>Dates</th><th>Paytable</th><th>Total Spend</th></tr>
+    <tr><td>Masters Series</td><td>Jan 29 – Feb 12</td><td>$55,810</td><td>$78,134</td></tr>
+    <tr><td>February</td><td>Feb 24 – Mar 3</td><td>$31,920</td><td>$47,488</td></tr>
+    <tr><td>Express Make Good</td><td>Mar 6 – Mar 10</td><td>$8,935</td><td>$12,509</td></tr>
+    <tr><td>March / MLB HR</td><td>Mar 18 – Apr 1</td><td>$35,100</td><td>$49,140</td></tr>
+    <tr><td>April (NHL/NBA Playoffs)</td><td>Apr 21 – Apr 28</td><td>$0 (Scrapped)</td><td>—</td></tr>
+  </table>
+
+  <div class="sec-heading">Historical (Selected)</div>
+  <div class="sec-sub">Contests have run since July 2023. The Tableau performance dashboard tracks player activity and KPIs. <a href="https://10ay.online.tableau.com/#/site/fanduelgroup/views/ClubhouseKPIs/ClubhousePerformanceDashboard" target="_blank">Open Clubhouse KPI Dashboard →</a></div>
+
+  <div class="info" style="margin-top:16px;">⏰ All contest Change Freeze Schedules run at <strong>2pm GMT</strong>. Specific dates are always posted to <strong>#internal-contests</strong> before each contest.</div>
+</div>
+
+<!-- ===== PASSKEYS SECTION ===== -->
+<div id="sec-passkeys" class="section">
+  <div style="background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.2);border-radius:10px;padding:14px 18px;margin-bottom:20px;">
+    <div style="font-size:14px;font-weight:600;color:#93c5fd;margin-bottom:6px;">🔑 Passkeys Beta — iOS Only (Android / Web coming soon)</div>
+    <div style="font-size:13px;color:rgba(255,255,255,.65);line-height:1.6;">FanDuel is rolling out passkey authentication to internal employees to test before releasing to customers. Passkeys are available on the <strong>Clubhouse iOS app</strong> only (iOS 16+, iCloud Keychain required).</div>
+  </div>
+
+  <div class="sec-heading">What Are Passkeys?</div>
+  <div class="sec-sub">Passkeys are a modern, passwordless way to sign in using cryptographic key pairs and your device's authentication (Face ID, Touch ID, passcode). Benefits: faster login, phishing-resistant, no passwords to remember, built-in MFA (something you have + something you are).</div>
+
+  <div class="sec-heading">Device Requirements</div>
+  <table>
+    <tr><th>Platform</th><th>Requirement</th><th>Status</th></tr>
+    <tr><td>iOS / iPadOS</td><td>Version 16+, iCloud Keychain enabled</td><td><span class="status-active">Live</span></td></tr>
+    <tr><td>macOS</td><td>Version 13 Ventura+</td><td><span class="status-active">Live</span></td></tr>
+    <tr><td>Android</td><td>Android 9+ (API 28), Google Password Manager</td><td><span class="status-upcoming">Coming Soon</span></td></tr>
+    <tr><td>Web</td><td>Desktop browser support</td><td><span class="status-upcoming">Coming Soon</span></td></tr>
+  </table>
+
+  <div class="sec-heading">Setting Up Your Passkey</div>
+  <div class="passkey-step">
+    <div class="passkey-step-title">Step 1: Navigate to Account Settings</div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-text">Open the Clubhouse app and log in</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">Go to <strong>Account Settings</strong></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">Navigate to <strong>Login and Security</strong></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">Tap <strong>Passkeys</strong></div></div>
+    </div>
+  </div>
+  <div class="passkey-step">
+    <div class="passkey-step-title">Step 2: Create Your Passkey</div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-text">Tap <strong>"Create a Passkey"</strong></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">If prompted, select the device/password manager to store the passkey</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">Complete your device's authentication (Face ID, Touch ID, fingerprint, etc.)</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">Once authenticated, your passkey is created and synced to your password manager</div></div>
+    </div>
+  </div>
+  <div class="passkey-step">
+    <div class="passkey-step-title">Step 3: Confirm Setup</div>
+    <div style="font-size:14px;color:rgba(255,255,255,.7);">Your new passkey will appear listed in Account Settings. You're ready to use it!</div>
+  </div>
+
+  <div class="sec-heading">Logging In With a Passkey</div>
+  <div class="steps" style="margin-top:12px;">
+    <div class="step"><div class="step-num">1</div><div class="step-text">Open Clubhouse and navigate to the login screen. (If biometric login is enabled, cancel it first or disable via Account Settings.)</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-text">Click on the username or password field to trigger Passkeys</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-text">Click the keyboard autofill or the prompt to sign in with Passkeys</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-text">Complete your device's authentication method</div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-text">You're logged in! ✅</div></div>
+  </div>
+
+  <div class="sec-heading">Removing a Passkey</div>
+  <div class="steps" style="margin-top:12px;">
+    <div class="step"><div class="step-num">1</div><div class="step-text">Go to <strong>Account Settings → Passkeys</strong></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-text">Select the passkey you want to remove and tap <strong>Delete</strong></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-text">Complete the security challenge. <strong>Note for Clubhouse:</strong> you'll likely need to request the code via email (no valid phone number on account).</div></div>
+  </div>
+
+  <div class="sec-heading">Passkeys FAQ</div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">What if my biometric fails? <span class="chevron">▼</span></div>
+    <div class="faq-a">You can still log in using your username and password.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Can I set up multiple passkeys? <span class="chevron">▼</span></div>
+    <div class="faq-a">Yes, currently no limit. This will change prior to customer launch.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">What if I get a new phone? <span class="chevron">▼</span></div>
+    <div class="faq-a">If you use a synced password manager, your passkey should automatically be available on your new phone once you sign into your password manager.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Are passkeys required? <span class="chevron">▼</span></div>
+    <div class="faq-a">No — passkeys are optional. You can continue using email and password to sign in.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">My device isn't prompting me to use a passkey. Why? <span class="chevron">▼</span></div>
+    <div class="faq-a">Check: iOS 16+ / macOS 13+, biometrics or PIN enabled, iCloud Keychain enabled. If your device doesn't support passkeys, email/password sign-in still works.</div>
+  </div>
+
+  <div class="info" style="margin-top:16px;">Bugs, feedback, or issues? Post in <strong>#passkeys-feedback</strong> on Slack. Include: setup/login errors, UX confusion, device compatibility issues, or feature ideas.</div>
+
+  <div class="sec-heading">Coming Next</div>
+  <ul style="font-size:13px;color:rgba(255,255,255,.6);padding-left:18px;line-height:2;">
+    <li>Passkeys on Android and desktop web</li>
+    <li>Post-login upsell modal to encourage passkey creation</li>
+    <li>New device challenge when logging in from unrecognised device</li>
+    <li>Passkeys to remove need for MFA challenges (state dependent)</li>
+    <li>Improved error/success messaging</li>
+    <li>Adminweb tooling</li>
+  </ul>
+</div>
+
+<!-- ===== ACCOUNT INFO SECTION ===== -->
+<div id="sec-account" class="section">
+  <div class="sec-heading">Account Characteristics</div>
+  <div class="acct-grid">
+    <div class="acct-item">
+      <div class="acct-label">Username Format</div>
+      <div class="acct-value"><code>{firstname}{lastname}fdc</code></div>
+    </div>
+    <div class="acct-item">
+      <div class="acct-label">Email Format (US/UK/Porto)</div>
+      <div class="acct-value"><code>firstname.lastname+fdclubhouse@fanduel.com</code></div>
+    </div>
+    <div class="acct-item">
+      <div class="acct-label">Email Format (Dublin)</div>
+      <div class="acct-value"><code>firstname.lastname+fdclubhouse@ppb.com</code></div>
+    </div>
+    <div class="acct-item">
+      <div class="acct-label">Email Format (Australia)</div>
+      <div class="acct-value"><code>firstname.lastname+fdclubhouse@sportsbet.com.au</code></div>
+    </div>
+    <div class="acct-item">
+      <div class="acct-label">Backend Flags</div>
+      <div class="acct-value"><code>IS_STAFF</code></div>
+    </div>
+    <div class="acct-item">
+      <div class="acct-label">Backend Roles</div>
+      <div class="acct-value"><code>EMPLOYEE, CLUBHOUSE, USER</code></div>
+    </div>
+    <div class="acct-item">
+      <div class="acct-label">Adminweb: Employee Account</div>
+      <div class="acct-value">✅ Yes</div>
+    </div>
+    <div class="acct-item">
+      <div class="acct-label">Adminweb: Test Account</div>
+      <div class="acct-value">❌ No</div>
+    </div>
+    <div class="acct-item">
+      <div class="acct-label">Default DOB (provisioning)</div>
+      <div class="acct-value"><code>1901-01-01</code></div>
+    </div>
+    <div class="acct-item">
+      <div class="acct-label">Default SSN (provisioning)</div>
+      <div class="acct-value"><code>999999999</code></div>
+    </div>
+  </div>
+
+  <div class="sec-heading">How Accounts Are Provisioned</div>
+  <div class="sec-sub">Accounts are provisioned via a <strong>CPE lambda</strong> triggered automatically during onboarding when a user's HRIS (Dayforce) profile syncs with their Okta account. Porto, Cluj, and staff from other Flutter orgs (who may not have a Dayforce profile) can submit a request via the <a href="https://fanduel.atlassian.net/servicedesk/customer/portal/50/group/190/create/756" target="_blank">Access Request Portal</a>: System → Runway, Permission → Runway - Clubhouse.</div>
+
+  <div class="sec-heading">How Accounts Are Closed</div>
+  <div class="sec-sub">Account closure is initiated by the employee offboarding process (HRIS). The result is account <strong>deactivation</strong>.</div>
+
+  <div class="sec-heading">What Accounts Can & Cannot Do</div>
+  <table>
+    <tr><th>Can Do</th><th>Cannot Do</th></tr>
+    <tr>
+      <td>Use SBK Clubhouse and all its available actions</td>
+      <td>Log into other FanDuel products (Sportsbook, DFS, etc.). Security rules block Clubhouse accounts from other products and non-Clubhouse accounts from Clubhouse.</td>
+    </tr>
+  </table>
+
+  <div class="sec-heading">Can't Find Your Clubhouse Email?</div>
+  <div class="sec-sub">Check the <a href="https://fanduelgroup.sharepoint.com/:x:/s/FDG-ClubhouseAccounts/EbUD-nP2tn5Bt6j4ktJqTOUBzTkfR4Wy3AJ_kJ1UKn_zEQ" target="_blank">accounts spreadsheet (SharePoint)</a> — search your name. If not listed, post in <strong>#clubhouse-support</strong>.</div>
+
+  <div class="sec-heading">Compliance Restrictions Reminder</div>
+  <ul style="font-size:13px;color:rgba(255,255,255,.6);padding-left:18px;line-height:2;">
+    <li>Colleagues can only play on the official Clubhouse app — not the customer-facing FanDuel Sportsbook</li>
+    <li>Deposits and withdrawals are not permitted</li>
+    <li>Use only your <code>+fdclubhouse</code> email to access Clubhouse</li>
+    <li>Clubhouse cannot be used in Romania due to local laws</li>
+  </ul>
+</div>
+
+<!-- ===== SLAs SECTION ===== -->
+<div id="sec-slas" class="section">
+  <div class="sec-heading">About the Clubhouse Support Model</div>
+  <div class="sec-sub">Clubhouse is an educational, non-commercially-regulated state. It has a different support model from standard regulated states. Single-user account/access issues are typically not logged as incidents — issues with the app or service itself are logged via Service Management as normal incident management tickets.</div>
+  <div class="sec-sub">If an issue is found to be more widespread than Clubhouse, it is escalated to ITOPs following the existing support model.</div>
+
+  <div class="sec-heading">Service Level Agreements</div>
+  <table>
+    <tr><th>Scenario</th><th>Priority</th><th>Acknowledge & Action</th><th>Resolution Target</th></tr>
+    <tr>
+      <td>Credential Management (password resets, account access)</td>
+      <td><span class="priority-p4">P4</span></td>
+      <td>Within 24 hours</td>
+      <td>3 working days</td>
+    </tr>
+    <tr>
+      <td>Critical User Journeys (bet placement, bet settlement, login, etc.)</td>
+      <td><span class="priority-p4">P4</span></td>
+      <td>Within 24 hours</td>
+      <td>3 working days</td>
+    </tr>
+    <tr>
+      <td>Non-Critical User Journeys (livestreaming, UI bugs, etc.)</td>
+      <td><span class="priority-p5">P5</span></td>
+      <td>Within 24 hours</td>
+      <td>7 working days</td>
+    </tr>
+  </table>
+
+  <div class="sec-heading">Incident Management Process</div>
+  <div class="sec-sub">Service Management logs incidents in the IM project as per normal ITOPs process. Exceptions for Clubhouse incidents:</div>
+  <div class="acct-grid">
+    <div class="acct-item"><div class="acct-label">Work Type</div><div class="acct-value">Production Incident</div></div>
+    <div class="acct-item"><div class="acct-label">US State</div><div class="acct-value">Clubhouse</div></div>
+    <div class="acct-item"><div class="acct-label">Environment</div><div class="acct-value">Clubhouse</div></div>
+    <div class="acct-item"><div class="acct-label">Priority</div><div class="acct-value">P4 / P5 (see SLA table)</div></div>
+  </div>
+
+  <div class="sec-heading">Architecture Notes</div>
+  <ul style="font-size:13px;color:rgba(255,255,255,.6);padding-left:18px;line-height:2;margin-top:8px;">
+    <li><strong>Sportsbook:</strong> All services are in the cloud — nothing is in-state</li>
+    <li><strong>CPE:</strong> Services on AWS Cloud with an in-state instance where required, also hooked up to central</li>
+    <li>Accessible via the app and a dedicated web view only</li>
+  </ul>
+
+  <div class="sec-heading">Contest Integrity Scenarios</div>
+  <table>
+    <tr><th>Scenario</th><th>Action</th></tr>
+    <tr><td>Incorrect user behaviour detected</td><td>Discussed within contest management team</td></tr>
+    <tr><td>A feature affects contest integrity</td><td>Feature will be turned off (Engineering decision)</td></tr>
+    <tr><td>Bonus bets deleted or added incorrectly</td><td>Best efforts to resolve; may extend the contest</td></tr>
+  </table>
+</div>
+
+<!-- ===== RESOURCES SECTION ===== -->
+<div id="sec-resources" class="section">
+  <div class="sec-heading">Key Resources & Canvases</div>
+  <div class="resource-grid">
+    <div class="resource-card">
+      <div class="resource-card-title">Clubhouse App Download Guide</div>
+      <div class="resource-card-desc">Step-by-step guide for downloading via Runway. Canvas at top of #internal-contests channel.</div>
+      <a href="https://fanduel.atlassian.net/wiki/spaces/DCO/pages/309718584950" target="_blank">Open Guide →</a>
+    </div>
+    <div class="resource-card">
+      <div class="resource-card-title">Accounts Spreadsheet</div>
+      <div class="resource-card-desc">Find your Clubhouse email address and account status.</div>
+      <a href="https://fanduelgroup.sharepoint.com/:x:/s/FDG-ClubhouseAccounts/EbUD-nP2tn5Bt6j4ktJqTOUBzTkfR4Wy3AJ_kJ1UKn_zEQ" target="_blank">Open Spreadsheet →</a>
+    </div>
+    <div class="resource-card">
+      <div class="resource-card-title">Clubhouse FAQ (Confluence)</div>
+      <div class="resource-card-desc">Official FAQ covering access, compliance, contests, and common errors.</div>
+      <a href="https://fanduel.atlassian.net/wiki/spaces/PS/pages/308782858532/Clubhouse+FAQ" target="_blank">Open FAQ →</a>
+    </div>
+    <div class="resource-card">
+      <div class="resource-card-title">Game Play Rules (Confluence)</div>
+      <div class="resource-card-desc">Full contest rules, leaderboard definitions, wagering specifics, and prizes.</div>
+      <a href="https://fanduel.atlassian.net/wiki/spaces/NSL/pages/307893601600/FanDuel+Clubhouse+Game+Play+Rules" target="_blank">Open Rules →</a>
+    </div>
+    <div class="resource-card">
+      <div class="resource-card-title">Passkeys Guide (Confluence)</div>
+      <div class="resource-card-desc">How to set up and use passkeys on iOS Clubhouse app.</div>
+      <a href="https://fanduel.atlassian.net/wiki/spaces/Acc/pages/311235215475" target="_blank">Open Guide →</a>
+    </div>
+    <div class="resource-card">
+      <div class="resource-card-title">Environment Support Model</div>
+      <div class="resource-card-desc">SLAs, incident management process, and architecture notes for Clubhouse.</div>
+      <a href="https://fanduel.atlassian.net/wiki/spaces/SMAN/pages/309733099434" target="_blank">Open Doc →</a>
+    </div>
+    <div class="resource-card">
+      <div class="resource-card-title">Account Characteristics (Confluence)</div>
+      <div class="resource-card-desc">Detailed technical view of Clubhouse employee account structure and provisioning.</div>
+      <a href="https://fanduel.atlassian.net/wiki/spaces/RG/pages/310921822241" target="_blank">Open Doc →</a>
+    </div>
+    <div class="resource-card">
+      <div class="resource-card-title">Clubhouse KPI Dashboard (Tableau)</div>
+      <div class="resource-card-desc">Player activity, engagement stats, and performance metrics.</div>
+      <a href="https://10ay.online.tableau.com/#/site/fanduelgroup/views/ClubhouseKPIs/ClubhousePerformanceDashboard" target="_blank">Open Dashboard →</a>
+    </div>
+    <div class="resource-card">
+      <div class="resource-card-title">BYOD / Managed Device Enrollment</div>
+      <div class="resource-card-desc">Steps to enroll a managed device for Runway access.</div>
+      <a href="https://fanduel.atlassian.net/wiki/spaces/PS/pages/308996244477" target="_blank">Open Guide →</a>
+    </div>
+    <div class="resource-card">
+      <div class="resource-card-title">Access Request Portal</div>
+      <div class="resource-card-desc">Request Runway / Clubhouse access if not auto-provisioned during onboarding.</div>
+      <a href="https://fanduel.atlassian.net/servicedesk/customer/portal/50/group/190/create/756" target="_blank">Open Portal →</a>
+    </div>
+    <div class="resource-card">
+      <div class="resource-card-title">Refer-a-Friend Form</div>
+      <div class="resource-card-desc">Refer a fellow FanDueler — both receive $5 contest credit for the next contest.</div>
+      <a href="https://forms.office.com/pages/responsepage.aspx?id=r958kUk-hU-abtBwyRsWf4PVt6SNBRFMtjy4x0gumElUM0hNM0xPUzhENjExTzhJSzNWTEJYNjNVQy4u&route=shorturl" target="_blank">Open Form →</a>
+    </div>
+    <div class="resource-card">
+      <div class="resource-card-title">FDG Employee Play Policy</div>
+      <div class="resource-card-desc">Official policy covering what employees can and cannot do with Clubhouse.</div>
+      <a href="https://fanduel.interactgo.com/Interact/Pages/Content/Document.aspx?id=2154" target="_blank">Open Policy →</a>
+    </div>
+  </div>
+
+  <div class="sec-heading">Slack Channels</div>
+  <div class="slack-chips">
+    <span class="slack-chip">#clubhouse-support</span>
+    <span class="slack-chip">#internal-contests</span>
+    <span class="slack-chip">#clubhouse-product-feedback</span>
+    <span class="slack-chip">#passkeys-feedback</span>
+  </div>
+</div>
+
+<!-- ===== FAQ SECTION ===== -->
+<div id="sec-faq" class="section">
+  <div class="sec-heading">Access & Setup</div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">What is Clubhouse? <span class="chevron">▼</span></div>
+    <div class="faq-a">FanDuel Clubhouse is the company's first-ever internal contest simulating the sportsbook experience. It allows employees worldwide to engage with our core sportsbook product in a 100% legal, compliant environment — deepening product knowledge competitively and providing feedback.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">How do I join Clubhouse? <span class="chevron">▼</span></div>
+    <div class="faq-a">New employee accounts are typically created every 6 weeks, provisioned automatically via HRIS/Okta sync during onboarding. You'll be notified with your account details when created. Porto, Cluj, and Flutter org employees without Dayforce profiles can request access via the Atlassian Service Desk Portal (Runway → Clubhouse).</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">What will my Clubhouse email look like? <span class="chevron">▼</span></div>
+    <div class="faq-a">US/UK/Porto: firstname.lastname+fdclubhouse@fanduel.com · Dublin: firstname.lastname+fdclubhouse@ppb.com · Australia: firstname.lastname+fdclubhouse@sportsbet.com.au. Check the accounts spreadsheet (linked in Resources) if unsure.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">How do I log in for the first time? <span class="chevron">▼</span></div>
+    <div class="faq-a">Go to clubhouse.sportsbook.fanduel.com → click "Forgot your password?" → enter your +fdclubhouse email → check your normal FanDuel work inbox for the reset email → click the first link → set a new password. When prompted for DOB and SSN, use DOB: 01/01/1990 and SSN: 9999.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">I don't have Runway on my Okta. What do I do? <span class="chevron">▼</span></div>
+    <div class="faq-a">Open the Atlassian Service Desk Portal (on your Okta dashboard) → Access Request Board → Common Requests → Access Request → System: Runway → Permission: Runway - Clubhouse → explain you need it to play internal contests. Granted within a few days pending manager approval.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">I get "You do not have permission to view this content" on Runway. <span class="chevron">▼</span></div>
+    <div class="faq-a">On iPhone, make sure you're on a managed device. Managed device enrollment steps can be found in Confluence (search "BYOD enrollment"). Alternatively, play Clubhouse via Web — see the guide in the canvas at the top of #internal-contests. Or post in #clubhouse-support.</div>
+  </div>
+
+  <div class="sec-heading" style="margin-top:20px;">Compliance & Restrictions</div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Can I withdraw funds from Clubhouse? <span class="chevron">▼</span></div>
+    <div class="faq-a">No. Withdrawing funds is against the employee play policy. Balances are cleared between contests.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Can I deposit personal funds? <span class="chevron">▼</span></div>
+    <div class="faq-a">No. Depositing personal funds into a Clubhouse account is against the employee play policy.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Can I use my Clubhouse login on other FanDuel products? <span class="chevron">▼</span></div>
+    <div class="faq-a">No. It's against the employee play policy to log in via Clubhouse on other FanDuel products (Sportsbook, DFS). Keep it to Clubhouse only.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Are there country restrictions? <span class="chevron">▼</span></div>
+    <div class="faq-a">Yes — Clubhouse cannot be used in Romania due to local laws. If you get a 404 or blank page from a different country, try a VPN routing from the USA. If that doesn't work, post in #clubhouse-support.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Are markets limited on Clubhouse? <span class="chevron">▼</span></div>
+    <div class="faq-a">No — the experience mirrors what customers have. Occasionally, new features will be tested on Clubhouse first. If you think a market is missing, post in #clubhouse-product-feedback. If you believe it's a bug, post in #clubhouse-support.</div>
+  </div>
+
+  <div class="sec-heading" style="margin-top:20px;">Contests & Prizes</div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">How do Clubhouse contests work? <span class="chevron">▼</span></div>
+    <div class="faq-a">1. Contest announced in #internal-contests and via email. 2. Contest funds auto-added to your account when it starts. 3. Use funds + promos + winnings to wager. 4. Leaderboard determines winners. 5. Results posted in #internal-contests. Awards via Spotlight (US/UK/CA), HR (Dublin/Porto/AUS).</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">How often do contests run? How long do they last? <span class="chevron">▼</span></div>
+    <div class="faq-a">Typically once a month, usually tied to tentpole sporting events. Most run for about 1 week, but always check #internal-contests for the exact dates.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">I get "no funds deducted" when placing a bet. <span class="chevron">▼</span></div>
+    <div class="faq-a">The contest may not have started yet. Double-check #internal-contests to confirm you're past the start date.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">What prizes can I win? When will I receive them? <span class="chevron">▼</span></div>
+    <div class="faq-a">Prizes are distributed within 30 days of contest end via Spotlight (US/UK/CA), FanDuel Australia Rewards (AUS), or Flutter Kudos (Dublin/Porto). Prize amounts vary by leaderboard position and contest.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">I accidentally used all my bonus bets. Can I get more? <span class="chevron">▼</span></div>
+    <div class="faq-a">No — we cannot void wagers or add more funds. Bonus bets are not eligible for cashouts.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">I received a message saying my winnings were taken out. Why? <span class="chevron">▼</span></div>
+    <div class="faq-a">Clubhouse balances are cleared at the end of each contest. This is expected behaviour.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Can I use Clubhouse to test features outside of contest periods? <span class="chevron">▼</span></div>
+    <div class="faq-a">Post in #clubhouse-support with details of what you'd be testing. The team will review and look to accommodate the request.</div>
+  </div>
+
+  <div class="sec-heading" style="margin-top:20px;">Technical Errors</div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">App crashes/closes immediately on iPhone. <span class="chevron">▼</span></div>
+    <div class="faq-a">Settings → General → VPN & Device Management → FanDuel Inc. → Delete App → re-follow the Runway download guide (canvas at top of #clubhouse-support). Still failing? Post in #clubhouse-support.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">White screen on the Clubhouse app — won't load. <span class="chevron">▼</span></div>
+    <div class="faq-a">Delete and redownload the app.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">I get "Sports betting isn't allowed where you're located." <span class="chevron">▼</span></div>
+    <div class="faq-a">Confirm you're on the Clubhouse app (not the regular FanDuel Sportsbook app) and logged in with your +fdclubhouse email. If using web, check that Netskope "Private Access" is enabled and GlobalProtect VPN is off.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Android: Cannot download after enabling "install from unknown sources." <span class="chevron">▼</span></div>
+    <div class="faq-a">File a ticket with IT via the Jarvis Slack app asking for help enabling the Clubhouse download with MDM enabled on your device.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">My account says it's suspended or there's a duplicate. <span class="chevron">▼</span></div>
+    <div class="faq-a">Raise a ticket with EIT via Jarvis or the Atlassian Service Desk Portal, or post in #clubhouse-support.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">My location can't be verified on Clubhouse. <span class="chevron">▼</span></div>
+    <div class="faq-a">On mobile: 1) Confirm you're using the correct Clubhouse app (downloaded from Runway) with Clubhouse carousel cards. 2) Confirm you logged in with your +fdclubhouse email. 3) Allow location access in phone settings. On web or if above doesn't work: post in #clubhouse-support.</div>
+  </div>
+
+  <div class="sec-heading" style="margin-top:20px;">Slack Channels Reference</div>
+  <div class="slack-chips">
+    <div style="width:100%;font-size:12px;color:rgba(255,255,255,.4);margin-bottom:8px;">Use the right channel for faster resolution:</div>
+    <span class="slack-chip">#clubhouse-support — questions & technical issues</span>
+    <span class="slack-chip">#internal-contests — announcements & leaderboards</span>
+    <span class="slack-chip">#clubhouse-product-feedback — feature ideas</span>
+    <span class="slack-chip">#passkeys-feedback — passkeys beta issues</span>
+  </div>
+</div>
+
+<script>
+function showSection(name) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('sec-' + name).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+function toggleCard(header) {
+  header.closest('.card').classList.toggle('open');
+}
+function toggleFaq(qEl) {
+  qEl.closest('.faq-item').classList.toggle('open');
+}
+function filterTab(el, cat) {
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('#issues-list .card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+  });
+  updateNoResults();
+}
+function doSearch(input) {
+  var q = input.value.toLowerCase();
+  document.querySelectorAll('#issues-list .card').forEach(card => {
+    card.style.display = card.textContent.toLowerCase().includes(q) ? '' : 'none';
+  });
+  updateNoResults();
+}
+function updateNoResults() {
+  var visible = [...document.querySelectorAll('#issues-list .card')].filter(c => c.style.display !== 'none');
+  document.getElementById('no-results').style.display = visible.length === 0 ? 'block' : 'none';
+}
+</script>
+</body>
+</html>
