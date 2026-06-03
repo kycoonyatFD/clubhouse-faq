@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clubhouse Support Guide</title>
+<script>(function(){
+  var K='chpass',P='internalcontest1';
+  if(sessionStorage.getItem(K)!==P){
+    document.addEventListener('DOMContentLoaded',function(){
+      document.body.style.display='none';
+      var o=document.createElement('div');
+      o.id='pw-overlay';
+      o.style.cssText='position:fixed;inset:0;background:#0a2540;display:flex;align-items:center;justify-content:center;z-index:9999;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;';
+      o.innerHTML=`<div style="background:#0f3460;border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:44px 40px;text-align:center;width:340px;box-shadow:0 24px 60px rgba(0,0,0,.5);">
+        <img src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjI0OTIiIHZpZXdCb3g9IjQgNCA0ODg0IDQ4NjgiIHdpZHRoPSIyNTAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Im0zMTg0IDQ4NzJoLTMxODB2LTQ4NjhoNDg4NHY0ODY4em0tOTEyLjUzOC0xODQ0Ljc1MmMtMy43MzMtMjIuNDQ0LTE0LjMyNy00MC43MjQtMzAuMzU1LTU3LjEzN2EyMjg1LjU2NyAyMjg1LjU2NyAwIDAgMSAtODQuMTI3LTkwLjk0N2MtODQuNTYtOTYuNTQ4LTE1OC4xNDUtMjAxLjA0NS0yMjMuMjM5LTMxMS41NzktMi4yODItMy44NzYtMy44OC04LjE1Ni02LjEwNy0xMi45MSA0LjM0NC0yLjMzMyA3LjY4My00LjQxNyAxMS4yNDYtNS45OTYgNjIuMTk3LTI3LjU2MSAxMjUuODUtNTEuMTMgMTkxLjcwNC02OC4zNTYgMjUuNzQ1LTYuNzM1IDUxLjg5Ny0xMS45MDIgNzcuODItMTcuOTc0IDIwLjUyMy00LjgwOCAyNy40NDktMTIuNTMxIDI4LjU2LTMyLjY0NSAzLjQ4Ny02My4xNjEgNy4wODctMTI2LjMxNyAxNC42NzEtMTg5LjE0OCA1Ljk4NS00OS41ODIgMTIuNDE4LTk5LjExMSAxOC44OC0xNDguNjM0IDIuMTUzLTE2LjUwNSA1LjIxLTMyLjg5MSA3LjQ5OC00OS4zODEgMi43NTUtMTkuODUzLTUuNDgtMjguNDYyLTI2LjAzMy0yNi45MjUtMTAuNjEuNzkzLTIxLjE0NSAyLjYwMi0zMS43MDggMy45OTctNTUuNTA3IDcuMzMtMTEwLjM0MiAxOC4xNDUtMTY0Ljc4NSAzMS4xNzMtOTguNzMzIDIzLjYyNy0xOTQuMzMgNTYuMzc4LTI4Ny4wNTUgOTcuNjMyLTQuNzM0IDIuMTA2LTkuNjc2IDMuNzQ2LTE0LjI0OCA1LjQ5OC0xLjQyNi0xLjgxNy0yLjU3Ny0yLjczNy0zLjAwMi0zLjkxOC0xLjc5Ny01LjAwMi0zLjUxMy0xMC4wNDItNS4wMi0xNS4xMzgtMjkuMTI3LTk4LjUwNS01MC41ODUtMTk4LjY4NC02NS4zMTItMzAwLjMxNy0xLjEyNC03Ljc1OC0yLjc2OC0xNS42NjgtLjY1My0yNC4zNTMgNi4xNDQtMi42MTggMTIuMTYtNS4yOTQgMTguMjU5LTcuNzYzIDQ4Ljc5My0xOS43NTYgOTguMzIxLTM3LjUyNyAxNDguNTctNTMuMTQzIDE0Ni44My00NS42MzIgMjk2Ljc3OS03NS4yMyA0NTAuMjY2LTg2LjIwOSAxNi42LTEuMTg3IDMzLjE5OC0yLjQ1IDQ5LjgxNC0zLjM0NiAxNS4xMi0uODE1IDI0Ljg5NC04LjE1NyAyOS40NDgtMjIuNTg2IDIuMDA1LTYuMzUxIDQuMTYtMTIuNjU1IDYuMjgxLTE4Ljk2OSA5LjMyOS0yNy43NzIgMTguMzctNTUuNjQ0IDI4LjA2LTgzLjI4OSAzMS41MzUtODkuOTUzIDY4LjM0NC0xNzcuNzM2IDEwOS4yMDgtMjYzLjgzNiAyLjg1Mi02LjAxIDYuNDI4LTExLjkxMyA3LjkzOC0xOC4yNzcgNC41NjItMTkuMjE2LTQuMjUtMjkuNzUxLTIxLjE4Ny0yOS45NTUtMjIuNjI4LS4yNzItNDUuMjQ2LTEuMzk2LTY3Ljg3My0xLjU5My0xMS4yODYtLjA5OC0yMi41ODQgMS41NjYtMzMuODc0IDEuNTQ3LTQ4LjY2NS0uMDg0LTk3LjIyMiAyLjYtMTQ1LjY4NCA2LjQwMWEyNTEyLjkzNCAyNTEyLjkzNCAwIDAgMCAtMTkwLjQzNyAyMi4yODRjLTgyLjk4NCAxMi45MjktMTY1LjA3NyAyOS45NC0yNDYuMzMgNTEuMTEtMTIyLjA0MyAzMS43OTgtMjQwLjg1MyA3Mi45NjgtMzU2LjUwOCAxMjMuMjIzLTcyLjc1IDMxLjYxMy0xNDMuNTk4IDY3LjA3LTIxMy4xMzYgMTA1LjI1Mi0xOS4xNjQgMTAuNTIyLTI3Ljc4IDI1LjgzNi0yOC42MTMgNDYuNzItLjE2IDMuOTkyLS4xMiA4LjAwMi4wNDMgMTEuOTk1Ljc1NiAxOC42MTggMS45IDM3LjIyNiAyLjM0IDU1Ljg1IDEuOTEgODAuNjc2IDkuODQ1IDE2MC44MSAyMC40OTIgMjQwLjc1MiAxMS4wMDEgODIuNiAyNi40ODcgMTY0LjM1NCA0Ni4xOTggMjQ1LjI2IDQ3Ljk4NiAxOTYuOTcgMTE4LjgxNCAzODUuMzc1IDIxMy4wNDcgNTY0Ljk2NyAxMzIuNTcyIDI1Mi42NjIgMzAzLjU2OSA0NzUuNzkgNTEzLjMzOCA2NjkuMjAzIDkxLjgxMSA4NC42NTIgMTg5LjcxNSAxNjEuNTgyIDI5My42MDIgMjMwLjg1NyAyNi42MDQgMTcuNzQgNTMuNzMzIDM0LjcwMiA4MC44NSA1MS42NTQgNS41MTIgMy40NDYgMTEuODUxIDYuNDc2IDE4LjE3MiA3LjUzNiAxMy4zNzQgMi4yNDMgMjIuMTU3LTYuNzI0IDE5Ljk2NS0yMC4wNTctMS4xNzUtNy4xNDEtMy44MjctMTQuMTExLTYuMzk0LTIwLjk0LTI2Ljk2NS03MS43MTQtNTAuOTE2LTE0NC40My03Mi4yNy0yMTcuOTk0LTM0Ljk0LTEyMC4zNjQtNjIuNjI3LTI0Mi4zNjctODIuMzItMzY5LjU5Nm01ODYuNjMxLTEzMjcuNTU5YzEyMi4zOTcgMjQuNzU4IDI0MS4xOCA2MS4zOTIgMzU2LjcxOSAxMDguNjU1IDEuNzM2LjcxMSAzLjE0IDIuMjMzIDUuMjIzIDMuNzYtLjIzNCA1LjE3OC0uMDMgMTAuNTAzLS43NzggMTUuNjktOC42NTcgNTkuOTg1LTE4LjkwNSAxMTkuNjk2LTMyLjU4MyAxNzguNzU3LTM5LjU3IDE3MC44Ni05OS45NiAzMzMuOTcxLTE4MS44MzggNDg5LjE0Ni05Mi4wNjkgMTc0LjQ4OS0yMDcuNDY0IDMzMS45MjktMzQ1LjE1IDQ3My4wNTUtNTYuMzUgNTcuNzU5LTExNi4yNTYgMTExLjY4Mi0xNzkuMzQ1IDE2Mi4wMzQtNS4yMDYgNC4xNTUtMTAuNDA0IDguMzUtMTUuMjkzIDEyLjg2NC05LjUwNyA4Ljc4LTEzLjMxNiAxOS42NTYtMTAuODc1IDMyLjQ4NSAxLjI0NCA2LjUzNyAyLjYzIDEzLjA1IDQuMDg4IDE5LjU0NSAyMy45NTYgMTA2LjY2NyA1NS4wNTQgMjExLjI3NiA5MC45MTcgMzE0LjQ5NyA2Ljk5IDIwLjExOCAxNC4wNSA0MC4yNDUgMjIuMDk2IDU5Ljk1IDYuMTE3IDE0Ljk4IDIwLjQ0NCAxOS4zNTQgMzQuNTMzIDExLjY1NyA0LjY1NC0yLjU0MiA4Ljg3My01Ljg4OCAxMy4yNDgtOC45MyAxNzUuNDcyLTEyMi4wMzYgMzMyLjIzMi0yNjQuNjI3IDQ3MC41MTYtNDI3LjYxNyAxMjcuMzM2LTE1MC4wODUgMjM1LjAzMS0zMTMuMTM0IDMyMy40NTMtNDg4LjkxMyA2MC4yNjYtMTE5LjgwOCAxMTAuMzMyLTI0My43OTYgMTUwLjI1My0zNzEuODI3IDIyLjgtNzMuMTIyIDQyLjE4Ni0xNDcuMTU4IDU3Ljg1My0yMjIuMTYyIDEwLjg5My01Mi4xNSAyMC4zMjgtMTA0LjUyNyAyNy44NDItMTU3LjI4NiA2LjQ4Mi00NS41MDcgMTIuMDI2LTkxLjA4NiAxNS42MzItMTM2LjkwNSAxLjk4NS0yNS4yMTMgNC43OTEtNTAuMzkzIDUuNzcyLTc1LjY0NSAxLjU1Mi0zOS45MyAxLjk5LTc5LjkwNiAyLjY3Ni0xMTkuODY3LjI4OS0xNi44NTItNy45MDUtMjkuMTgtMjEuODcyLTM3Ljk1LTMuOTQyLTIuNDc0LTguMDM0LTQuNzMtMTIuMTY2LTYuODc5LTM3LjgwOS0xOS42NTMtNzUuMjgyLTM5Ljk5Mi0xMTMuNTMxLTU4Ljc0OS0xMzguNS02Ny45MTUtMjgyLjM4LTEyMS41ODctNDMxLjI4Ni0xNjEuOTE1LTc1Ljg4NS0yMC41NTItMTUyLjU0LTM3LjU3MS0yMzAuMDQ4LTUwLjQ5LTQzLjk4Ni03LjMzMS04OC4zMi0xMi41ODMtMTMyLjUyLTE4LjYyMS0xNS4zODMtMi4xMDItMjcuNDA2IDMuNDEtMzUuMzAyIDE3LjAzLTIgMy40NTEtMy42MDYgNy4xMy01LjQwOSAxMC42OTctNTEuNzMzIDEwMi4zNS05Ni41NyAyMDcuNjYtMTM1LjQwOSAzMTUuNTQxLTUuODY0IDE2LjI4OC0xMi4wMjUgMzIuNDg4LTE3LjI0NCA0OC45ODMtNC44NjkgMTUuMzg2IDMuNTg3IDI3LjcyOCAxOS42NTcgMzAuMTI4IDEuOTc0LjI5NSAzLjk3LjQ3MiA1Ljk2My42MDkgNTEuMTUzIDMuNDkyIDEwMi4yMjMgNy43MzggMTUzLjA1NSAxNC42NzMgNDYuMiA2LjMwMyA5Mi4yMjkgMTMuNTAzIDE0MS4xNTMgMjR6IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0ibTIyNzEuNjMzIDMwMjguOTMyYzE5LjUyMiAxMjUuNTQ1IDQ3LjIwOSAyNDcuNTQ4IDgyLjE0OCAzNjcuOTEyIDIxLjM1NSA3My41NjQgNDUuMzA2IDE0Ni4yOCA3Mi4yNzEgMjE3Ljk5NCAyLjU2NyA2LjgyOSA1LjIyIDEzLjc5OSA2LjM5NCAyMC45NCAyLjE5MiAxMy4zMzMtNi41OTEgMjIuMy0xOS45NjUgMjAuMDU3LTYuMzItMS4wNi0xMi42Ni00LjA5LTE4LjE3Mi03LjUzNi0yNy4xMTctMTYuOTUyLTU0LjI0Ni0zMy45MTQtODAuODUtNTEuNjU0LTEwMy44ODctNjkuMjc1LTIwMS43OS0xNDYuMjA1LTI5My42MDItMjMwLjg1Ny0yMDkuNzctMTkzLjQxMi0zODAuNzY2LTQxNi41NDEtNTEzLjMzOC02NjkuMjAzLTk0LjIzMy0xNzkuNTkyLTE2NS4wNi0zNjcuOTk3LTIxMy4wNDctNTY0Ljk2Ny0xOS43MS04MC45MDYtMzUuMTk3LTE2Mi42Ni00Ni4xOTgtMjQ1LjI2LTEwLjY0Ny03OS45NDEtMTguNTgyLTE2MC4wNzYtMjAuNDkyLTI0MC43NTEtLjQ0LTE4LjYyNS0xLjU4NC0zNy4yMzMtMi4zNC01NS44NS0uMTYzLTMuOTk0LS4yMDItOC4wMDQtLjA0My0xMS45OTcuODMyLTIwLjg4MyA5LjQ1LTM2LjE5NyAyOC42MTMtNDYuNzIgNjkuNTM4LTM4LjE4MSAxNDAuMzg1LTczLjYzOCAyMTMuMTM2LTEwNS4yNSAxMTUuNjU1LTUwLjI1NiAyMzQuNDY1LTkxLjQyNiAzNTYuNTA4LTEyMy4yMjQgODEuMjUzLTIxLjE3IDE2My4zNDYtMzguMTgxIDI0Ni4zMy01MS4xMWEyNTEyLjkzNCAyNTEyLjkzNCAwIDAgMSAxOTAuNDM3LTIyLjI4NGM0OC40NjItMy44IDk3LjAyLTYuNDg1IDE0NS42ODQtNi40MDEgMTEuMjkuMDIgMjIuNTg4LTEuNjQ1IDMzLjg3NC0xLjU0NyAyMi42MjcuMTk3IDQ1LjI0NSAxLjMyMSA2Ny44NzMgMS41OTMgMTYuOTM2LjIwNCAyNS43NDkgMTAuNzM5IDIxLjE4NyAyOS45NTUtMS41MSA2LjM2NC01LjA4NiAxMi4yNjgtNy45MzggMTguMjc3LTQwLjg2NCA4Ni4xLTc3LjY3MyAxNzMuODgzLTEwOS4yMDggMjYzLjgzNi05LjY5IDI3LjY0NS0xOC43MzEgNTUuNTE3LTI4LjA2IDgzLjI5LTIuMTIgNi4zMTMtNC4yNzYgMTIuNjE3LTYuMjggMTguOTY4LTQuNTU1IDE0LjQyOS0xNC4zMyAyMS43Ny0yOS40NDkgMjIuNTg2LTE2LjYxNi44OTYtMzMuMjE0IDIuMTU5LTQ5LjgxNCAzLjM0Ni0xNTMuNDg3IDEwLjk4LTMwMy40MzUgNDAuNTc3LTQ1MC4yNjUgODYuMjA5LTUwLjI1IDE1LjYxNi05OS43NzggMzMuMzg3LTE0OC41NzEgNTMuMTQzLTYuMSAyLjQ3LTEyLjExNSA1LjE0NS0xOC4yNTkgNy43NjMtMi4xMTUgOC42ODUtLjQ3MSAxNi41OTUuNjUzIDI0LjM1MyAxNC43MjcgMTAxLjYzMyAzNi4xODUgMjAxLjgxMiA2NS4zMTIgMzAwLjMxNyAxLjUwNyA1LjA5NiAzLjIyMyAxMC4xMzYgNS4wMiAxNS4xMzguNDI1IDEuMTgxIDEuNTc2IDIuMTAxIDMuMDAyIDMuOTE4IDQuNTcyLTEuNzUyIDkuNTE0LTMuMzkyIDE0LjI0OC01LjQ5OCA5Mi43MjUtNDEuMjU0IDE4OC4zMjItNzQuMDA1IDI4Ny4wNTUtOTcuNjMyIDU0LjQ0My0xMy4wMjggMTA5LjI3OC0yMy44NDMgMTY0Ljc4NS0zMS4xNzMgMTAuNTYzLTEuMzk1IDIxLjA5OS0zLjIwNCAzMS43MDgtMy45OTcgMjAuNTUyLTEuNTM3IDI4Ljc4OCA3LjA3MiAyNi4wMzMgMjYuOTI1LTIuMjg4IDE2LjQ5LTUuMzQ1IDMyLjg3Ni03LjQ5OSA0OS4zOC02LjQ2MSA0OS41MjQtMTIuODk0IDk5LjA1My0xOC44NzkgMTQ4LjYzNS03LjU4NCA2Mi44MzEtMTEuMTg0IDEyNS45ODctMTQuNjcyIDE4OS4xNDgtMS4xMSAyMC4xMTQtOC4wMzYgMjcuODM3LTI4LjU2IDMyLjY0NS0yNS45MjIgNi4wNzItNTIuMDc0IDExLjIzOS03Ny44MiAxNy45NzQtNjUuODUzIDE3LjIyNy0xMjkuNTA2IDQwLjc5NS0xOTEuNzAzIDY4LjM1Ni0zLjU2MyAxLjU3OS02LjkwMiAzLjY2My0xMS4yNDYgNS45OTcgMi4yMjcgNC43NTMgMy44MjUgOS4wMzMgNi4xMDcgMTIuOTA5IDY1LjA5NCAxMTAuNTM0IDEzOC42NzggMjE1LjAzMSAyMjMuMjM5IDMxMS41NzlhMjI4NS41NjcgMjI4NS41NjcgMCAwIDAgODQuMTI3IDkwLjk0N2MxNi4wMjggMTYuNDEzIDI2LjYyMiAzNC42OTMgMzAuNTI2IDU4Ljgyem01ODQuNzg1LTEzMjkuNTI2Yy00Ny4yNS0xMC4yMTQtOTMuMjc5LTE3LjQxNC0xMzkuNDc4LTIzLjcxNy01MC44MzItNi45MzUtMTAxLjkwMi0xMS4xOC0xNTMuMDU1LTE0LjY3My0xLjk5Mi0uMTM3LTMuOTg5LS4zMTQtNS45NjMtLjYwOS0xNi4wNy0yLjQtMjQuNTI2LTE0Ljc0Mi0xOS42NTctMzAuMTI4IDUuMjItMTYuNDk1IDExLjM4LTMyLjY5NSAxNy4yNDQtNDguOTgzIDM4Ljg0LTEwNy44ODEgODMuNjc2LTIxMy4xOTEgMTM1LjQxLTMxNS41NCAxLjgwMi0zLjU2NyAzLjQwOC03LjI0NyA1LjQwOC0xMC42OTggNy44OTYtMTMuNjIgMTkuOTE5LTE5LjEzMiAzNS4zMDMtMTcuMDMgNDQuMTk4IDYuMDM4IDg4LjUzMyAxMS4yOSAxMzIuNTIgMTguNjIxIDc3LjUwNyAxMi45MTkgMTU0LjE2MiAyOS45MzggMjMwLjA0NyA1MC40OSAxNDguOTA2IDQwLjMyOCAyOTIuNzg3IDk0IDQzMS4yODYgMTYxLjkxNSAzOC4yNSAxOC43NTcgNzUuNzIyIDM5LjA5NiAxMTMuNTMgNTguNzUgNC4xMzMgMi4xNDcgOC4yMjUgNC40MDQgMTIuMTY3IDYuODc5IDEzLjk2NyA4Ljc2OSAyMi4xNiAyMS4wOTcgMjEuODcyIDM3Ljk1LS42ODUgMzkuOTYtMS4xMjQgNzkuOTM2LTIuNjc2IDExOS44NjYtLjk4MSAyNS4yNTItMy43ODcgNTAuNDMyLTUuNzcyIDc1LjY0NS0zLjYwNiA0NS44MTktOS4xNSA5MS4zOTgtMTUuNjMyIDEzNi45MDUtNy41MTQgNTIuNzYtMTYuOTUgMTA1LjEzNS0yNy44NDIgMTU3LjI4Ni0xNS42NjcgNzUuMDA0LTM1LjA1MyAxNDkuMDQtNTcuODUzIDIyMi4xNjItMzkuOTIgMTI4LjAzMS04OS45ODcgMjUyLjAyLTE1MC4yNTMgMzcxLjgyNy04OC40MjIgMTc1Ljc4LTE5Ni4xMTcgMzM4LjgyOC0zMjMuNDUzIDQ4OC45MTMtMTM4LjI4NCAxNjIuOTktMjk1LjA0NCAzMDUuNTgtNDcwLjUxNiA0MjcuNjE3LTQuMzc1IDMuMDQyLTguNTk0IDYuMzg4LTEzLjI0OCA4LjkzLTE0LjA5IDcuNjk3LTI4LjQxNiAzLjMyMi0zNC41MzMtMTEuNjU3LTguMDQ3LTE5LjcwNS0xNS4xMDctMzkuODMyLTIyLjA5Ni01OS45NS0zNS44NjMtMTAzLjIyMS02Ni45NjEtMjA3LjgzLTkwLjkxNy0zMTQuNDk3LTEuNDU4LTYuNDk0LTIuODQ0LTEzLjAwOC00LjA4OC0xOS41NDUtMi40NC0xMi44MjkgMS4zNjgtMjMuNzA0IDEwLjg3NS0zMi40ODUgNC44ODktNC41MTUgMTAuMDg3LTguNzEgMTUuMjkzLTEyLjg2NCA2My4wOS01MC4zNTIgMTIyLjk5NS0xMDQuMjc1IDE3OS4zNDUtMTYyLjAzNCAxMzcuNjg2LTE0MS4xMjYgMjUzLjA4MS0yOTguNTY2IDM0NS4xNS00NzMuMDU1IDgxLjg3OC0xNTUuMTc1IDE0Mi4yNjktMzE4LjI4NiAxODEuODM4LTQ4OS4xNDYgMTMuNjc4LTU5LjA2MSAyMy45MjYtMTE4Ljc3MiAzMi41ODMtMTc4Ljc1Ni43NDgtNS4xODguNTQ0LTEwLjUxMy43NzgtMTUuNjkyLTIuMDgyLTEuNTI2LTMuNDg3LTMuMDQ4LTUuMjIzLTMuNzU5LTExNS41NC00Ny4yNjMtMjM0LjMyMi04My44OTctMzU4LjM5NC0xMDguOTM4eiIgZmlsbD0iIzAxNzhmZiIvPjwvc3ZnPg==" style="height:52px;margin-bottom:20px;">
+        <div style="color:#fff;font-size:22px;font-weight:700;margin-bottom:6px;">Clubhouse Support</div>
+        <div style="color:rgba(255,255,255,.55);font-size:13px;margin-bottom:28px;">Internal use only — enter password to continue</div>
+        <input id="pw-in" type="password" placeholder="Password" style="width:100%;box-sizing:border-box;padding:12px 16px;border-radius:8px;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;font-size:15px;outline:none;margin-bottom:10px;" />
+        <div id="pw-err" style="color:#ff6b6b;font-size:12px;min-height:18px;margin-bottom:8px;"></div>
+        <button id="pw-btn" style="width:100%;padding:13px;background:#0178ff;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;">Enter</button>
+      </div>`;
+      document.body.parentNode.insertBefore(o,document.body);
+      function check(){
+        if(document.getElementById('pw-in').value===P){sessionStorage.setItem(K,P);o.remove();document.body.style.display='';}
+        else{document.getElementById('pw-err').textContent='Incorrect password. Try again.';}
+      }
+      document.getElementById('pw-btn').addEventListener('click',check);
+      document.getElementById('pw-in').addEventListener('keydown',function(e){if(e.key==='Enter')check();});
+    });
+  }
+})();</script>
+<style>
+:root{
+  --bg:#07101f;--bg2:#0d1b30;
+  --surface:rgba(255,255,255,.05);--surface2:rgba(255,255,255,.09);--surface3:rgba(255,255,255,.03);
+  --border:rgba(255,255,255,.09);--border2:rgba(255,255,255,.16);
+  --text:#dde6f0;--text2:rgba(255,255,255,.58);--text3:rgba(255,255,255,.32);
+  --accent:#4fa3f7;--accent2:#93c5fd;
+  --header-bg:linear-gradient(135deg,#0c1e42 0%,#091428 100%);
+  --shadow:0 2px 12px rgba(0,0,0,.35);--shadow-lg:0 8px 32px rgba(0,0,0,.45);
+}
+body.light{
+  --bg:#f2f6fb;--bg2:#e4ecf5;
+  --surface:rgba(255,255,255,.85);--surface2:rgba(0,0,0,.05);--surface3:rgba(255,255,255,.6);
+  --border:rgba(0,0,0,.09);--border2:rgba(0,0,0,.16);
+  --text:#1a2535;--text2:rgba(0,0,0,.56);--text3:rgba(0,0,0,.32);
+  --accent:#0166e0;--accent2:#0056cc;
+  --header-bg:linear-gradient(135deg,#1346c8 0%,#0a35a8 100%);
+  --shadow:0 2px 10px rgba(0,0,0,.1);--shadow-lg:0 6px 24px rgba(0,0,0,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background .25s,color .25s;font-size:14px;line-height:1.6;}
+a{color:var(--accent);text-decoration:none;}a:hover{color:var(--accent2);text-decoration:underline;}
+.header{background:var(--header-bg);border-bottom:1px solid rgba(255,255,255,.08);padding:12px 28px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.4);min-height:60px;}
+.fd-logo{height:34px;filter:none;flex-shrink:0;display:block;}
+.header-text{display:flex;flex-direction:column;justify-content:center;min-width:0;}
+.header-title{font-size:17px;font-weight:800;color:#fff;letter-spacing:-.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.header-sub{font-size:11px;color:rgba(255,255,255,.42);margin-top:1px;white-space:nowrap;}
+.header-right{margin-left:auto;flex-shrink:0;display:flex;align-items:center;gap:10px;}
+.theme-btn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:6px 14px;color:rgba(255,255,255,.85);font-size:12px;cursor:pointer;font-weight:500;transition:all .2s;}
+.theme-btn:hover{background:rgba(255,255,255,.2);}
+.stats{display:flex;gap:12px;padding:20px 28px 0;flex-wrap:wrap;}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 20px;flex:1;min-width:120px;box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s;}
+.stat-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);}
+.stat-num{font-size:30px;font-weight:900;color:var(--accent);line-height:1;}
+.stat-label{font-size:11px;color:var(--text3);margin-top:5px;text-transform:uppercase;letter-spacing:.4px;font-weight:500;}
+.nav-bar{display:flex;gap:2px;padding:18px 28px 0;flex-wrap:wrap;border-bottom:2px solid var(--border);}
+.nav-tab{padding:9px 16px;border-radius:8px 8px 0 0;font-size:13px;font-weight:500;cursor:pointer;color:var(--text2);transition:all .2s;border:none;background:none;border-bottom:3px solid transparent;margin-bottom:-2px;}
+.nav-tab:hover{color:var(--text);background:var(--surface2);}
+.nav-tab.active{color:var(--accent);border-bottom:3px solid var(--accent);background:rgba(79,163,247,.08);font-weight:600;}
+.section{display:none;padding:24px 28px 40px;max-width:1100px;}
+.section.active{display:block;}
+.qref{background:linear-gradient(135deg,rgba(1,120,255,.12),rgba(1,80,200,.06));border:1px solid rgba(1,120,255,.28);border-radius:14px;padding:18px 22px;margin-bottom:22px;box-shadow:var(--shadow);}
+.qref-title{font-size:11px;font-weight:700;color:var(--accent2);margin-bottom:10px;text-transform:uppercase;letter-spacing:.8px;}
+.qref-row{display:flex;gap:10px;flex-wrap:wrap;}
+.pill{background:rgba(1,120,255,.18);border:1px solid rgba(1,120,255,.35);border-radius:20px;padding:7px 16px;font-size:13px;color:var(--text);font-weight:500;}
+.pill strong{color:var(--accent2);}
+.filter-row{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap;align-items:center;}
+.filter-tab{padding:6px 15px;border-radius:20px;font-size:12px;font-weight:500;cursor:pointer;border:1px solid var(--border2);background:var(--surface);color:var(--text2);transition:all .2s;}
+.filter-tab.active,.filter-tab:hover{background:#0166e0;border-color:#0166e0;color:#fff;box-shadow:0 2px 8px rgba(1,102,224,.35);}
+.search-box{flex:1;max-width:280px;padding:7px 16px;border-radius:20px;border:1px solid var(--border2);background:var(--surface);color:var(--text);font-size:13px;outline:none;transition:border-color .2s;}
+.search-box:focus{border-color:var(--accent);}
+.search-box::placeholder{color:var(--text3);}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;margin-bottom:10px;overflow:hidden;box-shadow:var(--shadow);transition:box-shadow .2s;}
+.card:hover{box-shadow:var(--shadow-lg);}
+.card-header{padding:15px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;}
+.card-header:hover{background:var(--surface2);}
+.card-title{font-size:14px;font-weight:600;color:var(--text);line-height:1.4;}
+.badge{font-size:11px;padding:3px 9px;border-radius:10px;font-weight:600;margin-left:8px;white-space:nowrap;}
+.badge-login{background:rgba(248,113,113,.15);color:#fca5a5;}
+.badge-location{background:rgba(251,146,60,.15);color:#fdba74;}
+.badge-account{background:rgba(167,139,250,.15);color:#c4b5fd;}
+.badge-bets{background:rgba(52,211,153,.15);color:#6ee7b7;}
+.badge-general{background:rgba(96,165,250,.15);color:#93c5fd;}
+.chevron{color:var(--text3);transition:transform .25s;font-size:14px;flex-shrink:0;margin-left:12px;}
+.card.open .chevron{transform:rotate(180deg);}
+.card-body{display:none;padding:18px 20px;border-top:1px solid var(--border);background:var(--surface3);}
+.card.open .card-body{display:block;}
+.card-body ol{padding-left:22px;}
+.card-body ul{padding-left:20px;}
+.card-body li{margin-bottom:8px;font-size:14px;line-height:1.65;color:var(--text);}
+.card-body p{font-size:14px;line-height:1.65;color:var(--text);}
+.note{background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.2);border-left:3px solid #f59e0b;padding:11px 15px;border-radius:0 10px 10px 0;margin-top:12px;font-size:13px;color:#fde68a;line-height:1.6;}
+.info{background:rgba(96,165,250,.07);border:1px solid rgba(96,165,250,.18);border-left:3px solid #60a5fa;padding:11px 15px;border-radius:0 10px 10px 0;margin-top:12px;font-size:13px;color:#bfdbfe;line-height:1.6;}
+.warn{background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.18);border-left:3px solid #ef4444;padding:11px 15px;border-radius:0 10px 10px 0;margin-top:12px;font-size:13px;color:#fecaca;line-height:1.6;}
+.no-results{text-align:center;padding:48px;color:var(--text3);font-size:14px;display:none;}
+.table-wrap{border-radius:12px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow);margin:14px 0;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+thead{background:var(--bg2);}
+th{padding:12px 16px;text-align:left;font-weight:700;color:var(--accent2);font-size:12px;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--border2);}
+td{padding:12px 16px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.55;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr:nth-child(even) td{background:var(--surface3);}
+tbody tr:hover td{background:var(--surface2);}
+.priority-p4{background:rgba(251,191,36,.15);color:#fde68a;padding:3px 9px;border-radius:10px;font-size:11px;font-weight:700;}
+.priority-p5{background:rgba(96,165,250,.15);color:#93c5fd;padding:3px 9px;border-radius:10px;font-size:11px;font-weight:700;}
+.status-done{background:rgba(52,211,153,.12);color:#6ee7b7;padding:3px 9px;border-radius:10px;font-size:11px;}
+.status-upcoming{background:rgba(96,165,250,.12);color:#93c5fd;padding:3px 9px;border-radius:10px;font-size:11px;}
+.status-active{background:rgba(52,211,153,.2);color:#34d399;padding:3px 9px;border-radius:10px;font-size:11px;font-weight:700;}
+.resource-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:14px;}
+.resource-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px;box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s;}
+.resource-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);}
+.resource-card-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px;}
+.resource-card-desc{font-size:12px;color:var(--text2);margin-bottom:12px;line-height:1.55;}
+.resource-card a{font-size:12px;font-weight:600;padding:6px 14px;background:rgba(1,102,224,.18);border:1px solid rgba(1,102,224,.35);border-radius:8px;color:var(--accent);text-decoration:none;display:inline-block;transition:all .2s;}
+.resource-card a:hover{background:rgba(1,102,224,.3);text-decoration:none;}
+.email-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin:14px 0;}
+.email-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px;box-shadow:var(--shadow);}
+.email-card-name{font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.email-card-role{font-size:12px;color:var(--text2);margin-bottom:10px;}
+.email-card a{font-size:12px;font-weight:600;padding:5px 12px;background:rgba(1,102,224,.18);border:1px solid rgba(1,102,224,.3);border-radius:7px;color:var(--accent);text-decoration:none;display:inline-block;}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:8px;overflow:hidden;box-shadow:var(--shadow);}
+.faq-q{padding:14px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600;color:var(--text);gap:12px;}
+.faq-q:hover{background:var(--surface2);}
+.faq-a{display:none;padding:14px 18px;border-top:1px solid var(--border);font-size:13px;color:var(--text2);line-height:1.75;background:var(--surface3);}
+.faq-item.open .faq-a{display:block;}
+.faq-item.open .chevron{transform:rotate(180deg);}
+.sec-heading{font-size:15px;font-weight:800;color:var(--text);margin:28px 0 14px;display:flex;align-items:center;gap:10px;letter-spacing:-.1px;}
+.sec-heading::before{content:\'\';display:block;width:4px;height:18px;background:var(--accent);border-radius:2px;flex-shrink:0;}
+.sec-sub{font-size:13px;color:var(--text2);margin-bottom:16px;line-height:1.7;padding-left:14px;}
+.step{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start;}
+.step-num{width:26px;height:26px;min-width:26px;background:linear-gradient(135deg,#0178ff,#0056cc);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;margin-top:1px;}
+.step-text{font-size:14px;line-height:1.65;color:var(--text);}
+code{background:rgba(255,220,50,.1);border:1px solid rgba(255,220,50,.15);padding:2px 7px;border-radius:5px;font-size:12px;font-family:\'SF Mono\',Monaco,monospace;color:#fde68a;font-weight:500;}
+body.light code{background:rgba(0,0,0,.07);border-color:rgba(0,0,0,.12);color:#92400e;}
+.lb-card{background:var(--surface);border:1px solid var(--border);border-left:3px solid #f59e0b;border-radius:14px;padding:16px 18px;margin-bottom:10px;box-shadow:var(--shadow);}
+.lb-card-title{font-size:14px;font-weight:700;color:#fde68a;margin-bottom:6px;}
+.lb-card-desc{font-size:13px;color:var(--text2);line-height:1.65;}
+.acct-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0;}
+.acct-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);}
+.acct-label{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;font-weight:600;}
+.acct-value{font-size:13px;color:var(--text);font-weight:500;line-height:1.5;}
+.slack-chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;}
+.slack-chip{background:rgba(74,144,226,.12);border:1px solid rgba(74,144,226,.25);border-radius:8px;padding:6px 13px;font-size:12px;color:#93c5fd;font-weight:500;}
+.arb-box{background:linear-gradient(135deg,rgba(1,120,255,.1),rgba(1,80,200,.05));border:1px solid rgba(1,120,255,.25);border-radius:12px;padding:16px 18px;margin-top:12px;}
+.arb-box strong{color:var(--accent2);}
+.arb-box ul{padding-left:18px;margin-top:8px;}
+.arb-box li{color:var(--text);margin-bottom:6px;line-height:1.6;font-size:14px;}
+@media(max-width:640px){
+  .stats,.nav-bar,.section{padding-left:16px;padding-right:16px;}
+  .acct-grid{grid-template-columns:1fr;}
+  .header{padding:12px 16px;}
+  .nav-tab{font-size:12px;padding:7px 12px;}
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <img src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjI0OTIiIHZpZXdCb3g9IjQgNCA0ODg0IDQ4NjgiIHdpZHRoPSIyNTAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Im0zMTg0IDQ4NzJoLTMxODB2LTQ4NjhoNDg4NHY0ODY4em0tOTEyLjUzOC0xODQ0Ljc1MmMtMy43MzMtMjIuNDQ0LTE0LjMyNy00MC43MjQtMzAuMzU1LTU3LjEzN2EyMjg1LjU2NyAyMjg1LjU2NyAwIDAgMSAtODQuMTI3LTkwLjk0N2MtODQuNTYtOTYuNTQ4LTE1OC4xNDUtMjAxLjA0NS0yMjMuMjM5LTMxMS41NzktMi4yODItMy44NzYtMy44OC04LjE1Ni02LjEwNy0xMi45MSA0LjM0NC0yLjMzMyA3LjY4My00LjQxNyAxMS4yNDYtNS45OTYgNjIuMTk3LTI3LjU2MSAxMjUuODUtNTEuMTMgMTkxLjcwNC02OC4zNTYgMjUuNzQ1LTYuNzM1IDUxLjg5Ny0xMS45MDIgNzcuODItMTcuOTc0IDIwLjUyMy00LjgwOCAyNy40NDktMTIuNTMxIDI4LjU2LTMyLjY0NSAzLjQ4Ny02My4xNjEgNy4wODctMTI2LjMxNyAxNC42NzEtMTg5LjE0OCA1Ljk4NS00OS41ODIgMTIuNDE4LTk5LjExMSAxOC44OC0xNDguNjM0IDIuMTUzLTE2LjUwNSA1LjIxLTMyLjg5MSA3LjQ5OC00OS4zODEgMi43NTUtMTkuODUzLTUuNDgtMjguNDYyLTI2LjAzMy0yNi45MjUtMTAuNjEuNzkzLTIxLjE0NSAyLjYwMi0zMS43MDggMy45OTctNTUuNTA3IDcuMzMtMTEwLjM0MiAxOC4xNDUtMTY0Ljc4NSAzMS4xNzMtOTguNzMzIDIzLjYyNy0xOTQuMzMgNTYuMzc4LTI4Ny4wNTUgOTcuNjMyLTQuNzM0IDIuMTA2LTkuNjc2IDMuNzQ2LTE0LjI0OCA1LjQ5OC0xLjQyNi0xLjgxNy0yLjU3Ny0yLjczNy0zLjAwMi0zLjkxOC0xLjc5Ny01LjAwMi0zLjUxMy0xMC4wNDItNS4wMi0xNS4xMzgtMjkuMTI3LTk4LjUwNS01MC41ODUtMTk4LjY4NC02NS4zMTItMzAwLjMxNy0xLjEyNC03Ljc1OC0yLjc2OC0xNS42NjgtLjY1My0yNC4zNTMgNi4xNDQtMi42MTggMTIuMTYtNS4yOTQgMTguMjU5LTcuNzYzIDQ4Ljc5My0xOS43NTYgOTguMzIxLTM3LjUyNyAxNDguNTctNTMuMTQzIDE0Ni44My00NS42MzIgMjk2Ljc3OS03NS4yMyA0NTAuMjY2LTg2LjIwOSAxNi42LTEuMTg3IDMzLjE5OC0yLjQ1IDQ5LjgxNC0zLjM0NiAxNS4xMi0uODE1IDI0Ljg5NC04LjE1NyAyOS40NDgtMjIuNTg2IDIuMDA1LTYuMzUxIDQuMTYtMTIuNjU1IDYuMjgxLTE4Ljk2OSA5LjMyOS0yNy43NzIgMTguMzctNTUuNjQ0IDI4LjA2LTgzLjI4OSAzMS41MzUtODkuOTUzIDY4LjM0NC0xNzcuNzM2IDEwOS4yMDgtMjYzLjgzNiAyLjg1Mi02LjAxIDYuNDI4LTExLjkxMyA3LjkzOC0xOC4yNzcgNC41NjItMTkuMjE2LTQuMjUtMjkuNzUxLTIxLjE4Ny0yOS45NTUtMjIuNjI4LS4yNzItNDUuMjQ2LTEuMzk2LTY3Ljg3My0xLjU5My0xMS4yODYtLjA5OC0yMi41ODQgMS41NjYtMzMuODc0IDEuNTQ3LTQ4LjY2NS0uMDg0LTk3LjIyMiAyLjYtMTQ1LjY4NCA2LjQwMWEyNTEyLjkzNCAyNTEyLjkzNCAwIDAgMCAtMTkwLjQzNyAyMi4yODRjLTgyLjk4NCAxMi45MjktMTY1LjA3NyAyOS45NC0yNDYuMzMgNTEuMTEtMTIyLjA0MyAzMS43OTgtMjQwLjg1MyA3Mi45NjgtMzU2LjUwOCAxMjMuMjIzLTcyLjc1IDMxLjYxMy0xNDMuNTk4IDY3LjA3LTIxMy4xMzYgMTA1LjI1Mi0xOS4xNjQgMTAuNTIyLTI3Ljc4IDI1LjgzNi0yOC42MTMgNDYuNzItLjE2IDMuOTkyLS4xMiA4LjAwMi4wNDMgMTEuOTk1Ljc1NiAxOC42MTggMS45IDM3LjIyNiAyLjM0IDU1Ljg1IDEuOTEgODAuNjc2IDkuODQ1IDE2MC44MSAyMC40OTIgMjQwLjc1MiAxMS4wMDEgODIuNiAyNi40ODcgMTY0LjM1NCA0Ni4xOTggMjQ1LjI2IDQ3Ljk4NiAxOTYuOTcgMTE4LjgxNCAzODUuMzc1IDIxMy4wNDcgNTY0Ljk2NyAxMzIuNTcyIDI1Mi42NjIgMzAzLjU2OSA0NzUuNzkgNTEzLjMzOCA2NjkuMjAzIDkxLjgxMSA4NC42NTIgMTg5LjcxNSAxNjEuNTgyIDI5My42MDIgMjMwLjg1NyAyNi42MDQgMTcuNzQgNTMuNzMzIDM0LjcwMiA4MC44NSA1MS42NTQgNS41MTIgMy40NDYgMTEuODUxIDYuNDc2IDE4LjE3MiA3LjUzNiAxMy4zNzQgMi4yNDMgMjIuMTU3LTYuNzI0IDE5Ljk2NS0yMC4wNTctMS4xNzUtNy4xNDEtMy44MjctMTQuMTExLTYuMzk0LTIwLjk0LTI2Ljk2NS03MS43MTQtNTAuOTE2LTE0NC40My03Mi4yNy0yMTcuOTk0LTM0Ljk0LTEyMC4zNjQtNjIuNjI3LTI0Mi4zNjctODIuMzItMzY5LjU5Nm01ODYuNjMxLTEzMjcuNTU5YzEyMi4zOTcgMjQuNzU4IDI0MS4xOCA2MS4zOTIgMzU2LjcxOSAxMDguNjU1IDEuNzM2LjcxMSAzLjE0IDIuMjMzIDUuMjIzIDMuNzYtLjIzNCA1LjE3OC0uMDMgMTAuNTAzLS43NzggMTUuNjktOC42NTcgNTkuOTg1LTE4LjkwNSAxMTkuNjk2LTMyLjU4MyAxNzguNzU3LTM5LjU3IDE3MC44Ni05OS45NiAzMzMuOTcxLTE4MS44MzggNDg5LjE0Ni05Mi4wNjkgMTc0LjQ4OS0yMDcuNDY0IDMzMS45MjktMzQ1LjE1IDQ3My4wNTUtNTYuMzUgNTcuNzU5LTExNi4yNTYgMTExLjY4Mi0xNzkuMzQ1IDE2Mi4wMzQtNS4yMDYgNC4xNTUtMTAuNDA0IDguMzUtMTUuMjkzIDEyLjg2NC05LjUwNyA4Ljc4LTEzLjMxNiAxOS42NTYtMTAuODc1IDMyLjQ4NSAxLjI0NCA2LjUzNyAyLjYzIDEzLjA1IDQuMDg4IDE5LjU0NSAyMy45NTYgMTA2LjY2NyA1NS4wNTQgMjExLjI3NiA5MC45MTcgMzE0LjQ5NyA2Ljk5IDIwLjExOCAxNC4wNSA0MC4yNDUgMjIuMDk2IDU5Ljk1IDYuMTE3IDE0Ljk4IDIwLjQ0NCAxOS4zNTQgMzQuNTMzIDExLjY1NyA0LjY1NC0yLjU0MiA4Ljg3My01Ljg4OCAxMy4yNDgtOC45MyAxNzUuNDcyLTEyMi4wMzYgMzMyLjIzMi0yNjQuNjI3IDQ3MC41MTYtNDI3LjYxNyAxMjcuMzM2LTE1MC4wODUgMjM1LjAzMS0zMTMuMTM0IDMyMy40NTMtNDg4LjkxMyA2MC4yNjYtMTE5LjgwOCAxMTAuMzMyLTI0My43OTYgMTUwLjI1My0zNzEuODI3IDIyLjgtNzMuMTIyIDQyLjE4Ni0xNDcuMTU4IDU3Ljg1My0yMjIuMTYyIDEwLjg5My01Mi4xNSAyMC4zMjgtMTA0LjUyNyAyNy44NDItMTU3LjI4NiA2LjQ4Mi00NS41MDcgMTIuMDI2LTkxLjA4NiAxNS42MzItMTM2LjkwNSAxLjk4NS0yNS4yMTMgNC43OTEtNTAuMzkzIDUuNzcyLTc1LjY0NSAxLjU1Mi0zOS45MyAxLjk5LTc5LjkwNiAyLjY3Ni0xMTkuODY3LjI4OS0xNi44NTItNy45MDUtMjkuMTgtMjEuODcyLTM3Ljk1LTMuOTQyLTIuNDc0LTguMDM0LTQuNzMtMTIuMTY2LTYuODc5LTM3LjgwOS0xOS42NTMtNzUuMjgyLTM5Ljk5Mi0xMTMuNTMxLTU4Ljc0OS0xMzguNS02Ny45MTUtMjgyLjM4LTEyMS41ODctNDMxLjI4Ni0xNjEuOTE1LTc1Ljg4NS0yMC41NTItMTUyLjU0LTM3LjU3MS0yMzAuMDQ4LTUwLjQ5LTQzLjk4Ni03LjMzMS04OC4zMi0xMi41ODMtMTMyLjUyLTE4LjYyMS0xNS4zODMtMi4xMDItMjcuNDA2IDMuNDEtMzUuMzAyIDE3LjAzLTIgMy40NTEtMy42MDYgNy4xMy01LjQwOSAxMC42OTctNTEuNzMzIDEwMi4zNS05Ni41NyAyMDcuNjYtMTM1LjQwOSAzMTUuNTQxLTUuODY0IDE2LjI4OC0xMi4wMjUgMzIuNDg4LTE3LjI0NCA0OC45ODMtNC44NjkgMTUuMzg2IDMuNTg3IDI3LjcyOCAxOS42NTcgMzAuMTI4IDEuOTc0LjI5NSAzLjk3LjQ3MiA1Ljk2My42MDkgNTEuMTUzIDMuNDkyIDEwMi4yMjMgNy43MzggMTUzLjA1NSAxNC42NzMgNDYuMiA2LjMwMyA5Mi4yMjkgMTMuNTAzIDE0MS4xNTMgMjR6IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0ibTIyNzEuNjMzIDMwMjguOTMyYzE5LjUyMiAxMjUuNTQ1IDQ3LjIwOSAyNDcuNTQ4IDgyLjE0OCAzNjcuOTEyIDIxLjM1NSA3My41NjQgNDUuMzA2IDE0Ni4yOCA3Mi4yNzEgMjE3Ljk5NCAyLjU2NyA2LjgyOSA1LjIyIDEzLjc5OSA2LjM5NCAyMC45NCAyLjE5MiAxMy4zMzMtNi41OTEgMjIuMy0xOS45NjUgMjAuMDU3LTYuMzItMS4wNi0xMi42Ni00LjA5LTE4LjE3Mi03LjUzNi0yNy4xMTctMTYuOTUyLTU0LjI0Ni0zMy45MTQtODAuODUtNTEuNjU0LTEwMy44ODctNjkuMjc1LTIwMS43OS0xNDYuMjA1LTI5My42MDItMjMwLjg1Ny0yMDkuNzctMTkzLjQxMi0zODAuNzY2LTQxNi41NDEtNTEzLjMzOC02NjkuMjAzLTk0LjIzMy0xNzkuNTkyLTE2NS4wNi0zNjcuOTk3LTIxMy4wNDctNTY0Ljk2Ny0xOS43MS04MC45MDYtMzUuMTk3LTE2Mi42Ni00Ni4xOTgtMjQ1LjI2LTEwLjY0Ny03OS45NDEtMTguNTgyLTE2MC4wNzYtMjAuNDkyLTI0MC43NTEtLjQ0LTE4LjYyNS0xLjU4NC0zNy4yMzMtMi4zNC01NS44NS0uMTYzLTMuOTk0LS4yMDItOC4wMDQtLjA0My0xMS45OTcuODMyLTIwLjg4MyA5LjQ1LTM2LjE5NyAyOC42MTMtNDYuNzIgNjkuNTM4LTM4LjE4MSAxNDAuMzg1LTczLjYzOCAyMTMuMTM2LTEwNS4yNSAxMTUuNjU1LTUwLjI1NiAyMzQuNDY1LTkxLjQyNiAzNTYuNTA4LTEyMy4yMjQgODEuMjUzLTIxLjE3IDE2My4zNDYtMzguMTgxIDI0Ni4zMy01MS4xMWEyNTEyLjkzNCAyNTEyLjkzNCAwIDAgMSAxOTAuNDM3LTIyLjI4NGM0OC40NjItMy44IDk3LjAyLTYuNDg1IDE0NS42ODQtNi40MDEgMTEuMjkuMDIgMjIuNTg4LTEuNjQ1IDMzLjg3NC0xLjU0NyAyMi42MjcuMTk3IDQ1LjI0NSAxLjMyMSA2Ny44NzMgMS41OTMgMTYuOTM2LjIwNCAyNS43NDkgMTAuNzM5IDIxLjE4NyAyOS45NTUtMS41MSA2LjM2NC01LjA4NiAxMi4yNjgtNy45MzggMTguMjc3LTQwLjg2NCA4Ni4xLTc3LjY3MyAxNzMuODgzLTEwOS4yMDggMjYzLjgzNi05LjY5IDI3LjY0NS0xOC43MzEgNTUuNTE3LTI4LjA2IDgzLjI5LTIuMTIgNi4zMTMtNC4yNzYgMTIuNjE3LTYuMjggMTguOTY4LTQuNTU1IDE0LjQyOS0xNC4zMyAyMS43Ny0yOS40NDkgMjIuNTg2LTE2LjYxNi44OTYtMzMuMjE0IDIuMTU5LTQ5LjgxNCAzLjM0Ni0xNTMuNDg3IDEwLjk4LTMwMy40MzUgNDAuNTc3LTQ1MC4yNjUgODYuMjA5LTUwLjI1IDE1LjYxNi05OS43NzggMzMuMzg3LTE0OC41NzEgNTMuMTQzLTYuMSAyLjQ3LTEyLjExNSA1LjE0NS0xOC4yNTkgNy43NjMtMi4xMTUgOC42ODUtLjQ3MSAxNi41OTUuNjUzIDI0LjM1MyAxNC43MjcgMTAxLjYzMyAzNi4xODUgMjAxLjgxMiA2NS4zMTIgMzAwLjMxNyAxLjUwNyA1LjA5NiAzLjIyMyAxMC4xMzYgNS4wMiAxNS4xMzguNDI1IDEuMTgxIDEuNTc2IDIuMTAxIDMuMDAyIDMuOTE4IDQuNTcyLTEuNzUyIDkuNTE0LTMuMzkyIDE0LjI0OC01LjQ5OCA5Mi43MjUtNDEuMjU0IDE4OC4zMjItNzQuMDA1IDI4Ny4wNTUtOTcuNjMyIDU0LjQ0My0xMy4wMjggMTA5LjI3OC0yMy44NDMgMTY0Ljc4NS0zMS4xNzMgMTAuNTYzLTEuMzk1IDIxLjA5OS0zLjIwNCAzMS43MDgtMy45OTcgMjAuNTUyLTEuNTM3IDI4Ljc4OCA3LjA3MiAyNi4wMzMgMjYuOTI1LTIuMjg4IDE2LjQ5LTUuMzQ1IDMyLjg3Ni03LjQ5OSA0OS4zOC02LjQ2MSA0OS41MjQtMTIuODk0IDk5LjA1My0xOC44NzkgMTQ4LjYzNS03LjU4NCA2Mi44MzEtMTEuMTg0IDEyNS45ODctMTQuNjcyIDE4OS4xNDgtMS4xMSAyMC4xMTQtOC4wMzYgMjcuODM3LTI4LjU2IDMyLjY0NS0yNS45MjIgNi4wNzItNTIuMDc0IDExLjIzOS03Ny44MiAxNy45NzQtNjUuODUzIDE3LjIyNy0xMjkuNTA2IDQwLjc5NS0xOTEuNzAzIDY4LjM1Ni0zLjU2MyAxLjU3OS02LjkwMiAzLjY2My0xMS4yNDYgNS45OTcgMi4yMjcgNC43NTMgMy44MjUgOS4wMzMgNi4xMDcgMTIuOTA5IDY1LjA5NCAxMTAuNTM0IDEzOC42NzggMjE1LjAzMSAyMjMuMjM5IDMxMS41NzlhMjI4NS41NjcgMjI4NS41NjcgMCAwIDAgODQuMTI3IDkwLjk0N2MxNi4wMjggMTYuNDEzIDI2LjYyMiAzNC42OTMgMzAuNTI2IDU4Ljgyem01ODQuNzg1LTEzMjkuNTI2Yy00Ny4yNS0xMC4yMTQtOTMuMjc5LTE3LjQxNC0xMzkuNDc4LTIzLjcxNy01MC44MzItNi45MzUtMTAxLjkwMi0xMS4xOC0xNTMuMDU1LTE0LjY3My0xLjk5Mi0uMTM3LTMuOTg5LS4zMTQtNS45NjMtLjYwOS0xNi4wNy0yLjQtMjQuNTI2LTE0Ljc0Mi0xOS42NTctMzAuMTI4IDUuMjItMTYuNDk1IDExLjM4LTMyLjY5NSAxNy4yNDQtNDguOTgzIDM4Ljg0LTEwNy44ODEgODMuNjc2LTIxMy4xOTEgMTM1LjQxLTMxNS41NCAxLjgwMi0zLjU2NyAzLjQwOC03LjI0NyA1LjQwOC0xMC42OTggNy44OTYtMTMuNjIgMTkuOTE5LTE5LjEzMiAzNS4zMDMtMTcuMDMgNDQuMTk4IDYuMDM4IDg4LjUzMyAxMS4yOSAxMzIuNTIgMTguNjIxIDc3LjUwNyAxMi45MTkgMTU0LjE2MiAyOS45MzggMjMwLjA0NyA1MC40OSAxNDguOTA2IDQwLjMyOCAyOTIuNzg3IDk0IDQzMS4yODYgMTYxLjkxNSAzOC4yNSAxOC43NTcgNzUuNzIyIDM5LjA5NiAxMTMuNTMgNTguNzUgNC4xMzMgMi4xNDcgOC4yMjUgNC40MDQgMTIuMTY3IDYuODc5IDEzLjk2NyA4Ljc2OSAyMi4xNiAyMS4wOTcgMjEuODcyIDM3Ljk1LS42ODUgMzkuOTYtMS4xMjQgNzkuOTM2LTIuNjc2IDExOS44NjYtLjk4MSAyNS4yNTItMy43ODcgNTAuNDMyLTUuNzcyIDc1LjY0NS0zLjYwNiA0NS44MTktOS4xNSA5MS4zOTgtMTUuNjMyIDEzNi45MDUtNy41MTQgNTIuNzYtMTYuOTUgMTA1LjEzNS0yNy44NDIgMTU3LjI4Ni0xNS42NjcgNzUuMDA0LTM1LjA1MyAxNDkuMDQtNTcuODUzIDIyMi4xNjItMzkuOTIgMTI4LjAzMS04OS45ODcgMjUyLjAyLTE1MC4yNTMgMzcxLjgyNy04OC40MjIgMTc1Ljc4LTE5Ni4xMTcgMzM4LjgyOC0zMjMuNDUzIDQ4OC45MTMtMTM4LjI4NCAxNjIuOTktMjk1LjA0NCAzMDUuNTgtNDcwLjUxNiA0MjcuNjE3LTQuMzc1IDMuMDQyLTguNTk0IDYuMzg4LTEzLjI0OCA4LjkzLTE0LjA5IDcuNjk3LTI4LjQxNiAzLjMyMi0zNC41MzMtMTEuNjU3LTguMDQ3LTE5LjcwNS0xNS4xMDctMzkuODMyLTIyLjA5Ni01OS45NS0zNS44NjMtMTAzLjIyMS02Ni45NjEtMjA3LjgzLTkwLjkxNy0zMTQuNDk3LTEuNDU4LTYuNDk0LTIuODQ0LTEzLjAwOC00LjA4OC0xOS41NDUtMi40NC0xMi44MjkgMS4zNjgtMjMuNzA0IDEwLjg3NS0zMi40ODUgNC44ODktNC41MTUgMTAuMDg3LTguNzEgMTUuMjkzLTEyLjg2NCA2My4wOS01MC4zNTIgMTIyLjk5NS0xMDQuMjc1IDE3OS4zNDUtMTYyLjAzNCAxMzcuNjg2LTE0MS4xMjYgMjUzLjA4MS0yOTguNTY2IDM0NS4xNS00NzMuMDU1IDgxLjg3OC0xNTUuMTc1IDE0Mi4yNjktMzE4LjI4NiAxODEuODM4LTQ4OS4xNDYgMTMuNjc4LTU5LjA2MSAyMy45MjYtMTE4Ljc3MiAzMi41ODMtMTc4Ljc1Ni43NDgtNS4xODguNTQ0LTEwLjUxMy43NzgtMTUuNjkyLTIuMDgyLTEuNTI2LTMuNDg3LTMuMDQ4LTUuMjIzLTMuNzU5LTExNS41NC00Ny4yNjMtMjM0LjMyMi04My44OTctMzU4LjM5NC0xMDguOTM4eiIgZmlsbD0iIzAxNzhmZiIvPjwvc3ZnPg==" alt="FanDuel" class="fd-logo">
+  <div class="header-text">
+    <div class="header-title">Clubhouse Support Guide</div>
+    <div class="header-sub">Internal — Confidential</div>
+  </div>
+  <div class="header-right">
+    <button class="theme-btn" onclick="toggleTheme()" id="theme-btn">&#9728;&#65039; Light Mode</button>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat-card"><div class="stat-num">19</div><div class="stat-label">Known Issues</div></div>
+  <div class="stat-card"><div class="stat-num">6</div><div class="stat-label">Confluence Sources</div></div>
+  <div class="stat-card"><div class="stat-num">28</div><div class="stat-label">FAQ Items</div></div>
+  <div class="stat-card"><div class="stat-num">12</div><div class="stat-label">Resources</div></div>
+</div>
+
+<div class="nav-bar">
+  <button class="nav-tab active" onclick="showSection('issues',this)">&#128295; Issues</button>
+  <button class="nav-tab" onclick="showSection('gameplay',this)">&#127918; Game Play Rules</button>
+  <button class="nav-tab" onclick="showSection('calendar',this)">&#128197; Contest Calendar</button>
+  <button class="nav-tab" onclick="showSection('account',this)">&#128100; Account Info</button>
+  <button class="nav-tab" onclick="showSection('slas',this)">&#128203; SLAs</button>
+  <button class="nav-tab" onclick="showSection('resources',this)">&#128279; Resources</button>
+  <button class="nav-tab" onclick="showSection('faq',this)">&#10067; FAQ</button>
+</div>
+
+<!-- ===== ISSUES ===== -->
+<div id="sec-issues" class="section active">
+
+  <div style="background:linear-gradient(135deg,rgba(1,120,255,.12) 0%,rgba(96,165,250,.06) 100%);border:1px solid rgba(1,120,255,.25);border-radius:14px;padding:22px 24px;margin-bottom:20px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+      <div style="font-size:28px;">&#127942;</div>
+      <div>
+        <div style="font-size:18px;font-weight:800;color:var(--text);">FanDuel Clubhouse</div>
+        <div style="font-size:12px;color:var(--text2);margin-top:2px;">Internal Employee Sportsbook Platform</div>
+      </div>
+    </div>
+    <div style="font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:16px;">
+      Clubhouse is FanDuel&#39;s internal contest platform &mdash; a fully legal, compliant sportsbook environment built exclusively for employees. It mirrors the real FanDuel sportsbook experience, letting staff place bets, compete on leaderboards, and win prizes, all while learning how the product works from the inside and shaping product feedback before changes reach customers.
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin-bottom:16px;">
+      <div style="background:rgba(1,120,255,.15);border:1px solid rgba(1,120,255,.35);border-radius:10px;padding:12px 14px;overflow:hidden;">
+        <div style="font-size:11px;color:#60a5fa;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;font-weight:600;">&#128101; Who Can Join</div>
+        <div style="font-size:12px;color:var(--text);line-height:1.6;word-wrap:break-word;">Full-time FanDuel employees 21+ in US, UK, Canada, Porto, Dublin, and Australia</div>
+      </div>
+      <div style="background:rgba(168,85,247,.15);border:1px solid rgba(168,85,247,.35);border-radius:10px;padding:12px 14px;overflow:hidden;">
+        <div style="font-size:11px;color:#d8b4fe;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;font-weight:600;">&#128241; How to Access</div>
+        <div style="font-size:12px;color:var(--text);line-height:1.6;word-wrap:break-word;">Download via Runway (Okta)<br>Web: clubhouse.sportsbook.fanduel.com</div>
+      </div>
+      <div style="background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.35);border-radius:10px;padding:12px 14px;overflow:hidden;">
+        <div style="font-size:11px;color:#fcd34d;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;font-weight:600;">&#128197; Contest Frequency</div>
+        <div style="font-size:12px;color:var(--text);line-height:1.6;word-wrap:break-word;">~Once a month, around major sporting events. Dates in <strong>#internal-contests</strong></div>
+      </div>
+      <div style="background:rgba(20,184,166,.15);border:1px solid rgba(20,184,166,.35);border-radius:10px;padding:12px 14px;overflow:hidden;">
+        <div style="font-size:11px;color:#5eead4;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;font-weight:600;">&#9993;&#65039; Your Email</div>
+        <div style="font-size:12px;color:#5eead4;font-weight:600;line-height:1.8;word-break:break-all;font-family:monospace;">firstname.lastname<br>+fdclubhouse<br>@fanduel.com</div>
+      </div>
+      <div style="background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.35);border-radius:10px;padding:12px 14px;overflow:hidden;">
+        <div style="font-size:11px;color:#86efac;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;font-weight:600;">&#127885; Prizes</div>
+        <div style="font-size:12px;color:var(--text);line-height:1.6;word-wrap:break-word;">Spotlight (US/UK/CA) &middot; AU Rewards (AUS) &middot; Flutter Kudos (Dublin/Porto)</div>
+      </div>
+      <div style="background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.35);border-radius:10px;padding:12px 14px;overflow:hidden;">
+        <div style="font-size:11px;color:#fca5a5;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;font-weight:600;">&#9888;&#65039; Key Rule</div>
+        <div style="font-size:12px;color:var(--text);line-height:1.6;word-wrap:break-word;">No deposits or withdrawals. Clubhouse account only &mdash; cannot log into other FanDuel products</div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--border);padding-top:14px;">
+      <div style="font-size:12px;font-weight:600;color:#93c5fd;margin-bottom:8px;">&#9888;&#65039; Critical Compliance Rules</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;">
+        <span style="background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.2);border-radius:6px;padding:4px 10px;font-size:12px;color:#fca5a5;">&#10060; No withdrawals</span>
+        <span style="background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.2);border-radius:6px;padding:4px 10px;font-size:12px;color:#fca5a5;">&#10060; No deposits</span>
+        <span style="background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.2);border-radius:6px;padding:4px 10px;font-size:12px;color:#fca5a5;">&#10060; No cross-app login</span>
+        <span style="background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.2);border-radius:6px;padding:4px 10px;font-size:12px;color:#fca5a5;">&#10060; Not available in Romania</span>
+        <span style="background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:6px;padding:4px 10px;font-size:12px;color:#86efac;">&#10003; Use +fdclubhouse email only</span>
+        <span style="background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:6px;padding:4px 10px;font-size:12px;color:#86efac;">&#10003; Clubhouse app/web only</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="qref">
+    <div class="qref-title">&#9889; Quick Reference &mdash; Password Reset Credentials</div>
+    <div class="qref-row">
+      <span class="pill">Primary: <strong>DOB 01/01/1901 &middot; SSN 9999</strong></span>
+      <span class="pill">If fails: <strong>SSN 1111</strong> (same DOB)</span>
+      <span class="pill">Still failing: <strong>DM user a direct reset link</strong></span>
+    </div>
+  </div>
+
+  <div class="filter-row">
+    <span class="filter-tab active" onclick="filterTab(this,'all')">All</span>
+    <span class="filter-tab" onclick="filterTab(this,'login')">Login &amp; Auth</span>
+    <span class="filter-tab" onclick="filterTab(this,'location')">Location</span>
+    <span class="filter-tab" onclick="filterTab(this,'account')">Account</span>
+    <span class="filter-tab" onclick="filterTab(this,'bets')">Bet Issues</span>
+    <input class="search-box" type="text" placeholder="Search issues..." oninput="doSearch(this)">
+  </div>
+
+  <div id="issues-list">
+
+    <div class="card" data-cat="login">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
+          <span class="card-title">1. Password Reset &mdash; &ldquo;Details Don&#39;t Match&rdquo;</span>
+          
+        </div><span class="chevron">&#9660;</span>
+      </div>
+      <div class="card-body">
+        <ol>
+          <li>Use DOB: <code>01/01/1901</code></li>
+          <li>Try SSN: <code>9999</code> first</li>
+          <li>If that fails, try SSN: <code>1111</code></li>
+          <li>If still failing, DM the user a manual password reset link</li>
+        </ol>
+        <div class="note">The password can be set to anything once the reset link is accessed.</div>
+      </div>
+    </div>
+
+    <div class="card" data-cat="login">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
+          <span class="card-title">2. Password Reset Email Not Received</span>
+          
+        </div><span class="chevron">&#9660;</span>
+      </div>
+      <div class="card-body">
+        <ol>
+          <li>Confirm user is entering their <code>+fdclubhouse</code> email &mdash; <code>firstname.lastname+fdclubhouse@fanduel.com</code></li>
+          <li>Check the <a href="https://fanduelgroup.sharepoint.com/:x:/s/FDG-ClubhouseAccounts/EbUD-nP2tn5Bt6j4ktJqTOUBzTkfR4Wy3AJ_kJ1UKn_zEQ" target="_blank">accounts spreadsheet</a> &mdash; if not listed, account not yet provisioned</li>
+          <li>If not in spreadsheet, request via the <a href="https://fanduel.atlassian.net/servicedesk/customer/portal/50/create/756" target="_blank">ARB</a>:<ul style="margin-top:6px;"><li>Access Request System: <strong>Runway</strong></li><li>Permission Level: <strong>Runway - Clubhouse</strong></li></ul></li>
+          <li>If in spreadsheet but no email: check for name changes (married vs maiden). Email can be updated to match</li>
+          <li>As a workaround, generate and DM a direct password reset link</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="card" data-cat="account">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
+          <span class="card-title">3. Account Not Yet Provisioned / No Account</span>
+          
+        </div><span class="chevron">&#9660;</span>
+      </div>
+      <div class="card-body">
+        <p>To request an account, create a ticket on the <a href="https://fanduel.atlassian.net/servicedesk/customer/portal/50/create/756" target="_blank">ARB</a>, asking for:</p>
+        <div class="arb-box"><ul><li><strong>Access Request System:</strong> Runway</li><li><strong>Permission Level:</strong> Runway - Clubhouse</li></ul><p style="margin-top:8px;font-size:12px;color:var(--text2);">This will generate an account for the user.</p></div>
+      </div>
+    </div>
+
+    <div class="card" data-cat="location">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
+          <span class="card-title">4. Location Verification Failed &mdash; Web</span>
+          
+        </div><span class="chevron">&#9660;</span>
+      </div>
+      <div class="card-body">
+        <ol>
+          <li><strong>If account is brand new</strong> &mdash; may not be GeoComply-whitelisted yet. Whitelisting happens in batches on <strong>Fridays</strong>. Wait until the next Friday if less than one Friday has passed since hire.</li>
+          <li><strong>Disconnect from GlobalProtect VPN</strong> &mdash; web version requires no VPN</li>
+          <li><strong>Check Netskope</strong> &mdash; confirm &ldquo;Private Access&rdquo; is <strong>enabled</strong></li>
+          <li>Clear browser cache and cookies, then reload</li>
+          <li>If still failing, try a different browser</li>
+          <li>If issue persists and appears non-user-error, raise via <a href="https://flutter.enterprise.slack.com/archives/C013F24549Y" target="_blank">#sportsbook-support</a></li>
+        </ol>
+        <div class="note">If outside the US, try routing traffic via VPN from a US server.</div>
+      </div>
+    </div>
+
+    <div class="card" data-cat="location">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
+          <span class="card-title">5. Location Verification Failed &mdash; Mobile App</span>
+          
+        </div><span class="chevron">&#9660;</span>
+      </div>
+      <div class="card-body">
+        <ol>
+          <li><strong>If account is brand new</strong> &mdash; GeoComply whitelisting happens in batches on <strong>Fridays</strong>. Ask them to wait if less than one Friday has passed since hire.</li>
+          <li>Confirm user is logged in with their <code>+fdclubhouse</code> account, <strong>not</strong> their regular FanDuel account</li>
+          <li>Check app location permissions: iOS &rarr; Settings &rarr; find the app &rarr; Location &rarr; set to <strong>Always</strong></li>
+          <li>If permissions were previously denied, delete and reinstall &mdash; allow location on first launch</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="card" data-cat="login">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
+          <span class="card-title">6. iOS &ldquo;Untrusted Developer&rdquo; Error</span>
+          
+        </div><span class="chevron">&#9660;</span>
+      </div>
+      <div class="card-body">
+        <ol>
+          <li>Go to <strong>Settings &rarr; General &rarr; VPN &amp; Device Management &rarr; FanDuel Inc.</strong></li>
+          <li>Tap <strong>&ldquo;Trust Developer&rdquo;</strong></li>
+          <li>Restart the phone when prompted</li>
+          <li>App should work after restart</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="card" data-cat="login">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
+          <span class="card-title">7. Okta / FastPass Not Working on Phone</span>
+          
+        </div><span class="chevron">&#9660;</span>
+      </div>
+      <div class="card-body">
+        <ol>
+          <li>Open <strong>Okta Verify</strong> &rarr; tap <strong>&ldquo;Launch Dashboard&rdquo;</strong></li>
+          <li>Scroll to bottom &rarr; find <strong>Runway</strong> &rarr; tap it</li>
+          <li>Log in with your regular <code>@fanduel.com</code> email</li>
+          <li>If Runway fails and redirects back to Okta Verify setup, the issue is with Okta FastPass &mdash; outside Clubhouse scope. File an IT ticket via Jarvis: &ldquo;Need help configuring Okta FastPass on my device&rdquo;</li>
+        </ol>
+        <div class="info">No Runway on Okta? Atlassian Service Desk &rarr; Access Request Board &rarr; Common Requests &rarr; Access Request &rarr; System: Runway &rarr; Permission: Runway - Clubhouse.</div>
+      </div>
+    </div>
+
+    <div class="card" data-cat="login">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
+          <span class="card-title">8. MFA / Verification Code Prompt on New Device</span>
+          
+        </div><span class="chevron">&#9660;</span>
+      </div>
+      <div class="card-body">
+        <p style="margin-bottom:10px;">MFA is turned off by default. It only triggers as a <strong>new device challenge</strong> when first logging in to a new build.</p>
+        <ol>
+          <li>When prompted, select the <strong>&ldquo;Email&rdquo;</strong> option at the bottom &mdash; text and authenticator options will <strong>not</strong> work</li>
+          <li>The code email may arrive in the <strong>&ldquo;Other&rdquo;</strong> folder &mdash; check there if not in the main inbox</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="card" data-cat="account">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
+          <span class="card-title">9. &ldquo;Linked Account&rdquo; / Duplicate Account Error</span>
+          
+        </div><span class="chevron">&#9660;</span>
+      </div>
+      <div class="card-body">
+        <ol>
+          <li>Confirm the exact email being used (<code>firstname.lastname+fdclubhouse@fanduel.com</code>)</li>
+          <li>A CS agent with admin access needs to remove the duplicate &mdash; escalate to a senior agent/admin if you don&#39;t have that access</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="card" data-cat="account">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
+          <span class="card-title">10. Account Suspended</span>
+          
+        </div><span class="chevron">&#9660;</span>
+      </div>
+      <div class="card-body">
+        <p>Have the user email <a href="mailto:fdgcomplianceops@fanduel.com">fdgcomplianceops@fanduel.com</a> to resolve the suspension.</p>
+      </div>
+    </div>
+
+    <div class="card" data-cat="location">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
+          <span class="card-title">11. 403 Error Accessing the Website</span>
+          
+        </div><span class="chevron">&#9660;</span>
+      </div>
+      <div class="card-body">
+        <ol>
+          <li>Check Netskope &mdash; ensure <strong>&ldquo;Private Access&rdquo; is enabled</strong></li>
+          <li>Make sure you are <strong>not</strong> on GlobalProtect VPN</li>
+          <li>Try an incognito/private window</li>
+          <li>If issue persists, try the mobile app and open an EITSD ticket for the web access issue</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="card" data-cat="bets">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
+          <span class="card-title">12. Bets Not Appearing in &ldquo;My Bets&rdquo;</span>
+          
+        </div><span class="chevron">&#9660;</span>
+      </div>
+      <div class="card-body">
+        <ol>
+          <li>Check <strong>Transaction History</strong> &mdash; if deduction is there, bet was placed and issue is display-only</li>
+          <li>Note the <strong>Bet Reference number</strong> (format: <code>fd:01jw...</code>)</li>
+          <li>Reassure the user: their balance is correct even if the bet doesn&#39;t display</li>
+          <li>If widespread or not user error, raise via <a href="https://flutter.enterprise.slack.com/archives/C013F24549Y" target="_blank">#sportsbook-support</a> or get IT-Ops to help find an owner</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="card" data-cat="bets">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
+          <span class="card-title">13. Leaderboard Balance Doesn&#39;t Match Account Balance</span>
+          
+        </div><span class="chevron">&#9660;</span>
+      </div>
+      <div class="card-body">
+        <p style="margin-bottom:10px;">Leaderboards <strong>throughout the contest are always directional and never final.</strong> The final leaderboard is published <strong>1 day after the contest ends</strong>.</p>
+        <ol>
+          <li>Reassure the user: whatever they see on their app is what will count</li>
+          <li>If the balance appears wrong <strong>after the final leaderboard has been published</strong>, escalate to <strong>Eric Milam</strong> or <strong>Ky Coony</strong> &mdash; do not contact them before the final leaderboard is out</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="card" data-cat="login">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
+          <span class="card-title">14. &ldquo;This Service Is Unavailable&rdquo; on Login</span>
+          
+        </div><span class="chevron">&#9660;</span>
+      </div>
+      <div class="card-body">
+        <p style="margin-bottom:10px;">Typically means the user is logging in with the wrong email on the wrong app.</p>
+        <ol>
+          <li>Confirm the user is using their <code>+fdclubhouse</code> email on the <strong>Clubhouse app</strong></li>
+          <li>Confirm they are not using Clubhouse credentials on the regular FanDuel Sportsbook app</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="card" data-cat="bets">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
+          <span class="card-title">15. No Balance / Funds in Account</span>
+          
+        </div><span class="chevron">&#9660;</span>
+      </div>
+      <div class="card-body">
+        <p style="margin-bottom:10px;">When a contest starts, users receive <strong>bonus bets</strong>, not cash &mdash; they must be toggled on, not auto-applied.</p>
+        <ol>
+          <li>Go to the <strong>Rewards</strong> section in the app</li>
+          <li>Add a selection to the betslip</li>
+          <li><strong>Toggle on</strong> the bonus bet from the betslip to apply it</li>
+        </ol>
+        <div class="info">Bonus bets must &ldquo;win&rdquo; to convert to cash. Only net winnings carry over &mdash; the stake is not returned.</div>
+      </div>
+    </div>
+
+    <div class="card" data-cat="login">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
+          <span class="card-title">16. App Crashes / Won&#39;t Open on iPhone</span>
+          
+        </div><span class="chevron">&#9660;</span>
+      </div>
+      <div class="card-body">
+        <ol>
+          <li>The user needs to download a <strong>new build</strong></li>
+          <li>Settings &rarr; General &rarr; VPN &amp; Device Management &rarr; FanDuel Inc. &rarr; Delete App</li>
+          <li>Re-follow the Runway download guide to install the latest build (canvas at top of <strong>#internal-contests</strong>)</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="card" data-cat="login">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
+          <span class="card-title">17. White Screen on App &mdash; Won&#39;t Load</span>
+          
+        </div><span class="chevron">&#9660;</span>
+      </div>
+      <div class="card-body"><ol><li>Delete and redownload the app.</li></ol></div>
+    </div>
+
+    <div class="card" data-cat="general">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
+          <span class="card-title">18. &ldquo;Waiting for Tipoff&rdquo; Loading Screen Stuck</span>
+          
+        </div><span class="chevron">&#9660;</span>
+      </div>
+      <div class="card-body"><ol><li>Close the app completely and relaunch.</li></ol></div>
+    </div>
+
+    <div class="card" data-cat="bets">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
+          <span class="card-title">19. &ldquo;No Funds Deducted&rdquo; Error When Placing a Bet</span>
+          
+        </div><span class="chevron">&#9660;</span>
+      </div>
+      <div class="card-body">
+        <p>The contest has not started yet. Check <strong>#internal-contests</strong> to confirm the start date &mdash; the user may be trying to bet before the contest window opens.</p>
+      </div>
+    </div>
+
+    <div class="no-results" id="no-results">No issues match your search.</div>
+  </div>
+
+  <div class="sec-heading">Escalation Path</div>
+  <div class="warn" style="margin-bottom:14px;">&#128680; <strong>Clubhouse issues should never be paged.</strong> They can be raised as Incident Management tickets with a <strong>maximum priority of P3</strong>. If a contest issue is potentially contest-breaking, do your best to get attention on it as quickly as possible via <a href="https://flutter.enterprise.slack.com/archives/C013F24549Y" target="_blank">#sportsbook-support</a>.</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Situation</th><th>Action</th></tr></thead>
+    <tbody>
+    <tr><td>Self-resolvable (password, location, Okta)</td><td>Follow steps above, DM user if needed</td></tr>
+    <tr><td>Needs admin access (dedup, account fix, manual reset link)</td><td>Escalate to a senior agent or admin with Clubhouse admin access</td></tr>
+    <tr><td>Appears to be a product/service issue (not user error)</td><td>Raise via <a href="https://flutter.enterprise.slack.com/archives/C013F24549Y" target="_blank"><strong>#sportsbook-support</strong></a> and follow regular triage. <strong>Never page &mdash; raise as IM, max P3.</strong></td></tr>
+    <tr><td>Contest-breaking issue</td><td>Urgently raise via <a href="https://flutter.enterprise.slack.com/archives/C013F24549Y" target="_blank">#sportsbook-support</a>. <strong>No paging &mdash; IM only, max P3.</strong></td></tr>
+    <tr><td>IT (Okta FastPass, Netskope, device management)</td><td>Open ticket via <strong>Jarvis &rarr; EITSD portal</strong></td></tr>
+    <tr><td>Account suspended</td><td>User emails <a href="mailto:fdgcomplianceops@fanduel.com">fdgcomplianceops@fanduel.com</a></td></tr>
+    <tr><td>Leaderboard wrong after final published (1 day post-contest)</td><td>Contact <strong>Eric Milam</strong> or <strong>Ky Coony</strong></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="sec-heading">Contact Channels</div>
+  <div class="email-grid">
+    <div class="email-card"><div class="email-card-name">#sportsbook-support</div><div class="email-card-role">Product/service escalation</div><a href="https://flutter.enterprise.slack.com/archives/C013F24549Y">Open in Slack</a></div>
+    <div class="email-card"><div class="email-card-name">#internal-contests</div><div class="email-card-role">Contest announcements, leaderboards</div><a href="https://fanduel.slack.com/channels/internal-contests">Open in Slack</a></div>
+    <div class="email-card"><div class="email-card-name">#clubhouse-product-feedback</div><div class="email-card-role">Feature ideas, product feedback</div><a href="https://fanduel.slack.com/channels/clubhouse-product-feedback">Open in Slack</a></div>
+    <div class="email-card"><div class="email-card-name">fdgcomplianceops@fanduel.com</div><div class="email-card-role">Account suspensions &amp; compliance</div><a href="mailto:fdgcomplianceops@fanduel.com">Send Email</a></div>
+  </div>
+</div>
+
+<!-- ===== GAME PLAY RULES ===== -->
+<div id="sec-gameplay" class="section">
+  <div class="sec-heading">What is Clubhouse?</div>
+  <div class="sec-sub">FanDuel Clubhouse is the company&#39;s internal contest platform &mdash; a fully legal, compliant sportsbook environment for employees to deepen product knowledge, provide feedback, and compete for prizes while experiencing the sportsbook from the inside.</div>
+
+  <div class="sec-heading">Employee Eligibility</div>
+  <div class="sec-sub">Available to all full-time FanDuel employees 21+ under permanent or fixed-term agreements in: US, Canada, UK, Porto (Tech/Product/Data/Enterprise), Dublin (FanDuel-specific job titles), and Australia. US employees on a state gambling exclusion list are not eligible.</div>
+
+  <div class="sec-heading">Compliance Rules</div>
+  <div style="background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:14px 18px;margin-bottom:16px;">
+    <div style="font-size:13px;color:#fca5a5;font-weight:600;margin-bottom:8px;">&#9888;&#65039; Employee Play Policy &mdash; Must Follow</div>
+    <ul style="padding-left:18px;font-size:13px;color:var(--text2);line-height:1.8;">
+      <li>Bets must be placed using a <strong>Clubhouse account only</strong></li>
+      <li>Winnings <strong>may NOT be withdrawn</strong></li>
+      <li>Personal funds <strong>may NOT be deposited</strong></li>
+      <li>Funds from other FanDuel accounts <strong>may NOT be transferred</strong> to Clubhouse</li>
+      <li>Clubhouse login <strong>may NOT be used</strong> on other FanDuel products</li>
+      <li>Violations may result in <strong>disciplinary action</strong></li>
+    </ul>
+  </div>
+
+  <div class="sec-heading">Contest Period &amp; Entry</div>
+  <div class="sec-sub">Announced via <strong>#internal-contests</strong> and in the Promotions Carousel. Eligible employees are automatically issued site credit and/or Bonus Bets at contest start. Additional generosity may include Profit Boost Tokens, Boost Builder Tokens, and No Sweat Tokens (valid for cash wagers only).</div>
+
+  <div class="sec-heading">Leaderboards</div>
+  <div class="lb-card"><div class="lb-card-title">&#127942; Largest Final Cash Balance</div><div class="lb-card-desc">Largest overall cash balance at end of Contest Period, regardless of wager type or stake.</div></div>
+  <div class="lb-card"><div class="lb-card-title">&#127919; Biggest Odds on a Winning Single Wager</div><div class="lb-card-desc">Biggest odds on a winning Single Wager (moneyline, spread, over/under, player props &mdash; no parlays/futures) with stake &ge; $1.00. Must settle to completion, no cashouts.</div></div>
+  <div class="lb-card"><div class="lb-card-title">&#128176; Biggest Return on Investment (Single Wager)</div><div class="lb-card-desc">Biggest net winnings (total payout minus initial stake) on a winning Single Wager with stake &ge; $1.00.</div></div>
+  <div class="lb-card"><div class="lb-card-title">&#128202; YourWay Leaderboard</div><div class="lb-card-desc">Most cumulative money earned betting via the YourWay tab. All YourWay winnings summed at contest end.</div></div>
+
+  <div class="sec-heading">Wagering Rules</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Rule</th><th>Details</th></tr></thead>
+    <tbody>
+    <tr><td>&#10003; Timing</td><td>Bets must be placed AND settle within the Contest Period.</td></tr>
+    <tr><td>&#10007; Unsettled bets</td><td>Any bet not settled by end of Contest Period does not count.</td></tr>
+    <tr><td>&#10007; Pre-contest bets</td><td>Bets placed before the Contest Period that settle during it do not count.</td></tr>
+    <tr><td>&#10003; Eligibility</td><td>Must place at least one wager during the Contest Period to be eligible for prizes.</td></tr>
+    <tr><td>&#10007; $0 balance</td><td>Employees with $0.00 balance are not eligible for prizes.</td></tr>
+    <tr><td>&#129309; Ties</td><td>Tied employees split the prize money for the respective position(s).</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="sec-heading">Prizes &amp; Winner Notification</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Region</th><th>Prize Format</th></tr></thead>
+    <tbody>
+    <tr><td>US / UK / Canada</td><td>Spotlight Recognition Program (1 point = $1 USD) &mdash; within 30 days</td></tr>
+    <tr><td>Australia</td><td>FanDuel Australia Rewards (1 point = $1 AUD)</td></tr>
+    <tr><td>Dublin / Porto</td><td>Flutter Kudos program (Smashed It &rarr; Stand Out award)</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="sec-heading">Bet Types</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Type</th><th>Description</th></tr></thead>
+    <tbody>
+    <tr><td>Moneyline</td><td>Bet on which team wins outright.</td></tr>
+    <tr><td>Total / Over-Under</td><td>Bet on total combined points scored.</td></tr>
+    <tr><td>Prop</td><td>Bet not tied to game outcome (player props, game props).</td></tr>
+    <tr><td>SGP</td><td>Same Game Parlay &mdash; 2+ selections from a single game.</td></tr>
+    <tr><td>SGP+</td><td>SGP with selections from additional games.</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="sec-heading">Bonus Bets &amp; Tokens</div>
+  <div class="card"><div class="card-header" onclick="toggleCard(this)"><span class="card-title">Bonus Bets</span><span class="chevron">&#9660;</span></div><div class="card-body"><p style="color:var(--text2);line-height:1.7;">A risk-free wager that must &ldquo;win&rdquo; to convert to cash. Only net winnings are kept &mdash; stake not returned. Example: $100 bonus at -200 odds &rarr; win = $50 cash. Leaderboards track cash balance only.</p></div></div>
+  <div class="card"><div class="card-header" onclick="toggleCard(this)"><span class="card-title">Profit Boost Tokens (PBT)</span><span class="chevron">&#9660;</span></div><div class="card-body"><p style="color:var(--text2);line-height:1.7;">Boost odds by a set %. Example: +393 + 30% PBT = +510. Toggle on betslip. Cash bets only.</p></div></div>
+  <div class="card"><div class="card-header" onclick="toggleCard(this)"><span class="card-title">Boost Builder Tokens (BBT)</span><span class="chevron">&#9660;</span></div><div class="card-body"><p style="color:var(--text2);line-height:1.7;">Boost parlay odds. 3-leg = +15%; each additional leg (up to 12) adds 10pp. Cash bets only.</p></div></div>
+</div>
+
+<!-- ===== CONTEST CALENDAR ===== -->
+<div id="sec-calendar" class="section">
+  <div class="sec-heading">2026 Upcoming Contests</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Contest</th><th>Start</th><th>End</th><th>Generosity</th><th>Paytable</th><th>Status</th></tr></thead>
+    <tbody>
+    <tr><td>CL Final + Golf</td><td>May 29</td><td>Jun 5</td><td>French Open &middot; BRT &middot; 50% Live PBT<br><small style="color:var(--text2);">Side LB: Live bet</small></td><td>$20K</td><td><span class="status-active">&#128308; Active</span></td></tr>
+    <tr><td>World Cup</td><td>Jun 11</td><td>Jun 18</td><td>Reg. 30% PBT<br><small style="color:var(--text2);">Side LB: Team (5s)</small></td><td>$25K</td><td><span class="status-upcoming">Upcoming</span></td></tr>
+    <tr><td>Summer Parties</td><td>Jul 6</td><td>Jul 20</td><td>Wimbledon 30% &middot; Bet Back Token &middot; 100 Bonus Bet</td><td>$15K</td><td><span class="status-upcoming">Upcoming</span></td></tr>
+    <tr><td>NFL Week 1</td><td>Sep 9</td><td>Sep 16</td><td>Bet Back Token &middot; Yankees vs Mets 30%<br><small style="color:var(--text2);">Side LB: Anytime TD</small></td><td>$30K</td><td><span class="status-upcoming">Upcoming</span></td></tr>
+    <tr><td>October</td><td>Oct 20</td><td>Oct 27</td><td>World Series 20% PBT<br><small style="color:var(--text2);">Side LB: Largest parlay won</small></td><td>$20K</td><td><span class="status-upcoming">Upcoming</span></td></tr>
+    <tr><td>November / Thanksgiving</td><td>Nov 16</td><td>Nov 30</td><td>30% PBT &middot; BRT &middot; Thanksgiving 25% PBT<br><small style="color:var(--text2);">Side LB: "Pass the Leg"</small></td><td>$30K</td><td><span class="status-upcoming">Upcoming</span></td></tr>
+    <tr><td>December</td><td>Dec 15</td><td>Dec 22</td><td>200 Bonus Bet &middot; 30% PBT &middot; Bet Back Token<br><small style="color:var(--text2);">Side LB: Bad Beat Naughty List</small></td><td>$25K</td><td><span class="status-upcoming">Upcoming</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="sec-heading">2026 Completed</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Contest</th><th>Dates</th><th>Paytable</th><th>Spend</th></tr></thead>
+    <tbody>
+    <tr><td>Masters Series</td><td>Jan 29 &ndash; Feb 12</td><td>$55,810</td><td>$78,134</td></tr>
+    <tr><td>February</td><td>Feb 24 &ndash; Mar 3</td><td>$31,920</td><td>$47,488</td></tr>
+    <tr><td>Express Make Good</td><td>Mar 6 &ndash; Mar 10</td><td>$8,935</td><td>$12,509</td></tr>
+    <tr><td>March / MLB HR</td><td>Mar 18 &ndash; Apr 1</td><td>$35,100</td><td>$49,140</td></tr>
+    <tr><td>April (NHL/NBA Playoffs)</td><td>Apr 21 &ndash; Apr 28</td><td colspan="2">$0 &mdash; Scrapped</td></tr>
+    </tbody>
+  </table></div>
+  <div class="info" style="margin-top:16px;">All Change Freeze Schedules run at <strong>2pm GMT</strong>. Dates posted to <strong>#internal-contests</strong> before each contest. <a href="https://10ay.online.tableau.com/#/site/fanduelgroup/views/ClubhouseKPIs/ClubhousePerformanceDashboard" target="_blank">Open KPI Dashboard &rarr;</a></div>
+</div>
+
+<!-- ===== ACCOUNT INFO ===== -->
+<div id="sec-account" class="section">
+  <div class="sec-heading">Account Characteristics</div>
+  <div class="acct-grid">
+    <div class="acct-item"><div class="acct-label">Username Format</div><div class="acct-value"><code>{firstname}{lastname}fdc</code></div></div>
+    <div class="acct-item"><div class="acct-label">Email (US/UK/Porto)</div><div class="acct-value"><code style="font-size:11px;">firstname.lastname+fdclubhouse@fanduel.com</code></div></div>
+    <div class="acct-item"><div class="acct-label">Email (Dublin)</div><div class="acct-value"><code style="font-size:11px;">firstname.lastname+fdclubhouse@ppb.com</code></div></div>
+    <div class="acct-item"><div class="acct-label">Email (Australia)</div><div class="acct-value"><code style="font-size:11px;">firstname.lastname+fdclubhouse@sportsbet.com.au</code></div></div>
+    <div class="acct-item"><div class="acct-label">Backend Flags</div><div class="acct-value"><code>IS_STAFF</code></div></div>
+    <div class="acct-item"><div class="acct-label">Backend Roles</div><div class="acct-value"><code>EMPLOYEE, CLUBHOUSE, USER</code></div></div>
+    <div class="acct-item"><div class="acct-label">Adminweb: Employee Account</div><div class="acct-value">&#10003; Yes</div></div>
+    <div class="acct-item"><div class="acct-label">Adminweb: Test Account</div><div class="acct-value">&#10007; No</div></div>
+    <div class="acct-item"><div class="acct-label">Default DOB (provisioning)</div><div class="acct-value"><code>1901-01-01</code></div></div>
+    <div class="acct-item"><div class="acct-label">Default SSN (provisioning)</div><div class="acct-value"><code>999999999</code></div></div>
+  </div>
+  <div class="sec-heading">Provisioning</div>
+  <div class="sec-sub">Accounts are auto-provisioned via a CPE lambda triggered when a user&#39;s Dayforce (HRIS) profile syncs with Okta during onboarding. Porto, Cluj, and Flutter org staff without Dayforce profiles can request access via the <a href="https://fanduel.atlassian.net/servicedesk/customer/portal/50/create/756" target="_blank">ARB</a> (System: Runway, Permission: Runway - Clubhouse). GeoComply whitelisting happens in batches on <strong>Fridays</strong>.</div>
+  <div class="sec-heading">Restrictions</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Can Do</th><th>Cannot Do</th></tr></thead>
+    <tbody><tr><td>Use SBK Clubhouse and all available actions</td><td>Log into other FanDuel products. Security rules block cross-product login in both directions.</td></tr></tbody>
+  </table></div>
+  <div class="sec-heading">Can&#39;t Find Your Email?</div>
+  <div class="sec-sub">Check the <a href="https://fanduelgroup.sharepoint.com/:x:/s/FDG-ClubhouseAccounts/EbUD-nP2tn5Bt6j4ktJqTOUBzTkfR4Wy3AJ_kJ1UKn_zEQ" target="_blank">accounts spreadsheet</a> and search your name. If not listed, request access via the <a href="https://fanduel.atlassian.net/servicedesk/customer/portal/50/create/756" target="_blank">ARB</a>.</div>
+</div>
+
+<!-- ===== SLAs ===== -->
+<div id="sec-slas" class="section">
+  <div class="sec-heading">Support Model Overview</div>
+  <div class="sec-sub">Clubhouse is an educational, non-commercially-regulated state with a different support model. Single-user account/access issues are typically not logged as incidents. App or service issues are logged via Service Management as normal IM tickets. If more widespread than Clubhouse, escalate to ITOPs.</div>
+  <div class="warn">&#128680; Clubhouse issues should <strong>never be paged</strong>. They can be raised as Incident Management tickets with a <strong>maximum priority of P3</strong>. If a contest issue is potentially contest-breaking, do your best to get attention on it as fast as possible.</div>
+
+  <div class="sec-heading">Service Level Agreements</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Scenario</th><th>Priority</th><th>Acknowledge</th><th>Resolve</th></tr></thead>
+    <tbody>
+    <tr><td>Credential Management</td><td><span class="priority-p4">P4</span></td><td>24 hrs</td><td>3 working days</td></tr>
+    <tr><td>Critical User Journeys (bet placement, settlement, login)</td><td><span class="priority-p4">P4</span></td><td>24 hrs</td><td>3 working days</td></tr>
+    <tr><td>Non-Critical User Journeys (livestream, UI bugs)</td><td><span class="priority-p5">P5</span></td><td>24 hrs</td><td>7 working days</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="sec-heading">Incident Fields (Clubhouse)</div>
+  <div class="acct-grid">
+    <div class="acct-item"><div class="acct-label">Work Type</div><div class="acct-value">Production Incident</div></div>
+    <div class="acct-item"><div class="acct-label">US State</div><div class="acct-value">Clubhouse</div></div>
+    <div class="acct-item"><div class="acct-label">Environment</div><div class="acct-value">Clubhouse</div></div>
+    <div class="acct-item"><div class="acct-label">Priority</div><div class="acct-value">P4 / P5 (see table)</div></div>
+  </div>
+
+  <div class="sec-heading">Contest Integrity Scenarios</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Scenario</th><th>Action</th></tr></thead>
+    <tbody>
+    <tr><td>Incorrect user behaviour detected</td><td>Discussed within contest management team</td></tr>
+    <tr><td>Feature affects contest integrity</td><td>Feature turned off (Engineering decision)</td></tr>
+    <tr><td>Bonus bets deleted or added incorrectly</td><td>Best efforts; may extend the contest</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<!-- ===== RESOURCES ===== -->
+<div id="sec-resources" class="section">
+  <div class="sec-heading">Key Resources</div>
+  <div class="resource-grid">
+    <div class="resource-card"><div class="resource-card-title">App Download Guide</div><div class="resource-card-desc">Steps for downloading via Runway. Canvas at top of #internal-contests.</div><a href="https://fanduel.atlassian.net/wiki/spaces/DCO/pages/309718584950" target="_blank">Open Guide &rarr;</a></div>
+    <div class="resource-card"><div class="resource-card-title">Accounts Spreadsheet</div><div class="resource-card-desc">Find a user&#39;s Clubhouse email and account status.</div><a href="https://fanduelgroup.sharepoint.com/:x:/s/FDG-ClubhouseAccounts/EbUD-nP2tn5Bt6j4ktJqTOUBzTkfR4Wy3AJ_kJ1UKn_zEQ" target="_blank">Open Spreadsheet &rarr;</a></div>
+    <div class="resource-card"><div class="resource-card-title">Access Request (ARB)</div><div class="resource-card-desc">Request Runway / Clubhouse access. System: Runway, Permission: Runway - Clubhouse.</div><a href="https://fanduel.atlassian.net/servicedesk/customer/portal/50/create/756" target="_blank">Open ARB &rarr;</a></div>
+    <div class="resource-card"><div class="resource-card-title">Clubhouse FAQ (Confluence)</div><div class="resource-card-desc">Official FAQ covering access, compliance, contests, and errors.</div><a href="https://fanduel.atlassian.net/wiki/spaces/PS/pages/308782858532/Clubhouse+FAQ" target="_blank">Open FAQ &rarr;</a></div>
+    <div class="resource-card"><div class="resource-card-title">Game Play Rules</div><div class="resource-card-desc">Full contest rules, leaderboards, wagering, and prizes.</div><a href="https://fanduel.atlassian.net/wiki/spaces/NSL/pages/307893601600/FanDuel+Clubhouse+Game+Play+Rules" target="_blank">Open Rules &rarr;</a></div>
+    <div class="resource-card"><div class="resource-card-title">Environment Support Model</div><div class="resource-card-desc">SLAs, incident management, and architecture notes.</div><a href="https://fanduel.atlassian.net/wiki/spaces/SMAN/pages/309733099434" target="_blank">Open Doc &rarr;</a></div>
+    <div class="resource-card"><div class="resource-card-title">Account Characteristics</div><div class="resource-card-desc">Technical view of account structure and provisioning.</div><a href="https://fanduel.atlassian.net/wiki/spaces/RG/pages/310921822241" target="_blank">Open Doc &rarr;</a></div>
+    <div class="resource-card"><div class="resource-card-title">Clubhouse KPI Dashboard</div><div class="resource-card-desc">Player activity, engagement stats, performance metrics (Tableau).</div><a href="https://10ay.online.tableau.com/#/site/fanduelgroup/views/ClubhouseKPIs/ClubhousePerformanceDashboard" target="_blank">Open Dashboard &rarr;</a></div>
+    <div class="resource-card"><div class="resource-card-title">BYOD Device Enrollment</div><div class="resource-card-desc">Steps to enroll a managed device for Runway access.</div><a href="https://fanduel.atlassian.net/wiki/spaces/PS/pages/308996244477" target="_blank">Open Guide &rarr;</a></div>
+    <div class="resource-card"><div class="resource-card-title">Refer-a-Friend Form</div><div class="resource-card-desc">Refer a FanDueler &mdash; both receive $5 contest credit.</div><a href="https://forms.office.com/pages/responsepage.aspx?id=r958kUk-hU-abtBwyRsWf4PVt6SNBRFMtjy4x0gumElUM0hNM0xPUzhENjExTzhJSzNWTEJYNjNVQy4u&route=shorturl" target="_blank">Open Form &rarr;</a></div>
+    <div class="resource-card"><div class="resource-card-title">Employee Play Policy</div><div class="resource-card-desc">Official policy covering what employees can and cannot do.</div><a href="https://fanduel.interactgo.com/Interact/Pages/Content/Document.aspx?id=2154" target="_blank">Open Policy &rarr;</a></div>
+    <div class="resource-card"><div class="resource-card-title">#sportsbook-support</div><div class="resource-card-desc">Escalation channel for product/service issues. Never page &mdash; IM max P3.</div><a href="https://flutter.enterprise.slack.com/archives/C013F24549Y" target="_blank">Open in Slack &rarr;</a></div>
+  </div>
+  <div class="sec-heading">Slack Channels</div>
+  <div class="slack-chips">
+    <span class="slack-chip">#sportsbook-support &mdash; product escalation (IM, max P3)</span>
+    <span class="slack-chip">#internal-contests &mdash; announcements &amp; leaderboards</span>
+    <span class="slack-chip">#clubhouse-product-feedback &mdash; feature ideas</span>
+  </div>
+</div>
+
+<!-- ===== FAQ ===== -->
+<div id="sec-faq" class="section">
+  <div class="sec-heading">Access &amp; Setup</div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is Clubhouse? <span class="chevron">&#9660;</span></div><div class="faq-a">FanDuel Clubhouse is the company&#39;s internal contest platform &mdash; a 100% legal, compliant sportsbook environment for employees to deepen product knowledge, provide feedback, and compete for prizes.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How do I join Clubhouse? <span class="chevron">&#9660;</span></div><div class="faq-a">Accounts are provisioned automatically via HRIS/Okta sync during onboarding. If not provisioned, create a ticket on the <a href="https://fanduel.atlassian.net/servicedesk/customer/portal/50/create/756" target="_blank">ARB</a>: Access Request System: Runway, Permission Level: Runway - Clubhouse.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What will my Clubhouse email look like? <span class="chevron">&#9660;</span></div><div class="faq-a">US/UK/Porto: firstname.lastname+fdclubhouse@fanduel.com &middot; Dublin: firstname.lastname+fdclubhouse@ppb.com &middot; Australia: firstname.lastname+fdclubhouse@sportsbet.com.au. Check the <a href="https://fanduelgroup.sharepoint.com/:x:/s/FDG-ClubhouseAccounts/EbUD-nP2tn5Bt6j4ktJqTOUBzTkfR4Wy3AJ_kJ1UKn_zEQ" target="_blank">accounts spreadsheet</a> if unsure.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How do I log in for the first time? <span class="chevron">&#9660;</span></div><div class="faq-a">Go to clubhouse.sportsbook.fanduel.com &rarr; &ldquo;Forgot your password?&rdquo; &rarr; enter your +fdclubhouse email &rarr; check your normal FanDuel work inbox for the reset email &rarr; click the link &rarr; set a new password. When prompted for DOB and SSN, use DOB: <strong>01/01/1901</strong> and SSN: <strong>9999</strong>.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">I get &ldquo;You do not have permission to view this content&rdquo; on Runway. <span class="chevron">&#9660;</span></div><div class="faq-a">Request access via the <a href="https://fanduel.atlassian.net/servicedesk/customer/portal/50/create/756" target="_blank">ARB</a>:<br><br>&bull; Access Request System: <strong>Runway</strong><br>&bull; Permission Level: <strong>Runway - Clubhouse</strong></div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">I don&#39;t have Runway on my Okta. <span class="chevron">&#9660;</span></div><div class="faq-a">Create a ticket on the <a href="https://fanduel.atlassian.net/servicedesk/customer/portal/50/create/756" target="_blank">ARB</a>: Access Request System: Runway, Permission Level: Runway - Clubhouse. Granted within a few days pending manager approval.</div></div>
+
+  <div class="sec-heading" style="margin-top:20px;">Compliance &amp; Restrictions</div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can I withdraw or deposit funds? <span class="chevron">&#9660;</span></div><div class="faq-a">No. Both are against the employee play policy. Balances are cleared between contests.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can I use my Clubhouse login on other FanDuel products? <span class="chevron">&#9660;</span></div><div class="faq-a">No. Against the employee play policy. Security rules block cross-product login in both directions.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Are there country restrictions? <span class="chevron">&#9660;</span></div><div class="faq-a">Yes &mdash; Clubhouse cannot be used in Romania due to local laws. If you get a 404 or blank page from another country, try a VPN routed from the US.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Are markets limited on Clubhouse? <span class="chevron">&#9660;</span></div><div class="faq-a">No &mdash; the experience mirrors customers&#39;. New features may be tested on Clubhouse first. Market feedback goes to #clubhouse-product-feedback.</div></div>
+
+  <div class="sec-heading" style="margin-top:20px;">Contests &amp; Prizes</div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How do Clubhouse contests work? <span class="chevron">&#9660;</span></div><div class="faq-a">1. Contest announced in #internal-contests and via email. 2. Contest funds auto-added at start. 3. Wager using funds, promos, and winnings. 4. Leaderboard determines winners. 5. Results in #internal-contests. Awards via Spotlight (US/UK/CA) or HR (Dublin/Porto/AUS).</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How often do contests run? How long do they last? <span class="chevron">&#9660;</span></div><div class="faq-a">~Once a month, around major sporting events. Most run ~1 week. Always check #internal-contests for exact dates.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What prizes can I win? When will I get them? <span class="chevron">&#9660;</span></div><div class="faq-a">Prizes distributed within 30 days via Spotlight (US/UK/CA), FanDuel AU Rewards (AUS), or Flutter Kudos (Dublin/Porto).</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">I accidentally used all my bonus bets. Can I get more? <span class="chevron">&#9660;</span></div><div class="faq-a">No &mdash; we cannot void wagers or add more funds. Bonus bets are not eligible for cashouts.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">I received a message saying my winnings were taken out. Why? <span class="chevron">&#9660;</span></div><div class="faq-a">Clubhouse balances are cleared at the end of each contest &mdash; expected behaviour.</div></div>
+
+  <div class="sec-heading" style="margin-top:20px;">Technical Errors</div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">App crashes / won&#39;t open on iPhone. <span class="chevron">&#9660;</span></div><div class="faq-a">Download a new build: Settings &rarr; General &rarr; VPN &amp; Device Management &rarr; FanDuel Inc. &rarr; Delete App &rarr; re-follow the Runway download guide in the canvas at the top of #internal-contests.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">I get &ldquo;Sports betting isn&#39;t allowed where you&#39;re located.&rdquo; <span class="chevron">&#9660;</span></div><div class="faq-a">Confirm you&#39;re on the Clubhouse app and logged in with your +fdclubhouse email. On web: ensure Netskope &ldquo;Private Access&rdquo; is enabled and GlobalProtect VPN is off.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">My account says it&#39;s suspended. <span class="chevron">&#9660;</span></div><div class="faq-a">Email <a href="mailto:fdgcomplianceops@fanduel.com">fdgcomplianceops@fanduel.com</a> to resolve.</div></div>
+  <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Android: Cannot download after enabling &ldquo;install from unknown sources.&rdquo; <span class="chevron">&#9660;</span></div><div class="faq-a">File a ticket with IT via the Jarvis Slack app asking for help enabling the Clubhouse download with MDM enabled.</div></div>
+
+  <div class="sec-heading" style="margin-top:20px;">Key Escalation Contacts</div>
+  <div class="slack-chips">
+    <span class="slack-chip">#sportsbook-support &mdash; product/service escalation (never page, IM max P3)</span>
+    <span class="slack-chip">#internal-contests &mdash; announcements &amp; leaderboards</span>
+    <span class="slack-chip">#clubhouse-product-feedback &mdash; feature ideas</span>
+    <span class="slack-chip">fdgcomplianceops@fanduel.com &mdash; suspensions</span>
+    <span class="slack-chip">Eric Milam / Ky Coony &mdash; final leaderboard discrepancies only</span>
+  </div>
+</div>
+
+<script>
+function showSection(name, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('sec-' + name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleCard(header) { header.closest('.card').classList.toggle('open'); }
+function toggleFaq(qEl) { qEl.closest('.faq-item').classList.toggle('open'); }
+function filterTab(el, cat) {
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('#issues-list .card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+  });
+  updateNoResults();
+}
+function doSearch(input) {
+  var q = input.value.toLowerCase();
+  document.querySelectorAll('#issues-list .card').forEach(card => {
+    card.style.display = card.textContent.toLowerCase().includes(q) ? '' : 'none';
+  });
+  updateNoResults();
+}
+function updateNoResults() {
+  var visible = [...document.querySelectorAll('#issues-list .card')].filter(c => c.style.display !== 'none');
+  document.getElementById('no-results').style.display = visible.length === 0 ? 'block' : 'none';
+}
+function toggleTheme() {
+  var isLight = document.body.classList.toggle('light');
+  document.getElementById('theme-btn').textContent = isLight ? '🌙 Dark Mode' : '☀️ Light Mode';
+  localStorage.setItem('ch-theme', isLight ? 'light' : 'dark');
+}
+(function(){
+  if(localStorage.getItem('ch-theme')==='light'){
+    document.body.classList.add('light');
+    document.addEventListener('DOMContentLoaded',function(){
+      var b=document.getElementById('theme-btn');
+      if(b) b.textContent='🌙 Dark Mode';
+    });
+  }
+})();
+</script>
+</body>
+</html>
